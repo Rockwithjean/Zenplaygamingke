@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>ZenPlay Admin - Dashboard</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700&family=Marcellus&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --sidebar-width: 260px;
+        }
+
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .admin-sidebar {
+            width: var(--sidebar-width);
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            background-color: #212529;
+            color: #fff;
+            padding-top: 20px;
+            z-index: 1000;
+        }
+
+        .admin-sidebar .nav-link {
+            color: rgba(255, 255, 255, 0.7);
+            padding: 12px 20px;
+            transition: all 0.3s;
+        }
+
+        .admin-sidebar .nav-link:hover,
+        .admin-sidebar .nav-link.active {
+            color: #fff;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .admin-main {
+            margin-left: var(--sidebar-width);
+            padding: 40px;
+        }
+
+        .stat-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+        }
+
+        .stat-card .icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--bs-primary);
+        }
+
+        .order-status-pending {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        .order-status-processed {
+            background-color: #cce5ff;
+            color: #004085;
+        }
+
+        .order-status-completed {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .badge {
+            font-weight: 500;
+            padding: 6px 12px;
+        }
+
+        .table-container {
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Simple Login Gate (Basic JS for Demo) -->
+    <div id="login-gate" class="container py-5 mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="card p-4 shadow-sm text-center">
+                    <h3 class="mb-4">Admin Access</h3>
+                    <input type="password" id="admin-pass" class="form-control mb-3 text-center"
+                        placeholder="Enter Admin Password">
+                    <button class="btn btn-dark w-100" onclick="checkAdminPass()">Login</button>
+                    <p id="error-msg" class="text-danger mt-2" style="display:none;">Incorrect Password</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Layout (Hidden until login) -->
+    <div id="dashboard-layout" style="display:none;">
+        <aside class="admin-sidebar">
+            <div class="px-4 mb-5">
+                <h4 class="text-uppercase mb-0">ZenPlay</h4>
+                <small class="text-secondary">Admin Console</small>
+            </div>
+            <nav class="nav flex-column">
+                <a class="nav-link active" href="#" onclick="showSection('dashboard')">Dashboard</a>
+                <a class="nav-link" href="#" onclick="showSection('orders')">Manage Orders</a>
+            </nav>
+            <div class="mt-auto p-4">
+                <button class="btn btn-outline-light btn-sm w-100" onclick="logoutAdmin()">Logout</button>
+            </div>
+        </aside>
+
+        <main class="admin-main">
+            <!-- Dashboard Home Section -->
+            <section id="section-dashboard">
+                <h2 class="mb-4">Dashboard Overview</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="stat-card">
+                            <div class="h6 text-secondary text-uppercase">Total Orders</div>
+                            <div class="h2 mb-0" id="stat-total-orders">0</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="stat-card">
+                            <div class="h6 text-secondary text-uppercase">Total Revenue</div>
+                            <div class="h2 mb-0" id="stat-total-revenue">KSH 0.00</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="stat-card">
+                            <div class="h6 text-secondary text-uppercase">Pending Requests</div>
+                            <div class="h2 mb-0" id="stat-pending-orders">0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-container mt-4">
+                    <h5 class="mb-4">Recent Checkout Requests</h5>
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Customer</th>
+                                    <th>Date</th>
+                                    <th>Total</th>
+                                    <th>Status</th>
+                                    <th class="text-end">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recent-orders-table">
+                                <!-- Dynamic Content -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Orders Management Section -->
+            <section id="section-orders" style="display:none;">
+                <h2 class="mb-4">Order Management</h2>
+                <div class="table-container">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Customer</th>
+                                    <th>Items</th>
+                                    <th>Total</th>
+                                    <th>Status</th>
+                                    <th class="text-end">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="all-orders-table">
+                                <!-- Dynamic Content -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Order Detail Modal -->
+    <div class="modal fade" id="orderModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Order Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="order-detail-content">
+                    <!-- Dynamic Content -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+
+</html>
