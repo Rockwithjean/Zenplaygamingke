@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Head Section -->
+    <title>About - ZenPlay Gaming Lounge</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="author" content="ZenPlay">
+    <meta name="keywords" content="gaming, lounge, about, zenplay">
+    <meta name="description" content="Learn about ZenPlay Gaming Lounge - your ultimate gaming destination">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/vendor.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Marcellus&display=swap"
+        rel="stylesheet">
+    <style>
+        .hero-section {
+            background-image: url('images/banner-image-1.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 !important;
+        }
+
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        .hero-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-section .section-title {
+            color: #fff;
+        }
+
+        .hero-section .text-secondary {
+            color: rgba(255, 255, 255, 0.8) !important;
+        }
+
+        .hero-section::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+            z-index: 1;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        .stat-number {
+            font-family: var(--heading-font);
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--bs-primary);
+            line-height: 1;
+        }
+
+        .stat-label {
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            margin-top: 0.5rem;
+            color: var(--bs-gray);
+        }
+
+        .service-card {
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--bs-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        /* Team Gallery Styles */
+        .team-card {
+            text-align: center;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .team-member-image {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-member-name {
+            font-family: var(--heading-font);
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            letter-spacing: 1px;
+        }
+
+        .team-member-role {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            color: var(--bs-primary);
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+
+<body class="about-page">
+    <!-- SVG Symbol Definitions -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <defs>
+            <symbol xmlns="http://www.w3.org/2000/svg" id="facebook" viewBox="0 0 15 15">
+                <path fill="none" stroke="currentColor"
+                    d="M7.5 14.5a7 7 0 1 1 0-14a7 7 0 0 1 0 14Zm0 0v-8a2 2 0 0 1 2-2h.5m-5 4h5" />
+            </symbol>
+            <symbol xmlns="http://www.w3.org/2000/svg" id="twitter" viewBox="0 0 15 15">
+                <path fill="currentColor"
+                    d="m14.478 1.5l.5-.033a.5.5 0 0 0-.871-.301l.371.334Zm-.498 2.959a.5.5 0 1 0-1 0h1Zm-6.49.082h-.5h.5Zm0 .959h.5h-.5Zm-6.99 7V12a.5.5 0 0 0-.278.916L.5 12.5Zm.998-11l.469-.175a.5.5 0 0 0-.916-.048l.447.223Zm3.994 9l.354.353a.5.5 0 0 0-.195-.827l-.159.474Zm7.224-8.027l-.37.336l.18.199l.265-.04l-.075-.495Zm1.264-.94c.051.778.003 1.25-.123 1.606c-.122.345-.336.629-.723 1l.692.722c.438-.42.776-.832.974-1.388c.193-.546.232-1.178.177-2.006l-.998.066Zm0 3.654V4.46h-1v.728h1Zm-6.99-.646V5.5h1v-.959h-1Zm0 .959V6h1v-.5h-1ZM10.525 1a3.539 3.539 0 0 0-3.537 3.541h1A2.539 2.539 0 0 1 10.526 2V1Zm2.454 4.187C12.98 9.503 9.487 13 5.18 13v1c4.86 0 8.8-3.946 8.8-8.813h-1ZM1.03 1.675C1.574 3.127 3.614 6 7.49 6V5C4.174 5 2.421 2.54 1.966 1.325l-.937.35Zm.021-.398C.004 3.373-.157 5.407.604 7.139c.759 1.727 2.392 3.055 4.73 3.835l.317-.948c-2.155-.72-3.518-1.892-4.132-3.29c-.612-1.393-.523-3.11.427-5.013l-.895-.446Zm4.087 8.87C4.536 10.75 2.726 12 .5 12v1c2.566 0 4.617-1.416 5.346-2.147l-.708-.706Zm7.949-8.009A3.445 3.445 0 0 0 10.526 1v1c.721 0 1.37.311 1.82.809l.74-.671Zm-.296.83a3.513 3.513 0 0 0 2.06-1.134l-.744-.668a2.514 2.514 0 0 1-1.466.813l.15.989ZM.222 12.916C1.863 14.01 3.583 14 5.18 14v-1c-1.63 0-3.048-.011-4.402-.916l-.556.832Z" />
+            </symbol>
+            <symbol xmlns="http://www.w3.org/2000/svg" id="youtube" viewBox="0 0 15 15">
+                <path fill="currentColor"
+                    d="m1.61 12.738l-.104.489l.105-.489Zm11.78 0l.104.489l-.105-.489Zm0-10.476l.104-.489l-.105.489Zm-11.78 0l.106.489l-.105-.489ZM6.5 5.5l.277-.416A.5.5 0 0 0 6 5.5h.5Zm0 4H6a.5.5 0 0 0 .777.416L6.5 9.5Zm3-2l.277.416a.5.5 0 0 0 0-.832L9.5 7.5ZM0 3.636v7.728h1V3.636H0Zm15 7.728V3.636h-1v7.728h1ZM1.506 13.227c3.951.847 8.037.847 11.988 0l-.21-.978a27.605 27.605 0 0 1-11.568 0l-.21.978ZM13.494 1.773a28.606 28.606 0 0 0-11.988 0l.21.978a27.607 27.607 0 0 1 11.568 0l.21-.978ZM15 3.636c0-.898-.628-1.675-1.506-1.863l-.21.978c.418.09.716.458.716.885h1Zm-1 7.728a.905.905 0 0 1-.716.885l.21.978A1.905 1.905 0 0 0 15 11.364h-1Zm-14 0c0 .898.628 1.675 1.506 1.863l.21-.978A.905.905 0 0 1 1 11.364H0Zm1-7.728c0-.427.298-.796.716-.885l-.21-.978A1.905 1.905 0 0 0 0 3.636h1ZM6 5.5v4h1v-4H6Zm.777 4.416l3-2l-.554-.832l-3 2l.554.832Zm3-2.832l-3-2l-.554.832l3 2l.554-.832Z" />
+            </symbol>
+            <symbol xmlns="http://www.w3.org/2000/svg" id="instagram" viewBox="0 0 15 15">
+                <path fill="none" stroke="currentColor"
+                    d="M11 3.5h1M4.5.5h6a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4h-6a4 4 0 0 1-4-4v-6a4 4 0 0 1 4-4Zm3 10a3 3 0 1 1 0-6a3 3 0 0 1 0 6Z" />
+            </symbol>
+            <symbol xmlns="http://www.w3.org/2000/svg" id="cart" viewBox="0 0 24 24">
+                <path fill="currentColor"
+                    d="M8.5 19a1.5 1.5 0 1 0 1.5 1.5A1.5 1.5 0 0 0 8.5 19ZM19 16H7a1 1 0 0 1 0-2h8.491a3.013 3.013 0 0 0 2.885-2.176l1.585-5.55A1 1 0 0 0 19 5H6.74a3.007 3.007 0 0 0-2.82-2H3a1 1 0 0 0 0 2h.921a1.005 1.005 0 0 1 .962.725l.155.545v.005l1.641 5.742A3 3 0 0 0 7 18h12a1 1 0 0 0 0-2Zm-1.326-9l-1.22 4.274a1.005 1.005 0 0 1-.963.726H8.754l-.255-.892L7.326 7ZM16.5 19a1.5 1.5 0 1 0 1.5 1.5a1.5 1.5 0 0 0-1.5-1.5Z" />
+            </symbol>
+            <symbol xmlns="http://www.w3.org/2000/svg" id="search" viewBox="0 0 24 24">
+                <path fill="currentColor"
+                    d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 7-7a7 7 0 0 1-7 7Z" />
+            </symbol>
+            <symbol xmlns="http://www.w3.org/2000/svg" id="calendar" viewBox="0 0 24 24">
+                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <rect width="20" height="18" x="2" y="4" rx="4" />
+                    <path d="M8 2v4m8-4v4M2 10h20" />
+                </g>
+            </symbol>
+            <symbol xmlns="http://www.w3.org/2000/svg" id="gift" viewBox="0 0 24 24">
+                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <rect width="18" height="14" x="3" y="8" rx="2" />
+                    <path d="M12 5a3 3 0 1 0-3 3m6 0a3 3 0 1 0-3-3m0 0v17m9-7H3" />
+                </g>
+            </symbol>
+            <symbol xmlns="http://www.w3.org/2000/svg" id="shopping-bag" viewBox="0 0 24 24">
+                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <path
+                        d="M3.977 9.84A2 2 0 0 1 5.971 8h12.058a2 2 0 0 1 1.994 1.84l.803 10A2 2 0 0 1 18.833 22H5.167a2 2 0 0 1-1.993-2.16l.803-10Z" />
+                    <path d="M16 11V6a4 4 0 0 0-4-4v0a4 4 0 0 0-4 4v5" />
+                </g>
+            </symbol>
+            <symbol xmlns="http://www.w3.org/2000/svg" id="arrow-cycle" viewBox="0 0 24 24">
+                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <path
+                        d="M22 12c0 6-4.39 10-9.806 10C7.792 22 4.24 19.665 3 16m-1-4C2 6 6.39 2 11.806 2C16.209 2 19.76 4.335 21 8" />
+                    <path d="m7 17l-4-1l-1 4M17 7l4 1l1-4" />
+                </g>
+            </symbol>
+        </defs>
+    </svg>
+
+    <!-- Preloader -->
+    <div class="preloader text-white fs-6 text-uppercase overflow-hidden"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg bg-light text-uppercase fs-6 p-3 border-bottom align-items-center">
+        <div class="container-fluid">
+            <div class="row justify-content-between align-items-center w-100">
+                <div class="col-auto">
+                    <a class="navbar-brand text-uppercase fs-3" href="index.html">ZenPlay</a>
+                </div>
+                <div class="col-auto">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                        aria-labelledby="offcanvasNavbarLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <ul class="navbar-nav justify-content-end flex-grow-1 gap-1 gap-md-5 pe-3">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="shop.html">Shop</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="about.html">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="cart.html">Cart <span class="cart-count"></span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="contact.html">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 col-lg-auto">
+                    <ul class="list-unstyled d-flex m-0">
+                        <li class="d-none d-lg-block">
+                            <a href="index.html" class="text-uppercase mx-3">Wishlist <span
+                                    class="wishlist-count">(0)</span></a>
+                        </li>
+                        <li class="d-none d-lg-block">
+                            <a href="cart.html" class="text-uppercase mx-3">Cart <span class="cart-count">(0)</span></a>
+                        </li>
+                        <li class="d-lg-none">
+                            <a href="cart.html" class="mx-2">
+                                <svg width="24" height="24" viewBox="0 0 24 24">
+                                    <use xlink:href="#cart"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section position-relative">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="section-title text-center mt-4">About ZenPlay</h1>
+                    <p class="text-secondary text-uppercase">Your Ultimate Gaming Destination</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section id="about-content" class="our-story py-5">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-md-6">
+                    <div class="image-holder">
+                        <img src="images/gameconsole.jpeg" alt="ZenPlay Gaming" class="img-fluid"
+                            style="border-radius: 8px;">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4 class="text-primary text-uppercase mb-2">Fridah Kirima</h4>
+                    <h3 class="text-uppercase mb-4">Owner of ZenPlay Gaming Lounge</h3>
+                    <p>ZenPlay Gaming Lounge was born from Fridah Kirima's passion for gaming and a vision to create the
+                        ultimate
+                        gaming community hub. Since our inception, we have set out to build a space where gamers of all
+                        levels can come together, play, compete, and connect.</p>
+                    <p>We are proud to share our passion across two premier locations: our main lounge in <strong>Sayen
+                            Makutano</strong>
+                        and our newest destination at <strong>Gitimbine at Selenite Mall</strong>. Both locations
+                        feature
+                        state-of-the-art equipment, premium accessories, and immersive VR experiences.</p>
+                    <p>Our mission is simple: to provide the best gaming experience possible — whether you're visiting
+                        one of our lounges for a casual session, competing in a tournament, or shopping for the latest
+                        gear.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Offer Section -->
+    <section class="services py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h3 class="text-uppercase">What We Offer</h3>
+                <p>Premium gaming services and products for every type of gamer</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-3 col-sm-6">
+                    <div class="service-card bg-white">
+                        <div class="service-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24">
+                                <use xlink:href="#gift"></use>
+                            </svg>
+                        </div>
+                        <h5 class="text-uppercase mt-3">Gaming Lounge</h5>
+                        <p>Premium gaming stations with the latest consoles, comfortable seating, and immersive sound
+                            systems.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="service-card bg-white">
+                        <div class="service-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24">
+                                <use xlink:href="#shopping-bag"></use>
+                            </svg>
+                        </div>
+                        <h5 class="text-uppercase mt-3">Gaming Shop</h5>
+                        <p>Browse and purchase controllers, headsets, games, and accessories from top brands at great
+                            prices.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="service-card bg-white">
+                        <div class="service-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24">
+                                <use xlink:href="#arrow-cycle"></use>
+                            </svg>
+                        </div>
+                        <h5 class="text-uppercase mt-3">VR Experience</h5>
+                        <p>Step into virtual reality with our Meta Quest headsets and explore immersive VR gaming
+                            worlds.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="service-card bg-white">
+                        <div class="service-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24">
+                                <use xlink:href="#calendar"></use>
+                            </svg>
+                        </div>
+                        <h5 class="text-uppercase mt-3">Cyber Services</h5>
+                        <p>High-speed internet, printing, scanning, and other essential digital services for your needs.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet Our Team Section -->
+    <section class="team-gallery py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h3 class="section-title text-uppercase">Meet Our Team</h3>
+                    <p class="text-secondary text-uppercase">The passionate gamers behind ZenPlay</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="team-card">
+                        <img src="images/insta-item1.jpg" alt="Fridah Kirima" class="team-member-image">
+                        <h5 class="team-member-name">Fridah Kirima</h5>
+                        <p class="team-member-role">Founder & Owner</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="team-card">
+                        <img src="images/insta-item2.jpg" alt="Sarah Chen" class="team-member-image">
+                        <h5 class="team-member-name">Sarah Chen</h5>
+                        <p class="team-member-role">Community Manager</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="team-card">
+                        <img src="images/insta-item3.jpg" alt="Marcus Thorne" class="team-member-image">
+                        <h5 class="team-member-name">Marcus Thorne</h5>
+                        <p class="team-member-role">Tech Specialist</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="team-card">
+                        <img src="images/insta-item5.jpg" alt="Elena Frost" class="team-member-image">
+                        <h5 class="team-member-name">Elena Frost</h5>
+                        <p class="team-member-role">Event Coordinator</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <div class="stat-number">2000+</div>
+                        <div class="stat-label">Happy Gamers</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Gaming Stations</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <div class="stat-number">200+</div>
+                        <div class="stat-label">Games Available</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <div class="stat-number">4+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-us py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-md-6">
+                    <h3 class="text-uppercase mb-4">Why Choose ZenPlay?</h3>
+                    <div class="mb-4">
+                        <h5 class="text-uppercase">Latest Equipment</h5>
+                        <p>We always invest in the newest consoles, controllers, and accessories so you get the best
+                            experience possible.</p>
+                    </div>
+                    <div class="mb-4">
+                        <h5 class="text-uppercase">Competitive Pricing</h5>
+                        <p>Enjoy affordable hourly rates for gaming sessions and competitive prices on all products in
+                            our shop.</p>
+                    </div>
+                    <div class="mb-4">
+                        <h5 class="text-uppercase">Community Events</h5>
+                        <p>Regular tournaments, game nights, and community events to keep the gaming spirit alive.</p>
+                    </div>
+                    <div class="mb-4">
+                        <h5 class="text-uppercase">Expert Staff</h5>
+                        <p>Our passionate team of gamers is always ready to assist, recommend, and help you find exactly
+                            what you need.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="image-holder">
+                        <img src="images/racing-simulator.jpeg" alt="Racing Simulator" class="img-fluid"
+                            style="border-radius: 8px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter bg-light zenplay-brand-pattern">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 py-5 my-5">
+                    <div class="subscribe-header text-center pb-3">
+                        <h3 class="section-title text-uppercase">Connect with ZenPlay</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer id="footer" class="mt-5">
+        <div class="container">
+            <div class="row d-flex flex-wrap justify-content-between py-5">
+                <div class="col-md-3 col-sm-6">
+                    <div class="footer-menu footer-menu-001">
+                        <div class="footer-intro mb-4">
+                            <a href="index.html">
+                                <h3 class="text-uppercase">ZenPlay</h3>
+                            </a>
+                        </div>
+                        <p>ZenPlay Gaming Lounge - Your ultimate destination for gaming excellence. Featuring premium
+                            consoles, top-tier accessories, and an unmatched gaming experience.</p>
+                        <div class="social-links">
+                            <ul class="list-unstyled d-flex flex-wrap gap-3">
+                                <li><a href="#" class="text-secondary"><svg width="24" height="24" viewBox="0 0 24 24">
+                                            <use xlink:href="#facebook"></use>
+                                        </svg></a></li>
+                                <li><a href="#" class="text-secondary"><svg width="24" height="24" viewBox="0 0 24 24">
+                                            <use xlink:href="#twitter"></use>
+                                        </svg></a></li>
+                                <li><a href="#" class="text-secondary"><svg width="24" height="24" viewBox="0 0 24 24">
+                                            <use xlink:href="#youtube"></use>
+                                        </svg></a></li>
+                                <li><a href="#" class="text-secondary"><svg width="24" height="24" viewBox="0 0 24 24">
+                                            <use xlink:href="#instagram"></use>
+                                        </svg></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="footer-menu footer-menu-002">
+                        <h5 class="widget-title text-uppercase mb-4">Quick Links</h5>
+                        <ul class="menu-list list-unstyled text-uppercase border-animation-left fs-6">
+                            <li class="menu-item"><a href="index.html" class="item-anchor">Home</a></li>
+                            <li class="menu-item"><a href="about.html" class="item-anchor">About</a></li>
+                            <li class="menu-item"><a href="shop.html" class="item-anchor">Shop</a></li>
+                            <li class="menu-item"><a href="blog.html" class="item-anchor">Blog</a></li>
+                            <li class="menu-item"><a href="contact.html" class="item-anchor">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="footer-menu footer-menu-003">
+                        <h5 class="widget-title text-uppercase mb-4">Help & Info</h5>
+                        <ul class="menu-list list-unstyled text-uppercase border-animation-left fs-6">
+                            <li class="menu-item"><a href="#" class="item-anchor">Track Your Order</a></li>
+                            <li class="menu-item"><a href="#" class="item-anchor">Returns + Exchanges</a></li>
+                            <li class="menu-item"><a href="#" class="item-anchor">Shipping + Delivery</a></li>
+                            <li class="menu-item"><a href="contact.html" class="item-anchor">Contact Us</a></li>
+                            <li class="menu-item"><a href="#" class="item-anchor">Faqs</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="footer-menu footer-menu-004 border-animation-left">
+                        <h5 class="widget-title text-uppercase mb-4">Contact Us</h5>
+                        <p>Do you have any questions or suggestions? <a href="mailto:info@zenplay.com"
+                                class="item-anchor">info@zenplay.com</a></p>
+                        <p>Do you need support? Give us a call. <a href="tel:+1235235598" class="item-anchor">+ 1235
+                                2355 98</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="border-top py-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 text-end">
+                        <p>&copy; Copyright 2024 ZenPlay. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/SmoothScroll.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="js/script.min.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+
+</html>
