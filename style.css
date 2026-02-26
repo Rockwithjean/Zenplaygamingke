@@ -2128,11 +2128,24 @@ a.btn-link.text-light:after {
   box-shadow: 0 5px 15px rgba(var(--bs-primary-rgb), 0.3);
 }
 
+/* Visibility fix for icons on light backgrounds */
+.contact-info .social-icon-link {
+  background-color: rgba(0, 0, 0, 0.08);
+  color: #1a1a1a !important;
+}
+
 /* Brand specific colors on hover */
+.social-icon-link[href*="wa.me"]:hover,
 .social-icon-link[href*="wa.link"]:hover,
 .social-icon-link[href*="whatsapp.com"]:hover {
   background-color: #25d366 !important;
   box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4) !important;
+}
+
+.social-icon-link[href*="x.com"]:hover {
+  background-color: #000000 !important;
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .social-icon-link[href*="instagram.com"]:hover {
@@ -2156,6 +2169,18 @@ a.btn-link.text-light:after {
 .social-icon-link[href*="twitter.com"]:hover {
   background-color: #1da1f2 !important;
   box-shadow: 0 5px 15px rgba(29, 161, 242, 0.4) !important;
+}
+
+/* Google Maps Brand Color */
+.social-icon-link[href*="maps.app.goo.gl"] {
+  color: #EA4335 !important;
+  background-color: rgba(234, 67, 53, 0.05);
+}
+
+.social-icon-link[href*="maps.app.goo.gl"]:hover {
+  background-color: #EA4335 !important;
+  color: #fff !important;
+  box-shadow: 0 5px 15px rgba(234, 67, 53, 0.4) !important;
 }
 
 .location-card {
@@ -2206,4 +2231,11 @@ a.btn-link.text-light:after {
   .location-card {
     text-align: left;
   }
+}
+
+/* Shop Sidebar Filtering */
+.sidebar .button-group a.is-checked {
+  color: var(--bs-primary) !important;
+  font-weight: 700;
+  text-decoration: underline !important;
 }
