@@ -45,9 +45,8 @@
                 <path fill="none" stroke="currentColor"
                     d="M7.5 14.5a7 7 0 1 1 0-14a7 7 0 0 1 0 14Zm0 0v-8a2 2 0 0 1 2-2h.5m-5 4h5" />
             </symbol>
-            <symbol xmlns="http://www.w3.org/2000/svg" id="twitter" viewBox="0 0 15 15">
-                <path fill="currentColor"
-                    d="m14.478 1.5l.5-.033a.5.5 0 0 0-.871-.301l.371.334Zm-.498 2.959a.5.5 0 1 0-1 0h1Zm-6.49.082h-.5h.5Zm0 .959h.5h-.5Zm-6.99 7V12a.5.5 0 0 0-.278.916L.5 12.5Zm.998-11l.469-.175a.5.5 0 0 0-.916-.048l.447.223Zm3.994 9l.354.353a.5.5 0 0 0-.195-.827l-.159.474Zm7.224-8.027l-.37.336l.18.199l.265-.04l-.075-.495Zm1.264-.94c.051.778.003 1.25-.123 1.606c-.122.345-.336.629-.723 1l.692.722c.438-.42.776-.832.974-1.388c.193-.546.232-1.178.177-2.006l-.998.066Zm0 3.654V4.46h-1v.728h1Zm-6.99-.646V5.5h1v-.959h-1Zm0 .959V6h1v-.5h-1ZM10.525 1a3.539 3.539 0 0 0-3.537 3.541h1A2.539 2.539 0 0 1 10.526 2V1Zm2.454 4.187C12.98 9.503 9.487 13 5.18 13v1c4.86 0 8.8-3.946 8.8-8.813h-1ZM1.03 1.675C1.574 3.127 3.614 6 7.49 6V5C4.174 5 2.421 2.54 1.966 1.325l-.937.35Zm.021-.398C.004 3.373-.157 5.407.604 7.139c.759 1.727 2.392 3.055 4.73 3.835l.317-.948c-2.155-.72-3.518-1.892-4.132-3.29c-.612-1.393-.523-3.11.427-5.013l-.895-.446Zm4.087 8.87C4.536 10.75 2.726 12 .5 12v1c2.566 0 4.617-1.416 5.346-2.147l-.708-.706Zm7.949-8.009A3.445 3.445 0 0 0 10.526 1v1c.721 0 1.37.311 1.82.809l.74-.671Zm-.296.83a3.513 3.513 0 0 0 2.06-1.134l-.744-.668a2.514 2.514 0 0 1-1.466.813l.15.989ZM.222 12.916C1.863 14.01 3.583 14 5.18 14v-1c-1.63 0-3.048-.011-4.402-.916l-.556.832Z" />
+            <symbol xmlns="http://www.w3.org/2000/svg" id="x-twitter" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584l-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
             </symbol>
             <symbol xmlns="http://www.w3.org/2000/svg" id="pinterest" viewBox="0 0 15 15">
                 <path fill="none" stroke="currentColor"
@@ -167,21 +166,20 @@
                     <div class="sidebar">
                         <div class="widget mb-5">
                             <h5 class="widget-title text-uppercase mb-3">Categories</h5>
-                            <ul class="list-unstyled">
-                                <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">All
+                            <ul class="list-unstyled button-group">
+                                <li class="mb-2"><a href="#" data-filter="*" class="text-decoration-none text-secondary is-checked">All
                                         Products</a></li>
-                                <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Consoles</a>
+                                <li class="mb-2"><a href="#" data-filter=".cat-consoles" class="text-decoration-none text-secondary">Consoles</a>
                                 </li>
-                                <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Controllers</a>
+                                <li class="mb-2"><a href="#" data-filter=".cat-controllers" class="text-decoration-none text-secondary">Controllers</a>
                                 </li>
-                                <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Headsets</a>
+                                <li class="mb-2"><a href="#" data-filter=".cat-headsets" class="text-decoration-none text-secondary">Headsets</a>
                                 </li>
-                                <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Cyber
-                                        Services</a>
+                                <li class="mb-2"><a href="#" data-filter=".cat-accessories" class="text-decoration-none text-secondary">Accessories</a>
                                 </li>
-                                <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Racing
+                                <li class="mb-2"><a href="#" data-filter=".cat-racing" class="text-decoration-none text-secondary">Racing
                                         Simulators</a>
-                                <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Games</a></li>
+                                <li class="mb-2"><a href="#" data-filter=".cat-games" class="text-decoration-none text-secondary">Games</a></li>
                             </ul>
                         </div>
                     </div>
@@ -189,14 +187,14 @@
 
                 <!-- Product Grid -->
                 <div class="col-md-9">
-                    <div class="row">
+                    <div class="row grid">
                         <!-- Product 1 -->
                         <div class="col-md-4 mb-4">
-                            <div class="product-item">
+                            <div class="product-item cat-controllers">
                                 <div class="image-holder position-relative">
                                     <a href="#">
-                                        <!-- REPLACE WITH: PS5 DualSense Controller Image -->
-                                        <img src="images/product-item-1.jpg" alt="product" class="img-fluid">
+                                        <!-- PS5 DualSense Controller Image -->
+                                        <img src="images/controller.jpeg" alt="PS5 DualSense Controller" class="img-fluid">
                                     </a>
                                 </div>
                                 <div class="product-content">
@@ -210,11 +208,11 @@
                         </div>
                         <!-- Product 2 -->
                         <div class="col-md-4 mb-4">
-                            <div class="product-item">
+                            <div class="product-item cat-headsets">
                                 <div class="image-holder position-relative">
                                     <a href="#">
-                                        <!-- REPLACE WITH: Meta Quest 3 VR Headset Image -->
-                                        <img src="images/product-item-2.jpg" alt="product" class="img-fluid">
+                                        <!-- Meta Quest 3 VR Headset Image -->
+                                        <img src="images/metaquestvr.jpg" alt="Meta Quest 3" class="img-fluid">
                                     </a>
                                 </div>
                                 <div class="product-content">
@@ -228,11 +226,11 @@
                         </div>
                         <!-- Product 3 -->
                         <div class="col-md-4 mb-4">
-                            <div class="product-item">
+                            <div class="product-item cat-accessories">
                                 <div class="image-holder position-relative">
                                     <a href="#">
-                                        <!-- REPLACE WITH: DualSense Charging Station Image -->
-                                        <img src="images/product-item-3.jpg" alt="product" class="img-fluid">
+                                        <!-- DualSense Charging Station Image -->
+                                        <img src="images/charging-dock.jpeg" alt="DualSense Charging Station" class="img-fluid">
                                     </a>
                                 </div>
                                 <div class="product-content">
@@ -246,11 +244,11 @@
                         </div>
                         <!-- Product 4 -->
                         <div class="col-md-4 mb-4">
-                            <div class="product-item">
+                            <div class="product-item cat-accessories cat-racing">
                                 <div class="image-holder position-relative">
                                     <a href="#">
-                                        <!-- REPLACE WITH: Logitech G29 Racing Wheel Image -->
-                                        <img src="images/product-item-4.jpg" alt="product" class="img-fluid">
+                                        <!-- Logitech G29 Racing Wheel Image -->
+                                        <img src="images/logitech-wheel.jpeg" alt="Logitech G29 Racing Wheel" class="img-fluid">
                                     </a>
                                 </div>
                                 <div class="product-content">
@@ -264,52 +262,52 @@
                         </div>
                         <!-- Product 5 -->
                         <div class="col-md-4 mb-4">
-                            <div class="product-item">
+                            <div class="product-item cat-consoles">
                                 <div class="image-holder position-relative">
                                     <a href="#">
-                                        <!-- REPLACE WITH: Printing Services / Printer Icon Image -->
-                                        <img src="images/product-item-5.jpg" alt="product" class="img-fluid">
+                                        <!-- PlayStation console Image -->
+                                        <img src="images/ps5-console.jpeg" alt="PlayStation console" class="img-fluid">
                                     </a>
                                 </div>
                                 <div class="product-content">
                                     <h5 class="text-uppercase fs-5 mt-3">
-                                        <a href="#">Printing Services (Per Page)</a>
+                                        <a href="#">PlayStation console</a>
                                     </h5>
-                                    <span class="product-price">KSH 50.00</span>
+                                    <span class="product-price">KSH 70,000.00</span>
                                     <a href="https://wa.link/s3adrp" class="btn btn-primary text-decoration-none">Order Now</a>
                                 </div>
                             </div>
                         </div>
                         <!-- Product 6 -->
                         <div class="col-md-4 mb-4">
-                            <div class="product-item">
+                            <div class="product-item cat-games">
                                 <div class="image-holder position-relative">
                                     <a href="#">
-                                        <!-- REPLACE WITH: Cyber Café / Computer Station Image -->
-                                        <img src="images/product-item-6.jpg" alt="product" class="img-fluid">
+                                        <!-- Mortal Kombat 1 Image -->
+                                        <img src="images/mortal-kombat.jpeg" alt="Mortal Kombat 1" class="img-fluid">
                                     </a>
                                 </div>
                                 <div class="product-content">
                                     <h5 class="text-uppercase fs-5 mt-3">
-                                        <a href="#">Cyber Café Hourly Rate</a>
+                                        <a href="#">Mortal Kombat 1</a>
                                     </h5>
-                                    <span class="product-price">KSH 500.00</span>
+                                    <span class="product-price">KSH 5,000.00</span>
                                     <a href="https://wa.link/s3adrp" class="btn btn-primary text-decoration-none">Order Now</a>
                                 </div>
                             </div>
                         </div>
                         <!-- Product 7 -->
                         <div class="col-md-4 mb-4">
-                            <div class="product-item">
+                            <div class="product-item cat-games cat-racing">
                                 <div class="image-holder position-relative">
                                     <a href="#">
-                                        <!-- REPLACE WITH: Gran Turismo 7 Game Disk Image -->
-                                        <img src="images/product-item-9.jpg" alt="product" class="img-fluid">
+                                        <!-- Gran Turismo Game Disk Image -->
+                                        <img src="images/gran-turismo.jpeg" alt="Gran Turismo" class="img-fluid">
                                     </a>
                                 </div>
                                 <div class="product-content">
                                     <h5 class="text-uppercase fs-5 mt-3">
-                                        <a href="#">Gran Turismo 7</a>
+                                        <a href="#">Gran Turismo</a>
                                     </h5>
                                     <span class="product-price">KSH 10,499.00</span>
                                     <a href="https://wa.link/s3adrp" class="btn btn-primary text-decoration-none">Order Now</a>
@@ -318,18 +316,18 @@
                         </div>
                         <!-- Product 8 -->
                         <div class="col-md-4 mb-4">
-                            <div class="product-item">
+                            <div class="product-item cat-games">
                                 <div class="image-holder position-relative">
                                     <a href="#">
-                                        <!-- REPLACE WITH: DualSense Edge Controller Image -->
-                                        <img src="images/ps5pad.jpg" alt="product" class="img-fluid">
+                                        <!-- GTA V Game Image -->
+                                        <img src="images/gta-v.jpeg" alt="GTA V" class="img-fluid">
                                     </a>
                                 </div>
                                 <div class="product-content">
                                     <h5 class="text-uppercase fs-5 mt-3">
-                                        <a href="#">DualSense Edge Wireless Controller</a>
+                                        <a href="#">GTA V</a>
                                     </h5>
-                                    <span class="product-price">KSH 29,999.00</span>
+                                    <span class="product-price">KSH 4,000.00</span>
                                     <a href="https://wa.link/s3adrp" class="btn btn-primary text-decoration-none">Order Now</a>
                                 </div>
                             </div>
@@ -376,7 +374,7 @@
                             <ul class="list-unstyled d-flex gap-3 m-0">
                                 <li><a href="https://x.com/zenplaygamingke" target="_blank"
                                         class="social-icon-link"><svg width="20" height="20">
-                                            <use xlink:href="#twitter"></use>
+                                            <use xlink:href="#x-twitter"></use>
                                         </svg></a></li>
                                 <li><a href="https://wa.link/s3adrp" target="_blank" class="social-icon-link"><svg
                                             width="20" height="20">
@@ -482,6 +480,7 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
     <script src="js/script.min.js"></script>
     <script src="js/cart.js"></script>
 </body>
