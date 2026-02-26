@@ -132,7 +132,7 @@ function renderOffcanvasCart(cart, total) {
                         <h6 class="my-0">${item.name}</h6>
                         <small class="text-body-secondary">Qty: ${item.quantity}</small>
                     </div>
-                    <span class="text-body-secondary">$${(item.price * item.quantity).toFixed(2)}</span>
+                    <span class="text-body-secondary">KSH ${(item.price * item.quantity).toLocaleString()}</span>
                     <a href="#" class="remove-item ms-2" data-id="${item.id}">×</a>
                 </li>
             `;
@@ -141,8 +141,8 @@ function renderOffcanvasCart(cart, total) {
 
     html += `
             <li class="list-group-item d-flex justify-content-between">
-                <span>Total (USD)</span>
-                <strong>$${total.toFixed(2)}</strong>
+                <span>Total (KSH)</span>
+                <strong>KSH ${total.toLocaleString()}</strong>
             </li>
         </ul>
         <div class="d-grid gap-2">
@@ -178,11 +178,11 @@ function renderCartTable(cart, total) {
                         </div>
                     </div>
                 </td>
-                <td class="py-4">$${item.price.toFixed(2)}</td>
+                <td class="py-4">KSH ${item.price.toLocaleString()}</td>
                 <td class="py-4">
                     <input type="number" class="form-control text-center qty-input" data-id="${item.id}" value="${item.quantity}" style="width: 70px;">
                 </td>
-                <td class="py-4">$${(item.price * item.quantity).toFixed(2)}</td>
+                <td class="py-4">KSH ${(item.price * item.quantity).toLocaleString()}</td>
                 <td class="py-4 text-end">
                     <a href="#" class="remove-item text-secondary" data-id="${item.id}">
                         <svg width="24" height="24" viewBox="0 0 24 24">
@@ -202,17 +202,17 @@ function updateSummary(total) {
     const subtotalEl = document.getElementById('cart-subtotal');
     const totalEl = document.getElementById('cart-total');
 
-    if (subtotalEl) subtotalEl.textContent = `$${total.toFixed(2)}`;
-    if (totalEl) totalEl.textContent = `$${total.toFixed(2)}`;
+    if (subtotalEl) subtotalEl.textContent = `KSH ${total.toLocaleString()}`;
+    if (totalEl) totalEl.textContent = `KSH ${total.toLocaleString()}`;
 
     // Fallback for older selectors if IDs don't exist
     if (!subtotalEl) {
         const fallbackSubtotal = document.querySelector('.cart-totals .h6.mb-0');
-        if (fallbackSubtotal) fallbackSubtotal.textContent = `$${total.toFixed(2)}`;
+        if (fallbackSubtotal) fallbackSubtotal.textContent = `KSH ${total.toLocaleString()}`;
     }
     if (!totalEl) {
         const fallbackTotal = document.querySelector('.cart-totals .h5.mb-0');
-        if (fallbackTotal) fallbackTotal.textContent = `$${total.toFixed(2)}`;
+        if (fallbackTotal) fallbackTotal.textContent = `KSH ${total.toLocaleString()}`;
     }
 }
 
@@ -223,8 +223,8 @@ function renderCheckoutPage(cart, total) {
 
     if (!summaryContainer) return;
 
-    if (subtotalEl) subtotalEl.textContent = `$${total.toFixed(2)}`;
-    if (totalEl) totalEl.textContent = `$${total.toFixed(2)}`;
+    if (subtotalEl) subtotalEl.textContent = `KSH ${total.toLocaleString()}`;
+    if (totalEl) totalEl.textContent = `KSH ${total.toLocaleString()}`;
 
     // Optional: Render small list of items in the summary if we want more detail
     // For now we just update the totals as requested for a functional page

@@ -32,21 +32,27 @@ $(document).ready(function () {
     }
 });
 
-function initAdmin() {
-    const orders = getOrders();
+async function getOrders() {
+    try {
+        const response = await fetch('php/get_orders.php');
+        const orders = await response.json();
+        return Array.isArray(orders) ? orders : [];
+    } catch (error) {
+        console.error('Error fetching orders:', error);
+        return [];
+    }
+}
+
+async function initAdmin() {
+    const orders = await getOrders();
     updateStats(orders);
     renderOrderTables(orders);
 }
 
-function getOrders() {
-    const orders = localStorage.getItem('zenplay_orders');
-    return orders ? JSON.parse(orders) : [];
-}
-
-function saveOrders(orders) {
-    localStorage.setItem('zenplay_orders', JSON.stringify(orders));
-    initAdmin();
-}
+// function saveOrders(orders) {
+//     localStorage.setItem('zenplay_orders', JSON.stringify(orders));
+//     initAdmin();
+// }
 
 function updateStats(orders) {
     const totalOrders = orders.length;
@@ -54,7 +60,7 @@ function updateStats(orders) {
     const pending = orders.filter(o => o.status === 'Pending').length;
 
     $('#stat-total-orders').text(totalOrders);
-    $('#stat-total-revenue').text('$' + revenue.toFixed(2));
+    $('#stat-total-revenue').text('KSH ' + revenue.toLocaleString());
     $('#stat-pending-orders').text(pending);
 }
 
@@ -74,7 +80,7 @@ function renderOrderTables(orders) {
                 <td><strong>${order.id}</strong></td>
                 <td>${order.customer.firstName} ${order.customer.lastName}</td>
                 <td>${order.date}</td>
-                <td>$${order.total.toFixed(2)}</td>
+                <td>KSH ${order.total.toLocaleString()}</td>
                 <td><span class="badge order-status-${order.status.toLowerCase()}">${order.status}</span></td>
                 <td class="text-end">
                     <button class="btn btn-sm btn-dark" onclick="viewOrder('${order.id}')">View</button>
@@ -96,25 +102,42 @@ function renderOrderTables(orders) {
     });
 }
 
-function updateStatus(orderId, newStatus) {
-    let orders = getOrders();
-    const index = orders.findIndex(o => o.id === orderId);
-    if (index > -1) {
-        orders[index].status = newStatus;
-        saveOrders(orders);
+async function updateStatus(orderId, newStatus) {
+    try {
+        const response = await fetch(`php/order_actions.php?action=update_status&id=${orderId}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ status: newStatus })
+        });
+        const result = await response.json();
+        if (result.success) {
+            initAdmin();
+        } else {
+            alert('Error updating status: ' + (result.error || 'Unknown error'));
+        }
+    } catch (error) {
+        console.error('Error:', error);
     }
 }
 
-function deleteOrder(orderId) {
+async function deleteOrder(orderId) {
     if (confirm('Are you sure you want to delete this order?')) {
-        let orders = getOrders();
-        orders = orders.filter(o => o.id !== orderId);
-        saveOrders(orders);
+        try {
+            const response = await fetch(`php/order_actions.php?action=delete&id=${orderId}`);
+            const result = await response.json();
+            if (result.success) {
+                initAdmin();
+            } else {
+                alert('Error deleting order: ' + (result.error || 'Unknown error'));
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
     }
 }
 
-function viewOrder(orderId) {
-    const orders = getOrders();
+async function viewOrder(orderId) {
+    const orders = await getOrders();
     const order = orders.find(o => o.id === orderId);
     if (!order) return;
 
@@ -123,7 +146,7 @@ function viewOrder(orderId) {
         itemsHtml += `
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 ${item.name} x ${item.quantity}
-                <span>$${(item.price * item.quantity).toFixed(2)}</span>
+                <span>KSH ${(item.price * item.quantity).toLocaleString()}</span>
             </li>
         `;
     });
@@ -150,7 +173,7 @@ function viewOrder(orderId) {
         <h6>Order Items</h6>
         ${itemsHtml}
         <div class="text-end">
-            <h5>Total: $${order.total.toFixed(2)}</h5>
+            <h5>Total: KSH ${order.total.toLocaleString()}</h5>
         </div>
     `;
 
