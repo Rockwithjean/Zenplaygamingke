@@ -24,7 +24,7 @@
         rel="stylesheet">
     <style>
         .hero-section {
-            background-image: url('images/banner-image-1.jpg');
+            background-image: url('images/instapost6.jpg');
             background-size: cover;
             background-position: center;
             position: relative;
@@ -34,6 +34,7 @@
             align-items: center;
             justify-content: center;
             padding: 0 !important;
+            overflow: hidden;
         }
 
         .hero-section::before {
@@ -43,13 +44,44 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6);
+            background-image: url('images/aboutus3.jpg');
+            background-size: cover;
+            background-position: center;
+            animation: bg-fade 10s infinite alternate;
             z-index: 1;
+        }
+
+        @keyframes bg-fade {
+            0% {
+                opacity: 0;
+            }
+
+            45% {
+                opacity: 0;
+            }
+
+            55% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2;
         }
 
         .hero-section .container {
             position: relative;
-            z-index: 2;
+            z-index: 3;
         }
 
         .hero-section .section-title {
@@ -68,7 +100,7 @@
             width: 100%;
             height: 150px;
             background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
-            z-index: 1;
+            z-index: 2;
         }
 
         html {
@@ -119,24 +151,43 @@
             margin: 0 auto 1.5rem;
         }
 
-        /* Team Gallery Styles */
-        .team-card {
-            text-align: center;
-            margin-bottom: 2rem;
-            transition: transform 0.3s ease;
+        /* Team Gallery Styles with Swiper */
+        .team-swiper {
+            padding: 2rem 0 4rem;
         }
 
-        .team-card:hover {
-            transform: translateY(-10px);
+        .team-card {
+            text-align: center;
+            transition: all 0.4s ease;
+            opacity: 0.8;
+            transform: scale(0.85);
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            height: 100%;
+        }
+
+        .swiper-slide-active .team-card,
+        .swiper-slide-duplicate-active .team-card {
+            opacity: 1;
+            transform: scale(1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Staggered effect for desktop */
+        @media (min-width: 992px) {
+            .swiper-slide:nth-child(even) {
+                margin-top: 3rem;
+            }
         }
 
         .team-member-image {
             width: 100%;
-            aspect-ratio: 1 / 1;
+            aspect-ratio: 4 / 5;
             object-fit: cover;
-            border-radius: 12px;
+            border-radius: 8px;
             margin-bottom: 1.5rem;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
         .team-member-name {
@@ -145,13 +196,18 @@
             font-weight: 700;
             margin-bottom: 0.25rem;
             letter-spacing: 1px;
+            font-size: 1.1rem;
         }
 
         .team-member-role {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
             color: var(--bs-primary);
             letter-spacing: 2px;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: var(--bs-primary);
         }
     </style>
 </head>
@@ -171,6 +227,14 @@
             <symbol xmlns="http://www.w3.org/2000/svg" id="youtube" viewBox="0 0 15 15">
                 <path fill="currentColor"
                     d="m1.61 12.738l-.104.489l.105-.489Zm11.78 0l.104.489l-.105-.489Zm0-10.476l.104-.489l-.105.489Zm-11.78 0l.106.489l-.105-.489ZM6.5 5.5l.277-.416A.5.5 0 0 0 6 5.5h.5Zm0 4H6a.5.5 0 0 0 .777.416L6.5 9.5Zm3-2l.277.416a.5.5 0 0 0 0-.832L9.5 7.5ZM0 3.636v7.728h1V3.636H0Zm15 7.728V3.636h-1v7.728h1ZM1.506 13.227c3.951.847 8.037.847 11.988 0l-.21-.978a27.605 27.605 0 0 1-11.568 0l-.21.978ZM13.494 1.773a28.606 28.606 0 0 0-11.988 0l.21.978a27.607 27.607 0 0 1 11.568 0l.21-.978ZM15 3.636c0-.898-.628-1.675-1.506-1.863l-.21.978c.418.09.716.458.716.885h1Zm-1 7.728a.905.905 0 0 1-.716.885l.21.978A1.905 1.905 0 0 0 15 11.364h-1Zm-14 0c0 .898.628 1.675 1.506 1.863l.21-.978A.905.905 0 0 1 1 11.364H0Zm1-7.728c0-.427.298-.796.716-.885l-.21-.978A1.905 1.905 0 0 0 0 3.636h1ZM6 5.5v4h1v-4H6Zm.777 4.416l3-2l-.554-.832l-3 2l.554.832Zm3-2.832l-3-2l-.554.832l3 2l.554-.832Z" />
+            </symbol>
+            <symbol xmlns="http://www.w3.org/2000/svg" id="whatsapp" viewBox="0 0 16 16">
+                <path fill="currentColor"
+                    d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.501c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+            </symbol>
+            <symbol xmlns="http://www.w3.org/2000/svg" id="tiktok" viewBox="0 0 15 15">
+                <path fill="currentColor"
+                    d="M12.5 5.5v1a3.5 3.5 0 0 1-1.5-.32V10a4.5 4.5 0 1 1-6-4.24V6.8a3.5 3.5 0 1 0 5 3.2V0h1a3.5 3.5 0 0 0 3.5 3.5v1a2.5 2.5 0 0 1-2.5-1v2Z" />
             </symbol>
             <symbol xmlns="http://www.w3.org/2000/svg" id="instagram" viewBox="0 0 15 15">
                 <path fill="none" stroke="currentColor"
@@ -210,6 +274,14 @@
                     <path d="m7 17l-4-1l-1 4M17 7l4 1l1-4" />
                 </g>
             </symbol>
+            <symbol xmlns="http://www.w3.org/2000/svg" id="play" viewBox="0 0 24 24">
+                <g fill="none" fill-rule="evenodd">
+                    <path
+                        d="M24 0v24H0V0h24ZM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01l-.184-.092Z" />
+                    <path fill="currentColor"
+                        d="M5.669 4.76a1.469 1.469 0 0 1 2.04-1.177c1.062.454 3.442 1.533 6.462 3.276c3.021 1.744 5.146 3.267 6.069 3.958c.788.591.79 1.763.001 2.356c-.914.687-3.013 2.19-6.07 3.956c-3.06 1.766-5.412 2.832-6.464 3.28c-.906.387-1.92-.2-2.038-1.177c-.138-1.142-.396-3.735-.396-7.237c0-3.5.257-6.092.396-7.235Z" />
+                </g>
+            </symbol>
         </defs>
     </svg>
 
@@ -217,7 +289,7 @@
     <div class="preloader text-white fs-6 text-uppercase overflow-hidden"></div>
 
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg bg-light text-uppercase fs-6 p-3 border-bottom align-items-center">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top text-uppercase fs-6 p-3 align-items-center">
         <div class="container-fluid">
             <div class="row justify-content-between align-items-center w-100">
                 <div class="col-auto">
@@ -241,13 +313,13 @@
                                     <a class="nav-link" href="index.html">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="shop.html">Shop</a>
-                                </li>
-                                <li class="nav-item">
                                     <a class="nav-link active" href="about.html">About</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="cart.html">Cart <span class="cart-count"></span></a>
+                                    <a class="nav-link" href="blog.html">Blog</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="shop.html">Shop</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="contact.html">Contact</a>
@@ -256,30 +328,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-3 col-lg-auto">
-                    <ul class="list-unstyled d-flex m-0">
-                        <li class="d-none d-lg-block">
-                            <a href="index.html" class="text-uppercase mx-3">Wishlist <span
-                                    class="wishlist-count">(0)</span></a>
-                        </li>
-                        <li class="d-none d-lg-block">
-                            <a href="cart.html" class="text-uppercase mx-3">Cart <span class="cart-count">(0)</span></a>
-                        </li>
-                        <li class="d-lg-none">
-                            <a href="cart.html" class="mx-2">
-                                <svg width="24" height="24" viewBox="0 0 24 24">
-                                    <use xlink:href="#cart"></use>
-                                </svg>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero-section position-relative">
+        <div class="hero-overlay"></div>
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
@@ -296,7 +351,7 @@
             <div class="row align-items-center g-5">
                 <div class="col-md-6">
                     <div class="image-holder">
-                        <img src="images/gameconsole.jpeg" alt="ZenPlay Gaming" class="img-fluid"
+                        <img src="images/aboutpic2.jpg" alt="ZenPlay Gaming" class="img-fluid"
                             style="border-radius: 8px;">
                     </div>
                 </div>
@@ -307,9 +362,9 @@
                         ultimate
                         gaming community hub. Since our inception, we have set out to build a space where gamers of all
                         levels can come together, play, compete, and connect.</p>
-                    <p>We are proud to share our passion across two premier locations: our main lounge in <strong>Sayen
+                    <p>We are proud to share our passion across two premier locations: our lounge at <strong>Sayen
                             Makutano</strong>
-                        and our newest destination at <strong>Gitimbine at Selenite Mall</strong>. Both locations
+                        and <strong>Gitimbine at Selenite Mall</strong>. Both locations
                         feature
                         state-of-the-art equipment, premium accessories, and immersive VR experiences.</p>
                     <p>Our mission is simple: to provide the best gaming experience possible — whether you're visiting
@@ -327,8 +382,8 @@
                 <h3 class="text-uppercase">What We Offer</h3>
                 <p>Premium gaming services and products for every type of gamer</p>
             </div>
-            <div class="row g-4">
-                <div class="col-md-3 col-sm-6">
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4 col-sm-6">
                     <div class="service-card bg-white">
                         <div class="service-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24">
@@ -340,7 +395,7 @@
                             systems.</p>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-4 col-sm-6">
                     <div class="service-card bg-white">
                         <div class="service-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24">
@@ -352,7 +407,7 @@
                             prices.</p>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-4 col-sm-6">
                     <div class="service-card bg-white">
                         <div class="service-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24">
@@ -364,7 +419,19 @@
                             worlds.</p>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-4 col-sm-6">
+                    <div class="service-card bg-white">
+                        <div class="service-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24">
+                                <use xlink:href="#play"></use>
+                            </svg>
+                        </div>
+                        <h5 class="text-uppercase mt-3">Racing Simulator</h5>
+                        <p>Feel the adrenaline with our high-end racing simulators, featuring realistic physics and
+                            professional steering wheels.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
                     <div class="service-card bg-white">
                         <div class="service-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24">
@@ -389,35 +456,48 @@
                     <p class="text-secondary text-uppercase">The passionate gamers behind ZenPlay</p>
                 </div>
             </div>
-            <div class="row g-4">
-                <div class="col-lg-3 col-sm-6">
-                    <div class="team-card">
-                        <img src="images/insta-item1.jpg" alt="Fridah Kirima" class="team-member-image">
-                        <h5 class="team-member-name">Fridah Kirima</h5>
-                        <p class="team-member-role">Founder & Owner</p>
+            <!-- Swiper -->
+            <div class="swiper team-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="team-card">
+                            <img src="images/insta-item1.jpg" alt="Fridah Kirima" class="team-member-image">
+                            <h5 class="team-member-name">Fridah Kirima</h5>
+                            <p class="team-member-role">Founder & Owner</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="team-card">
+                            <img src="images/insta-item2.jpg" alt="Sarah Chen" class="team-member-image">
+                            <h5 class="team-member-name">Sarah Chen</h5>
+                            <p class="team-member-role">Community Manager</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="team-card">
+                            <img src="images/insta-item3.jpg" alt="Marcus Thorne" class="team-member-image">
+                            <h5 class="team-member-name">Marcus Thorne</h5>
+                            <p class="team-member-role">Tech Specialist</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="team-card">
+                            <img src="images/insta-item5.jpg" alt="Elena Frost" class="team-member-image">
+                            <h5 class="team-member-name">Elena Frost</h5>
+                            <p class="team-member-role">Event Coordinator</p>
+                        </div>
+                    </div>
+                    <!-- Added a duplicate or extra slide to ensure swiper feel -->
+                    <div class="swiper-slide">
+                        <div class="team-card">
+                            <img src="images/insta-item2.jpg" alt="Team Member" class="team-member-image">
+                            <h5 class="team-member-name">ZenPlay Pro</h5>
+                            <p class="team-member-role">Pro Gamer</p>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="team-card">
-                        <img src="images/insta-item2.jpg" alt="Sarah Chen" class="team-member-image">
-                        <h5 class="team-member-name">Sarah Chen</h5>
-                        <p class="team-member-role">Community Manager</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="team-card">
-                        <img src="images/insta-item3.jpg" alt="Marcus Thorne" class="team-member-image">
-                        <h5 class="team-member-name">Marcus Thorne</h5>
-                        <p class="team-member-role">Tech Specialist</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="team-card">
-                        <img src="images/insta-item5.jpg" alt="Elena Frost" class="team-member-image">
-                        <h5 class="team-member-name">Elena Frost</h5>
-                        <p class="team-member-role">Event Coordinator</p>
-                    </div>
-                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination mt-5"></div>
             </div>
         </div>
     </section>
@@ -497,6 +577,8 @@
                 <div class="col-md-8 py-5 my-5">
                     <div class="subscribe-header text-center pb-3">
                         <h3 class="section-title text-uppercase">Connect with ZenPlay</h3>
+                        <a href="https://www.instagram.com/zenplaygamingke?igsh=MXhoaDJiaTgzajBseQ==" target="_blank"
+                            class="btn btn-dark px-5 mt-3">Follow us on Instagram</a>
                     </div>
                 </div>
             </div>
@@ -504,76 +586,118 @@
     </section>
 
     <!-- Footer Section -->
-    <footer id="footer" class="mt-5">
+    <!-- Creative Footer Section -->
+    <footer id="site-footer" class="site-footer pt-5 pb-4 mt-5">
         <div class="container">
-            <div class="row d-flex flex-wrap justify-content-between py-5">
-                <div class="col-md-3 col-sm-6">
-                    <div class="footer-menu footer-menu-001">
-                        <div class="footer-intro mb-4">
-                            <a href="index.html">
-                                <h3 class="text-uppercase">ZenPlay</h3>
-                            </a>
+            <div class="row g-4 py-5">
+                <!-- Brand & About -->
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <div class="footer-brand-info">
+                        <div class="footer-logo mb-4">
+                            <img src="images/zenplay-footer-logo.jpg" alt="ZenPlay Gaming Logo" class="img-fluid"
+                                style="max-height: 60px;">
                         </div>
-                        <p>ZenPlay Gaming Lounge - Your ultimate destination for gaming excellence. Featuring premium
-                            consoles, top-tier accessories, and an unmatched gaming experience.</p>
-                        <div class="social-links">
-                            <ul class="list-unstyled d-flex flex-wrap gap-3">
-                                <li><a href="#" class="text-secondary"><svg width="24" height="24" viewBox="0 0 24 24">
-                                            <use xlink:href="#facebook"></use>
-                                        </svg></a></li>
-                                <li><a href="#" class="text-secondary"><svg width="24" height="24" viewBox="0 0 24 24">
+                        <p class="brand-desc text-secondary mb-4">
+                            Your ultimate destination for premium gaming excellence. Experience high-end consoles, elite
+                            gear, and a
+                            vibrant community environment across our professional gaming lounges.
+                        </p>
+                        <div class="social-links-creative">
+                            <ul class="list-unstyled d-flex gap-3 m-0">
+                                <li><a href="https://x.com/zenplaygamingke" target="_blank"
+                                        class="social-icon-link"><svg width="20" height="20">
                                             <use xlink:href="#twitter"></use>
                                         </svg></a></li>
-                                <li><a href="#" class="text-secondary"><svg width="24" height="24" viewBox="0 0 24 24">
-                                            <use xlink:href="#youtube"></use>
+                                <li><a href="https://wa.link/s3adrp" target="_blank" class="social-icon-link"><svg
+                                            width="20" height="20">
+                                            <use xlink:href="#whatsapp"></use>
                                         </svg></a></li>
-                                <li><a href="#" class="text-secondary"><svg width="24" height="24" viewBox="0 0 24 24">
+                                <li><a href="https://www.instagram.com/zenplaygamingke?igsh=MXhoaDJiaTgzajBseQ=="
+                                        target="_blank" class="social-icon-link"><svg width="20" height="20">
                                             <use xlink:href="#instagram"></use>
+                                        </svg></a></li>
+                                <li><a href="https://www.tiktok.com/@zenplaygamingke?is_from_webapp=1&sender_device=pc"
+                                        target="_blank" class="social-icon-link"><svg width="20" height="20">
+                                            <use xlink:href="#tiktok"></use>
                                         </svg></a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="footer-menu footer-menu-002">
-                        <h5 class="widget-title text-uppercase mb-4">Quick Links</h5>
-                        <ul class="menu-list list-unstyled text-uppercase border-animation-left fs-6">
-                            <li class="menu-item"><a href="index.html" class="item-anchor">Home</a></li>
-                            <li class="menu-item"><a href="about.html" class="item-anchor">About</a></li>
-                            <li class="menu-item"><a href="shop.html" class="item-anchor">Shop</a></li>
-                            <li class="menu-item"><a href="blog.html" class="item-anchor">Blog</a></li>
-                            <li class="menu-item"><a href="contact.html" class="item-anchor">Contact</a></li>
+
+                <!-- Quick Explore -->
+                <div class="col-lg-2 col-md-3 col-6">
+                    <div class="footer-widget">
+                        <h5 class="creative-title mb-4">Explore</h5>
+                        <ul class="footer-menu-links list-unstyled text-uppercase">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">Our Story</a></li>
+                            <li><a href="shop.html">The Shop</a></li>
+                            <li><a href="contact.html">Contact</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="footer-menu footer-menu-003">
-                        <h5 class="widget-title text-uppercase mb-4">Help & Info</h5>
-                        <ul class="menu-list list-unstyled text-uppercase border-animation-left fs-6">
-                            <li class="menu-item"><a href="#" class="item-anchor">Track Your Order</a></li>
-                            <li class="menu-item"><a href="#" class="item-anchor">Returns + Exchanges</a></li>
-                            <li class="menu-item"><a href="#" class="item-anchor">Shipping + Delivery</a></li>
-                            <li class="menu-item"><a href="contact.html" class="item-anchor">Contact Us</a></li>
-                            <li class="menu-item"><a href="#" class="item-anchor">Faqs</a></li>
+
+                <!-- Help Hub -->
+                <div class="col-lg-2 col-md-3 col-6">
+                    <div class="footer-widget">
+                        <h5 class="creative-title mb-4">Support</h5>
+                        <ul class="support-links list-unstyled text-uppercase">
+                            <li>Tech Support</li>
+                            <li>Installation</li>
+                            <li>User Guide</li>
+                            <li>Troubleshooting</li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="footer-menu footer-menu-004 border-animation-left">
-                        <h5 class="widget-title text-uppercase mb-4">Contact Us</h5>
-                        <p>Do you have any questions or suggestions? <a href="mailto:info@zenplay.com"
-                                class="item-anchor">info@zenplay.com</a></p>
-                        <p>Do you need support? Give us a call. <a href="tel:+1235235598" class="item-anchor">+ 1235
-                                2355 98</a></p>
+
+                <!-- Visit Us (Creative Location Info) -->
+                <div class="col-lg-4 col-md-12">
+                    <div class="footer-widget location-widget">
+                        <h5 class="creative-title mb-4">Our Locations</h5>
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <a href="https://maps.app.goo.gl/hnquw12qiZFu4kPx9" target="_blank"
+                                    class="text-decoration-none">
+                                    <div class="location-card p-3 rounded h-100">
+                                        <h6 class="text-white small text-uppercase mb-2">MAKUTANO</h6>
+                                        <p class="text-secondary small m-0">Sayen Makutano<br>Meru, Kenya</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="https://maps.app.goo.gl/bENSeicoa7fBf5Kw5" target="_blank"
+                                    class="text-decoration-none">
+                                    <div class="location-card p-3 rounded h-100">
+                                        <h6 class="text-white small text-uppercase mb-2">GITIMBINE</h6>
+                                        <p class="text-secondary small m-0">Selenite Mall<br>Meru, Kenya</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="contact-info-footer mt-4">
+                            <p class="small text-secondary mb-1">Owner: <strong class="text-white">Fridah
+                                    Kirima</strong></p>
+                            <p class="small text-secondary m-0">Email: <a href="mailto:zenplaygamingke@gmail.com"
+                                    class="text-decoration-none text-primary">zenplaygamingke@gmail.com</a></p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="border-top py-4">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 text-end">
-                        <p>&copy; Copyright 2024 ZenPlay. All rights reserved.</p>
+
+            <!-- Footer Bottom Bar -->
+            <div class="footer-bottom border-top border-secondary-subtle pt-4 mt-4">
+                <div class="row align-items-center">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <p class="copyright-text small text-secondary m-0">
+                            © 2026 <strong class="text-white">ZenPlay Gaming</strong>. All Rights Reserved.
+                        </p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <p class="developer-credit small text-secondary m-0">
+                            This website was developed by <a href="#"
+                                class="text-primary text-decoration-none fw-bold">JEAN MUTAKHA</a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -590,6 +714,37 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="js/script.min.js"></script>
     <script src="js/cart.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Team Swiper Initialization
+            var teamSwiper = new Swiper(".team-swiper", {
+                slidesPerView: 1.5,
+                spaceBetween: 20,
+                centeredSlides: true,
+                loop: true,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 2.5,
+                        spaceBetween: 30,
+                    },
+                    1024: {
+                        slidesPerView: 3.5,
+                        spaceBetween: 40,
+                        centeredSlides: false,
+                    },
+                    1400: {
+                        slidesPerView: 4,
+                        spaceBetween: 50,
+                        centeredSlides: false,
+                    },
+                },
+            });
+        });
+    </script>
 </body>
 
 </html>

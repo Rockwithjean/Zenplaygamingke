@@ -29,6 +29,14 @@
   <!-- SVG Symbol Definitions -->
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <defs>
+      <symbol xmlns="http://www.w3.org/2000/svg" id="whatsapp" viewBox="0 0 16 16">
+        <path fill="currentColor"
+          d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.501c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+      </symbol>
+      <symbol xmlns="http://www.w3.org/2000/svg" id="tiktok" viewBox="0 0 15 15">
+        <path fill="currentColor"
+          d="M12.5 5.5v1a3.5 3.5 0 0 1-1.5-.32V10a4.5 4.5 0 1 1-6-4.24V6.8a3.5 3.5 0 1 0 5 3.2V0h1a3.5 3.5 0 0 0 3.5 3.5v1a2.5 2.5 0 0 1-2.5-1v2Z" />
+      </symbol>
       <symbol xmlns="http://www.w3.org/2000/svg" id="instagram" viewBox="0 0 15 15">
         <path fill="none" stroke="currentColor"
           d="M11 3.5h1M4.5.5h6a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4h-6a4 4 0 0 1-4-4v-6a4 4 0 0 1 4-4Zm3 10a3 3 0 1 1 0-6a3 3 0 0 1 0 6Z" />
@@ -198,52 +206,8 @@
     </div>
   </div>
 
-  <!-- Offcanvas Cart -->
-  <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasCart" aria-labelledby="My Cart">
-    <div class="offcanvas-header justify-content-center">
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <div class="order-md-last">
-        <h4 class="d-flex justify-content-between align-items-center mb-3">
-          <span class="text-primary">Your cart</span>
-          <span class="badge bg-primary rounded-pill">3</span>
-        </h4>
-        <ul class="list-group mb-3">
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">PS5 Controller</h6>
-              <small class="text-body-secondary">DualSense Wireless</small>
-            </div>
-            <span class="text-body-secondary">KSH 9,100</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">Gaming Headset</h6>
-              <small class="text-body-secondary">7.1 Surround Sound</small>
-            </div>
-            <span class="text-body-secondary">KSH 11,050</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">FIFA 2024</h6>
-              <small class="text-body-secondary">Latest Edition</small>
-            </div>
-            <span class="text-body-secondary">KSH 7,800</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between">
-            <span>Total (KSH)</span>
-            <strong>KSH 27,950</strong>
-          </li>
-        </ul>
-
-        <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to Checkout</button>
-      </div>
-    </div>
-  </div>
-
   <!-- Navigation Bar -->
-  <nav class="navbar navbar-expand-lg bg-light text-uppercase fs-6 p-3 border-bottom align-items-center">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top text-uppercase fs-6 p-3 align-items-center">
     <div class="container-fluid">
       <div class="row justify-content-between align-items-center w-100">
 
@@ -280,7 +244,7 @@
                   <a class="nav-link" href="shop.html">Shop</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="cart.html">Cart <span class="cart-count"></span></a>
+                  <a class="nav-link" href="contact.html">Contact</a>
                 </li>
               </ul>
             </div>
@@ -288,22 +252,34 @@
 
         </div>
 
-        <div class="col-3 col-lg-auto">
-          <ul class="list-unstyled d-flex m-0">
-            <li class="search-box" class="mx-2">
-              <a href="#search" class="search-button">
-                <svg width="24" height="24" viewBox="0 0 24 24">
-                  <use xlink:href="#search"></use>
-                </svg>
-              </a>
-            </li>
-          </ul>
-        </div>
 
       </div>
 
     </div>
   </nav>
+
+  <!-- Collection Section -->
+  <section class="collection-hero position-relative">
+    <div class="collection-hero-container">
+      <div class="collection-hero-bg" style="background-image: url('images/zenaestheticwall.jpg');"></div>
+      <div class="collection-hero-overlay"></div>
+      <div class="container position-relative" style="z-index: 2;">
+        <div class="row">
+          <div class="col-lg-6 d-flex align-items-center">
+            <div class="collection-hero-content">
+              <span class="collection-hero-tag text-uppercase">ZenPlay Exclusive</span>
+              <h2 class="collection-hero-title text-uppercase">Premium Gaming Lounge</h2>
+              <p class="collection-hero-text">Discover our exclusive collection of top-tier gaming equipment featuring
+                the latest
+                consoles, high-performance accessories, and must-have games. From competitive esports gear to
+                casual gaming setups, ZenPlay offers everything you need to dominate.</p>
+              <a href="shop.html" class="btn btn-light text-uppercase mt-3 collection-hero-btn">Welcome to our shop</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Billboard / Hero Section -->
   <section id="billboard" class="bg-light py-5">
@@ -324,14 +300,14 @@
             <div class="swiper-slide">
               <div class="banner-item image-zoom-effect">
                 <div class="image-holder">
-                  <a href="#">
+                  <a href="shop.html">
                     <!-- REPLACE WITH: PlayStation 5 Console Image -->
                     <img src="images/gameconsole.jpeg" alt="product" class="img-fluid">
                   </a>
                 </div>
                 <div class="banner-content py-4">
                   <h5 class="element-title text-uppercase">
-                    <a href="index.html" class="item-anchor">PlayStation 5</a>
+                    <a href="shop.html" class="item-anchor">PlayStation 5</a>
                   </h5>
                   <p>Experience lightning-fast loading with an ultra-high speed SSD and immersive
                     gaming.</p>
@@ -342,14 +318,14 @@
             <div class="swiper-slide">
               <div class="banner-item image-zoom-effect">
                 <div class="image-holder">
-                  <a href="#">
+                  <a href="shop.html">
                     <!-- REPLACE WITH: Racing Simulator Setup Image -->
                     <img src="images/racing-simulator.jpeg" alt="product" class="img-fluid">
                   </a>
                 </div>
                 <div class="banner-content py-4">
                   <h5 class="element-title text-uppercase">
-                    <a href="index.html" class="item-anchor">Racing Simulator</a>
+                    <a href="shop.html" class="item-anchor">Racing Simulator</a>
                   </h5>
                   <p>Experience the thrill of the track with our professional-grade racing simulators.
                   </p>
@@ -360,14 +336,14 @@
             <div class="swiper-slide">
               <div class="banner-item image-zoom-effect">
                 <div class="image-holder">
-                  <a href="#">
+                  <a href="shop.html">
                     <!-- REPLACE WITH: Assorted Game Disks Image -->
                     <img src="images/gamesdisks.jpeg" alt="product" class="img-fluid">
                   </a>
                 </div>
                 <div class="banner-content py-4">
                   <h5 class="element-title text-uppercase">
-                    <a href="index.html" class="item-anchor">Game Disks</a>
+                    <a href="shop.html" class="item-anchor">Game Disks</a>
                   </h5>
                   <p>Browse our extensive collection of the latest and greatest PlayStation games.</p>
 
@@ -377,14 +353,14 @@
             <div class="swiper-slide">
               <div class="banner-item image-zoom-effect">
                 <div class="image-holder">
-                  <a href="#">
+                  <a href="shop.html">
                     <!-- REPLACE WITH: Cyber Services / Computer / Internet Icon Image -->
                     <img src="images/cyberservices.jpg" alt="product" class="img-fluid">
                   </a>
                 </div>
                 <div class="banner-content py-4">
                   <h5 class="element-title text-uppercase">
-                    <a href="index.html" class="item-anchor">Cyber Services</a>
+                    <a href="shop.html" class="item-anchor">Cyber Services</a>
                   </h5>
                   <p>High-speed internet, printing, scanning, and other essential digital services.
                   </p>
@@ -395,14 +371,14 @@
             <div class="swiper-slide">
               <div class="banner-item image-zoom-effect">
                 <div class="image-holder">
-                  <a href="#">
+                  <a href="shop.html">
                     <!-- REPLACE WITH: Meta Quest 3 VR Headset Image -->
-                    <img src="images/VRheadset.jpeg" alt="product" class="img-fluid">
+                    <img src="images/hero-vr.jpg" alt="product" class="img-fluid">
                   </a>
                 </div>
                 <div class="banner-content py-4">
                   <h5 class="element-title text-uppercase">
-                    <a href="index.html" class="item-anchor">VR Headsets</a>
+                    <a href="shop.html" class="item-anchor">VR Headsets</a>
                   </h5>
                   <p>Step into virtual reality with immersive VR gaming experiences and adventures.
                   </p>
@@ -412,17 +388,11 @@
             </div>
 
           </div>
-          <div class="swiper-pagination"></div>
-        </div>
-        <div class="icon-arrow icon-arrow-left"><svg width="50" height="50" viewBox="0 0 24 24">
-            <use xlink:href="#arrow-left"></use>
-          </svg></div>
-        <div class="icon-arrow icon-arrow-right"><svg width="50" height="50" viewBox="0 0 24 24">
-            <use xlink:href="#arrow-right"></use>
-          </svg></div>
+        <div class="swiper-pagination"></div>
       </div>
     </div>
   </section>
+
 
   <!-- Features Section -->
   <section class="features py-5">
@@ -522,30 +492,28 @@
     <div class="container">
       <div class="d-flex flex-wrap justify-content-between align-items-center mt-5 mb-3">
         <h4 class="text-uppercase">Latest Gaming Releases</h4>
-        <a href="index.html" class="btn-link">View All Products</a>
+        <a href="shop.html" class="btn-link">View All Products</a>
       </div>
       <div class="swiper product-swiper open-up" data-aos="zoom-out">
         <div class="swiper-wrapper d-flex">
           <div class="swiper-slide">
             <div class="product-item image-zoom-effect">
               <div class="image-holder position-relative">
-                <a href="index.html">
+                <a href="shop.html">
                   <!-- PS5 DualSense Controller Image -->
                   <img src="images/ps5pad.jpg" alt="PS5 Controller" class="product-image img-fluid">
                 </a>
-                <a href="index.html" class="btn-icon btn-wishlist">
+                <a href="shop.html" class="btn-icon btn-wishlist">
                   <svg width="24" height="24" viewBox="0 0 24 24">
                     <use xlink:href="#heart"></use>
                   </svg>
                 </a>
                 <div class="product-content">
                   <h5 class="element-title text-uppercase fs-5 mt-3">
-                    <a href="index.html">PS5 Controller</a>
+                    <a href="shop.html">PS5 Controller</a>
                   </h5>
                   <span class="product-price"> KSH 8,000</span>
-                  <a href="#" class="add-to-cart-btn btn-add-to-cart text-decoration-none" data-id="ps5-controller-1"
-                    data-name="PS5 Controller" data-price="69.99" data-image="images/ps5pad.jpg">Add
-                    to cart</a>
+                  <a href="https://wa.link/s3adrp" class="btn btn-primary text-decoration-none">Order Now</a>
                 </div>
               </div>
             </div>
@@ -553,22 +521,21 @@
           <div class="swiper-slide">
             <div class="product-item image-zoom-effect">
               <div class="image-holder position-relative">
-                <a href="index.html">
+                <a href="shop.html">
                   <!-- Meta Quest 3 VR Headset Image -->
                   <img src="images/metaquestvr.jpg" alt="Meta Quest 3 VR Headset" class="product-image img-fluid">
                 </a>
-                <a href="index.html" class="btn-icon btn-wishlist">
+                <a href="shop.html" class="btn-icon btn-wishlist">
                   <svg width="24" height="24" viewBox="0 0 24 24">
                     <use xlink:href="#heart"></use>
                   </svg>
                 </a>
                 <div class="product-content">
                   <h5 class="text-uppercase fs-5 mt-3">
-                    <a href="index.html">Meta Quest 3</a>
+                    <a href="shop.html">Meta Quest 3</a>
                   </h5>
                   <span class="product-price">KSH 64,999.00</span>
-                  <a href="#" class="add-to-cart-btn btn-add-to-cart text-decoration-none" data-id="meta-quest-3"
-                    data-name="Meta Quest 3" data-price="499.99" data-image="images/metaquestvr.jpg">Add to cart</a>
+                  <a href="https://wa.link/s3adrp" class="btn btn-primary text-decoration-none">Order Now</a>
                 </div>
               </div>
             </div>
@@ -576,23 +543,21 @@
           <div class="swiper-slide">
             <div class="product-item image-zoom-effect">
               <div class="image-holder position-relative">
-                <a href="index.html">
+                <a href="shop.html">
                   <!-- REPLACE WITH: Racing Wheel Set Image -->
                   <img src="images/wheelset.jpg" alt="categories" class="product-image img-fluid">
                 </a>
-                <a href="index.html" class="btn-icon btn-wishlist">
+                <a href="shop.html" class="btn-icon btn-wishlist">
                   <svg width="24" height="24" viewBox="0 0 24 24">
                     <use xlink:href="#heart"></use>
                   </svg>
                 </a>
                 <div class="product-content">
                   <h5 class="text-uppercase fs-5 mt-3">
-                    <a href="index.html">Racing Wheel Set</a>
+                    <a href="shop.html">Racing Wheel Set</a>
                   </h5>
                   <span class="product-price">KSH 70,000</span>
-                  <a href="#" class="add-to-cart-btn btn-add-to-cart text-decoration-none" data-id="racing-wheel-set"
-                    data-name="Racing Wheel Set" data-price="129.99" data-image="images/wheelset.jpg">Add to
-                    cart</a>
+                  <a href="https://wa.link/s3adrp" class="btn btn-primary text-decoration-none">Order Now</a>
                 </div>
               </div>
             </div>
@@ -600,23 +565,21 @@
           <div class="swiper-slide">
             <div class="product-item image-zoom-effect">
               <div class="image-holder position-relative">
-                <a href="index.html">
+                <a href="shop.html">
                   <!-- FC 26 Game Disk Image -->
                   <img src="images/fc26.jpg" alt="FC 26" class="product-image img-fluid">
                 </a>
-                <a href="index.html" class="btn-icon btn-wishlist">
+                <a href="shop.html" class="btn-icon btn-wishlist">
                   <svg width="24" height="24" viewBox="0 0 24 24">
                     <use xlink:href="#heart"></use>
                   </svg>
                 </a>
                 <div class="product-content">
                   <h5 class="text-uppercase fs-5 mt-3">
-                    <a href="index.html">FC 26</a>
+                    <a href="shop.html">FC 26</a>
                   </h5>
                   <span class="product-price">KSH 8,000</span>
-                  <a href="#" class="add-to-cart-btn btn-add-to-cart text-decoration-none" data-id="fc-26"
-                    data-name="FC 26" data-price="8000" data-image="images/fc26.jpg">Add to
-                    cart</a>
+                  <a href="https://wa.link/s3adrp" class="btn btn-primary text-decoration-none">Order Now</a>
                 </div>
               </div>
             </div>
@@ -634,28 +597,10 @@
     </div>
   </section>
 
-  <!-- Collection Section -->
-  <section class="collection-hero position-relative">
-    <div class="collection-hero-container">
-      <div class="collection-hero-bg" style="background-image: url('images/zenaestheticwall.jpg');"></div>
-      <div class="collection-hero-overlay"></div>
-      <div class="container position-relative" style="z-index: 2;">
-        <div class="row">
-          <div class="col-lg-6 d-flex align-items-center">
-            <div class="collection-hero-content">
-              <span class="collection-hero-tag text-uppercase">ZenPlay Exclusive</span>
-              <h2 class="collection-hero-title text-uppercase">Premium Gaming Lounge</h2>
-              <p class="collection-hero-text">Discover our exclusive collection of top-tier gaming equipment featuring
-                the latest
-                consoles, high-performance accessories, and must-have games. From competitive esports gear to
-                casual gaming setups, ZenPlay offers everything you need to dominate.</p>
-              <a href="shop.html" class="btn btn-light text-uppercase mt-3 collection-hero-btn">Welcome to our shop</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+
+
+
+
 
 
 
@@ -665,15 +610,10 @@
       <div class="row">
         <div class="video-content open-up" data-aos="zoom-out">
           <div class="video-bg">
-            <img src="images/video-image.jpg" alt="video" class="video-image img-fluid">
-          </div>
-          <div class="video-player">
-            <a class="youtube" href="https://www.youtube.com/embed/pjtsGzQjFM4">
-              <svg width="24" height="24" viewBox="0 0 24 24">
-                <use xlink:href="#play"></use>
-              </svg>
-              <img src="images/text-pattern.png" alt="pattern" class="text-rotate">
-            </a>
+            <video class="w-100" autoplay muted loop controls poster="images/video-image.jpg">
+              <source src="images/zenplayvideo.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
       </div>
@@ -732,219 +672,87 @@
     <div class="testimonial-swiper-pagination d-flex justify-content-center mb-5"></div>
   </section>
 
-  <!-- Related Products Section -->
-  <section id="related-products" class="related-products product-carousel py-5 position-relative overflow-hidden">
-    <div class="container">
-      <div class="d-flex flex-wrap justify-content-between align-items-center mt-5 mb-3">
-        <h4 class="text-uppercase">You May Also Like</h4>
-        <a href="index.html" class="btn-link">View All Products</a>
-      </div>
-      <div class="swiper product-swiper open-up" data-aos="zoom-out">
-        <div class="swiper-wrapper d-flex">
-          <div class="swiper-slide">
-            <div class="product-item image-zoom-effect link-effect">
-              <div class="image-holder">
-                <a href="index.html">
-                  <img src="images/product-item-5.jpg" alt="product" class="product-image img-fluid">
-                </a>
-                <a href="index.html" class="btn-icon btn-wishlist">
-                  <svg width="24" height="24" viewBox="0 0 24 24">
-                    <use xlink:href="#heart"></use>
-                  </svg>
-                </a>
-                <div class="product-content">
-                  <h5 class="text-uppercase fs-5 mt-3">
-                    <a href="index.html">Dark florish onepiece</a>
-                  </h5>
-                  <a href="index.html" class="text-decoration-none" data-after="Add to cart"><span>KSH
-                      14,250.00</span></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="product-item image-zoom-effect link-effect">
-              <div class="image-holder">
-                <a href="index.html">
-                  <img src="images/product-item-6.jpg" alt="product" class="product-image img-fluid">
-                </a>
-                <a href="index.html" class="btn-icon btn-wishlist">
-                  <svg width="24" height="24" viewBox="0 0 24 24">
-                    <use xlink:href="#heart"></use>
-                  </svg>
-                </a>
-                <div class="product-content">
-                  <h5 class="text-uppercase fs-5 mt-3">
-                    <a href="index.html">Baggy Shirt</a>
-                  </h5>
-                  <a href="index.html" class="text-decoration-none" data-after="Add to cart"><span>KSH
-                      8,250.00</span></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="product-item image-zoom-effect link-effect">
-              <div class="image-holder">
-                <a href="index.html">
-                  <img src="images/product-item-7.jpg" alt="product" class="product-image img-fluid">
-                </a>
-                <a href="index.html" class="btn-icon btn-wishlist">
-                  <svg width="24" height="24" viewBox="0 0 24 24">
-                    <use xlink:href="#heart"></use>
-                  </svg>
-                </a>
-                <div class="product-content">
-                  <h5 class="text-uppercase fs-5 mt-3">
-                    <a href="index.html">Cotton off-white shirt</a>
-                  </h5>
-                  <a href="index.html" class="text-decoration-none" data-after="Add to cart"><span>KSH
-                      9,750.00</span></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="product-item image-zoom-effect link-effect">
-              <div class="image-holder">
-                <a href="index.html">
-                  <img src="images/product-item-8.jpg" alt="product" class="product-image img-fluid">
-                </a>
-                <a href="index.html" class="btn-icon btn-wishlist">
-                  <svg width="24" height="24" viewBox="0 0 24 24">
-                    <use xlink:href="#heart"></use>
-                  </svg>
-                </a>
-                <div class="product-content">
-                  <h5 class="text-uppercase fs-5 mt-3">
-                    <a href="index.html">Handmade crop sweater</a>
-                  </h5>
-                  <a href="index.html" class="text-decoration-none" data-after="Add to cart"><span>KSH
-                      7,500.00</span></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="product-item image-zoom-effect link-effect">
-              <div class="image-holder">
-                <a href="index.html">
-                  <img src="images/product-item-1.jpg" alt="product" class="product-image img-fluid">
-                </a>
-                <a href="index.html" class="btn-icon btn-wishlist">
-                  <svg width="24" height="24" viewBox="0 0 24 24">
-                    <use xlink:href="#heart"></use>
-                  </svg>
-                </a>
-                <div class="product-content">
-                  <h5 class="text-uppercase fs-5 mt-3">
-                    <a href="index.html">Elden Ring Deluxe Edition</a>
-                  </h5>
-                  <a href="index.html" class="text-decoration-none" data-after="Add to cart"><span>KSH
-                      11,999.00</span></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
-      <div class="icon-arrow icon-arrow-left"><svg width="50" height="50" viewBox="0 0 24 24">
-          <use xlink:href="#arrow-left"></use>
-        </svg></div>
-      <div class="icon-arrow icon-arrow-right"><svg width="50" height="50" viewBox="0 0 24 24">
-          <use xlink:href="#arrow-right"></use>
-        </svg></div>
-    </div>
-  </section>
+
+
+
+
+
 
   <!-- Blog Section -->
   <section class="blog py-5">
     <div class="container">
-      <div class="d-flex flex-wrap justify-content-between align-items-center mt-5 mb-3">
-        <h4 class="text-uppercase">Read Our Gaming Blog</h4>
-        <a href="index.html" class="btn-link">View All</a>
+      <div class="section-header text-center mt-5 mb-5">
+        <h3 class="section-title text-uppercase">Read Our Gaming Blog</h3>
+        <p class="text-secondary mx-auto" style="max-width: 600px;">Stay ahead of the game with the latest news,
+          reviews,
+          and expert tips from the multi-location ZenPlay community.</p>
       </div>
-      <div class="row">
+      <div class="row g-4">
+        <!-- Post 1 -->
         <div class="col-md-4">
-          <article class="post-item">
-            <div class="post-image">
-              <a href="index.html">
-                <img src="images/post-image1.jpg" alt="image" class="post-grid-image img-fluid">
-              </a>
+          <article class="blog-overlay-card position-relative overflow-hidden rounded">
+            <div class="blog-image-holder">
+              <img src="images/ps5.jpg" alt="Top 10 Consoles" class="img-fluid w-100">
+              <div class="blog-dark-overlay"></div>
             </div>
-            <div class="post-content d-flex flex-wrap gap-2 my-3">
-              <div class="post-meta text-uppercase fs-6 text-secondary">
-                <span class="post-category">Gaming /</span>
-                <span class="meta-day">jan 15, 2024</span>
-              </div>
-              <h5 class="post-title text-uppercase">
-                <a href="index.html">Top 10 Gaming Consoles of 2024</a>
+            <div class="blog-content-overlay p-4 position-absolute bottom-0 start-0 w-100 text-white">
+              <span class="blog-category text-uppercase small text-primary mb-2 d-block">New Arrivals</span>
+              <h5 class="blog-title text-uppercase mb-3">
+                <a href="blog.html" class="text-white text-decoration-none">The Future of Gaming: Our New PS5 Console
+                  Collection</a>
               </h5>
-              <p>Explore the best gaming consoles available this year with powerful performance and
-                exclusive titles...
-              </p>
+              <div class="blog-meta small d-flex align-items-center gap-3">
+                <a href="blog.html" class="text-white fw-bold text-decoration-underline">Read More</a>
+              </div>
             </div>
           </article>
         </div>
+        <!-- Post 2 -->
         <div class="col-md-4">
-          <article class="post-item">
-            <div class="post-image">
-              <a href="index.html">
-                <img src="images/post-image2.jpg" alt="image" class="post-grid-image img-fluid">
-              </a>
+          <article class="blog-overlay-card position-relative overflow-hidden rounded">
+            <div class="blog-image-holder">
+              <img src="images/ps5pad.jpg" alt="Accessories Guide" class="img-fluid w-100">
+              <div class="blog-dark-overlay"></div>
             </div>
-            <div class="post-content d-flex flex-wrap gap-2 my-3">
-              <div class="post-meta text-uppercase fs-6 text-secondary">
-                <span class="post-category">Gaming /</span>
-                <span class="meta-day">jan 20, 2024</span>
-              </div>
-              <h5 class="post-title text-uppercase">
-                <a href="index.html">Essential Gaming Accessories Guide</a>
+            <div class="blog-content-overlay p-4 position-absolute bottom-0 start-0 w-100 text-white">
+              <span class="blog-category text-uppercase small text-primary mb-2 d-block">Gaming Gear</span>
+              <h5 class="blog-title text-uppercase mb-3">
+                <a href="blog.html" class="text-white text-decoration-none">Level Up Your Game: Essential Gaming
+                  Accessories Now in Stock</a>
               </h5>
-              <p>Discover must-have accessories to enhance your gaming setup from keyboards to headsets...
-              </p>
+              <div class="blog-meta small d-flex align-items-center gap-3">
+                <a href="blog.html" class="text-white fw-bold text-decoration-underline">Read More</a>
+              </div>
             </div>
           </article>
         </div>
+        <!-- Post 3 -->
         <div class="col-md-4">
-          <article class="post-item">
-            <div class="post-image">
-              <a href="index.html">
-                <img src="images/post-image3.jpg" alt="image" class="post-grid-image img-fluid">
-              </a>
+          <article class="blog-overlay-card position-relative overflow-hidden rounded">
+            <div class="blog-image-holder">
+              <img src="images/racing-simulator.jpeg" alt="Ultimate Setup" class="img-fluid w-100">
+              <div class="blog-dark-overlay"></div>
             </div>
-            <div class="post-content d-flex flex-wrap gap-2 my-3">
-              <div class="post-meta text-uppercase fs-6 text-secondary">
-                <span class="post-category">Gaming /</span>
-                <span class="meta-day">jan 25, 2024</span>
-              </div>
-              <h5 class="post-title text-uppercase">
-                <a href="index.html">Building the Ultimate Gaming Setup</a>
+            <div class="blog-content-overlay p-4 position-absolute bottom-0 start-0 w-100 text-white">
+              <span class="blog-category text-uppercase small text-primary mb-2 d-block">ZenPlay Community</span>
+              <h5 class="blog-title text-uppercase mb-3">
+                <a href="blog.html" class="text-white text-decoration-none">Join the Fam: Growth and Vibes in our Gaming
+                  Community</a>
               </h5>
-              <p>Learn how to create your dream gaming station with the latest equipment and expert
-                tips...</p>
+              <div class="blog-meta small d-flex align-items-center gap-3">
+                <a href="blog.html" class="text-white fw-bold text-decoration-underline">Read More</a>
+              </div>
             </div>
           </article>
         </div>
+      </div>
+      <div class="text-center mt-5">
+        <a href="blog.html" class="btn btn-outline-dark text-uppercase px-4">View Blog</a>
       </div>
     </div>
   </section>
 
-  <!-- Logo Bar -->
-  <section class="logo-bar py-5 my-5">
-    <div class="container">
-      <div class="row">
-        <div class="logo-content d-flex flex-wrap justify-content-between">
-          <img src="images/logo1.png" alt="logo" class="logo-image img-fluid">
-          <img src="images/logo2.png" alt="logo" class="logo-image img-fluid">
-          <img src="images/logo3.png" alt="logo" class="logo-image img-fluid">
-          <img src="images/logo4.png" alt="logo" class="logo-image img-fluid">
-          <img src="images/logo5.png" alt="logo" class="logo-image img-fluid">
-        </div>
-      </div>
-    </div>
-  </section>
+
 
   <!-- Newsletter Section -->
   <section class="newsletter bg-light zenplay-brand-pattern">
@@ -960,191 +768,197 @@
   </section>
 
   <!-- Instagram Section -->
-  <section class="instagram position-relative">
-    <div class="d-flex justify-content-center w-100 position-absolute bottom-0 z-1">
-      <a href="https://www.instagram.com/templatesjungle/" class="btn btn-dark px-5">Follow us on Instagram</a>
+  <section class="instagram position-relative overflow-hidden">
+    <div class="d-flex justify-content-center w-100 position-absolute bottom-0 z-3 mb-4">
+      <a href="https://www.instagram.com/zenplaygamingke?igsh=MXhoaDJiaTgzajBseQ==" target="_blank"
+        class="btn btn-dark px-5">Follow us on Instagram</a>
     </div>
-    <div class="row g-0">
-      <div class="col-6 col-sm-4 col-md-2">
-        <div class="insta-item">
-          <a href="https://www.instagram.com/templatesjungle/" target="_blank">
-            <img src="images/insta-item1.jpg" alt="instagram" class="insta-image img-fluid">
-          </a>
+    <div class="swiper instagram-swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="insta-item">
+            <a href="https://www.instagram.com/zenplaygamingke?igsh=MXhoaDJiaTgzajBseQ==" target="_blank">
+              <img src="images/Lock in with us guys😉 (1).jpg" alt="instagram" class="insta-image img-fluid">
+              <div class="insta-overlay">
+                <svg width="40" height="40" viewBox="0 0 24 24">
+                  <use xlink:href="#instagram"></use>
+                </svg>
+              </div>
+            </a>
+          </div>
         </div>
-      </div>
-      <div class="col-6 col-sm-4 col-md-2">
-        <div class="insta-item">
-          <a href="https://www.instagram.com/templatesjungle/" target="_blank">
-            <img src="images/insta-item2.jpg" alt="instagram" class="insta-image img-fluid">
-          </a>
+        <div class="swiper-slide">
+          <div class="insta-item">
+            <a href="https://www.instagram.com/zenplaygamingke?igsh=MXhoaDJiaTgzajBseQ==" target="_blank">
+              <img src="images/instapost 2.jpg" alt="instagram" class="insta-image img-fluid">
+              <div class="insta-overlay">
+                <svg width="40" height="40" viewBox="0 0 24 24">
+                  <use xlink:href="#instagram"></use>
+                </svg>
+              </div>
+            </a>
+          </div>
         </div>
-      </div>
-      <div class="col-6 col-sm-4 col-md-2">
-        <div class="insta-item">
-          <a href="https://www.instagram.com/templatesjungle/" target="_blank">
-            <img src="images/insta-item3.jpg" alt="instagram" class="insta-image img-fluid">
-          </a>
+        <div class="swiper-slide">
+          <div class="insta-item">
+            <a href="https://www.instagram.com/zenplaygamingke?igsh=MXhoaDJiaTgzajBseQ==" target="_blank">
+              <img src="images/instapost3.jpg" alt="instagram" class="insta-image img-fluid">
+              <div class="insta-overlay">
+                <svg width="40" height="40" viewBox="0 0 24 24">
+                  <use xlink:href="#instagram"></use>
+                </svg>
+              </div>
+            </a>
+          </div>
         </div>
-      </div>
-      <div class="col-6 col-sm-4 col-md-2">
-        <div class="insta-item">
-          <a href="https://www.instagram.com/templatesjungle/" target="_blank">
-            <img src="images/insta-item4.jpg" alt="instagram" class="insta-image img-fluid">
-          </a>
+        <div class="swiper-slide">
+          <div class="insta-item">
+            <a href="https://www.instagram.com/zenplaygamingke?igsh=MXhoaDJiaTgzajBseQ==" target="_blank">
+              <img src="images/instapost7.jpg" alt="instagram" class="insta-image img-fluid">
+              <div class="insta-overlay">
+                <svg width="40" height="40" viewBox="0 0 24 24">
+                  <use xlink:href="#instagram"></use>
+                </svg>
+              </div>
+            </a>
+          </div>
         </div>
-      </div>
-      <div class="col-6 col-sm-4 col-md-2">
-        <div class="insta-item">
-          <a href="https://www.instagram.com/templatesjungle/" target="_blank">
-            <img src="images/insta-item5.jpg" alt="instagram" class="insta-image img-fluid">
-          </a>
+        <div class="swiper-slide">
+          <div class="insta-item">
+            <a href="https://www.instagram.com/zenplaygamingke?igsh=MXhoaDJiaTgzajBseQ==" target="_blank">
+              <img src="images/instapost5.jpg" alt="instagram" class="insta-image img-fluid">
+              <div class="insta-overlay">
+                <svg width="40" height="40" viewBox="0 0 24 24">
+                  <use xlink:href="#instagram"></use>
+                </svg>
+              </div>
+            </a>
+          </div>
         </div>
-      </div>
-      <div class="col-6 col-sm-4 col-md-2">
-        <div class="insta-item">
-          <a href="https://www.instagram.com/templatesjungle/" target="_blank">
-            <img src="images/insta-item6.jpg" alt="instagram" class="insta-image img-fluid">
-          </a>
+        <div class="swiper-slide">
+          <div class="insta-item">
+            <a href="https://www.instagram.com/zenplaygamingke?igsh=MXhoaDJiaTgzajBseQ==" target="_blank">
+              <img src="images/instapost8.jpg" alt="instagram" class="insta-image img-fluid">
+              <div class="insta-overlay">
+                <svg width="40" height="40" viewBox="0 0 24 24">
+                  <use xlink:href="#instagram"></use>
+                </svg>
+              </div>
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer Section -->
-  <footer id="footer" class="mt-5">
+  <!-- Creative Footer Section -->
+  <footer id="site-footer" class="site-footer pt-5 pb-4 mt-5">
     <div class="container">
-      <div class="row d-flex flex-wrap justify-content-between py-5">
-        <div class="col-md-3 col-sm-6">
-          <div class="footer-menu footer-menu-001">
-            <div class="footer-intro mb-4">
-              <a href="index.html">
-                <img src="images/main-logo.png" alt="logo">
-              </a>
+      <div class="row g-4 py-5">
+        <!-- Brand & About -->
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+          <div class="footer-brand-info">
+            <div class="footer-logo mb-4">
+              <img src="images/zenplay-footer-logo.jpg" alt="ZenPlay Gaming Logo" class="img-fluid"
+                style="max-height: 60px;">
             </div>
-            <p>ZenPlay Gaming Lounge - Your ultimate destination for gaming excellence. Featuring premium
-              consoles,
-              top-tier accessories, and an unmatched gaming experience in a comfortable environment.</p>
-            <div class="social-links">
-              <ul class="list-unstyled d-flex flex-wrap gap-3">
-                <li>
-                  <a href="#" class="text-secondary">
-                    <svg width="24" height="24" viewBox="0 0 24 24">
-                      <use xlink:href="#facebook"></use>
-                    </svg>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="text-secondary">
-                    <svg width="24" height="24" viewBox="0 0 24 24">
+            <p class="brand-desc text-secondary mb-4">
+              Your ultimate destination for premium gaming excellence. Experience high-end consoles, elite gear, and a
+              vibrant community environment across our professional gaming lounges.
+            </p>
+            <div class="social-links-creative">
+              <ul class="list-unstyled d-flex gap-3 m-0">
+                <li><a href="https://x.com/zenplaygamingke" target="_blank" class="social-icon-link"><svg width="20"
+                      height="20">
                       <use xlink:href="#twitter"></use>
-                    </svg>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="text-secondary">
-                    <svg width="24" height="24" viewBox="0 0 24 24">
-                      <use xlink:href="#youtube"></use>
-                    </svg>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="text-secondary">
-                    <svg width="24" height="24" viewBox="0 0 24 24">
-                      <use xlink:href="#pinterest"></use>
-                    </svg>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="text-secondary">
-                    <svg width="24" height="24" viewBox="0 0 24 24">
+                    </svg></a></li>
+                <li><a href="https://wa.link/s3adrp" target="_blank" class="social-icon-link"><svg width="20"
+                      height="20">
+                      <use xlink:href="#whatsapp"></use>
+                    </svg></a></li>
+                <li><a href="https://www.instagram.com/zenplaygamingke?igsh=MXhoaDJiaTgzajBseQ==" target="_blank"
+                    class="social-icon-link"><svg width="20" height="20">
                       <use xlink:href="#instagram"></use>
-                    </svg>
-                  </a>
-                </li>
+                    </svg></a></li>
+                <li><a href="https://www.tiktok.com/@zenplaygamingke?is_from_webapp=1&sender_device=pc" target="_blank"
+                    class="social-icon-link"><svg width="20" height="20">
+                      <use xlink:href="#tiktok"></use>
+                    </svg></a></li>
               </ul>
             </div>
           </div>
         </div>
-        <div class="col-md-3 col-sm-6">
-          <div class="footer-menu footer-menu-002">
-            <h5 class="widget-title text-uppercase mb-4">Quick Links</h5>
-            <ul class="menu-list list-unstyled text-uppercase border-animation-left fs-6">
-              <li class="menu-item">
-                <a href="index.html" class="item-anchor">Home</a>
-              </li>
-              <li class="menu-item">
-                <a href="about.html" class="item-anchor">About</a>
-              </li>
-              <li class="menu-item">
-                <a href="shop.html" class="item-anchor">Shop</a>
-              </li>
-              <li class="menu-item">
-                <a href="blog.html" class="item-anchor">Blog</a>
-              </li>
-              <li class="menu-item">
-                <a href="contact.html" class="item-anchor">Contact</a>
-              </li>
+
+        <!-- Quick Explore -->
+        <div class="col-lg-2 col-md-3 col-6">
+          <div class="footer-widget">
+            <h5 class="creative-title mb-4">Explore</h5>
+            <ul class="footer-menu-links list-unstyled text-uppercase">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">Our Story</a></li>
+              <li><a href="shop.html">The Shop</a></li>
+              <li><a href="contact.html">Contact</a></li>
             </ul>
           </div>
         </div>
-        <div class="col-md-3 col-sm-6">
-          <div class="footer-menu footer-menu-003">
-            <h5 class="widget-title text-uppercase mb-4">Help & Info</h5>
-            <ul class="menu-list list-unstyled text-uppercase border-animation-left fs-6">
-              <li class="menu-item">
-                <a href="#" class="item-anchor">Track Your Order</a>
-              </li>
-              <li class="menu-item">
-                <a href="#" class="item-anchor">Returns + Exchanges</a>
-              </li>
-              <li class="menu-item">
-                <a href="#" class="item-anchor">Shipping + Delivery</a>
-              </li>
-              <li class="menu-item">
-                <a href="#" class="item-anchor">Contact Us</a>
-              </li>
-              <li class="menu-item">
-                <a href="#" class="item-anchor">Find us easy</a>
-              </li>
-              <li class="menu-item">
-                <a href="index.html" class="item-anchor">Faqs</a>
-              </li>
+
+        <!-- Help Hub -->
+        <div class="col-lg-2 col-md-3 col-6">
+          <div class="footer-widget">
+            <h5 class="creative-title mb-4">Support</h5>
+            <ul class="support-links list-unstyled text-uppercase">
+              <li>Tech Support</li>
+              <li>Installation</li>
+              <li>User Guide</li>
+              <li>Troubleshooting</li>
             </ul>
           </div>
         </div>
-        <div class="col-md-3 col-sm-6">
-          <div class="footer-menu footer-menu-004 border-animation-left">
-            <h5 class="widget-title text-uppercase mb-4">Contact Us</h5>
-            <p>Do you have any questions or suggestions? <a href="mailto:contact@yourcompany.com"
-                class="item-anchor">contact@yourcompany.com</a></p>
-            <p>Do you need support? Give us a call. <a href="tel:+43 720 11 52 78" class="item-anchor">+43
-                720 11 52
-                78</a>
-            </p>
+
+        <!-- Visit Us (Creative Location Info) -->
+        <div class="col-lg-4 col-md-12">
+          <div class="footer-widget location-widget">
+            <h5 class="creative-title mb-4">Our Locations</h5>
+            <div class="row g-3">
+              <div class="col-6">
+                <a href="https://maps.app.goo.gl/hnquw12qiZFu4kPx9" target="_blank" class="text-decoration-none">
+                  <div class="location-card p-3 rounded h-100">
+                    <h6 class="text-white small text-uppercase mb-2">MAKUTANO</h6>
+                    <p class="text-secondary small m-0">Sayen Makutano<br>Meru, Kenya</p>
+                  </div>
+                </a>
+              </div>
+              <div class="col-6">
+                <a href="https://maps.app.goo.gl/bENSeicoa7fBf5Kw5" target="_blank" class="text-decoration-none">
+                  <div class="location-card p-3 rounded h-100">
+                    <h6 class="text-white small text-uppercase mb-2">GITIMBINE</h6>
+                    <p class="text-secondary small m-0">Selenite Mall<br>Meru, Kenya</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="contact-info-footer mt-4">
+              <p class="small text-secondary mb-1">Owner: <strong class="text-white">Fridah Kirima</strong></p>
+              <p class="small text-secondary m-0">Email: <a href="mailto:zenplaygamingke@gmail.com"
+                  class="text-decoration-none text-primary">zenplaygamingke@gmail.com</a></p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="border-top py-4">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 d-flex flex-wrap">
-            <div class="shipping">
-              <span>We ship with:</span>
-              <img src="images/arct-icon.png" alt="icon">
-              <img src="images/dhl-logo.png" alt="icon">
-            </div>
-            <div class="payment-option">
-              <span>Payment Option:</span>
-              <img src="images/visa-card.png" alt="card">
-              <img src="images/paypal-card.png" alt="card">
-              <img src="images/master-card.png" alt="card">
-            </div>
+
+      <!-- Footer Bottom Bar -->
+      <div class="footer-bottom border-top border-secondary-subtle pt-4 mt-4">
+        <div class="row align-items-center">
+          <div class="col-md-6 mb-3 mb-md-0">
+            <p class="copyright-text small text-secondary m-0">
+              © 2026 <strong class="text-white">ZenPlay Gaming</strong>. All Rights Reserved.
+            </p>
           </div>
-          <div class="col-md-6 text-end">
-            <p>© Copyright 2022 Kaira. All rights reserved. Design by <a href="https://templatesjungle.com"
-                target="_blank">TemplatesJungle</a> Distribution By <a href="https://themewagon.com"
-                target="blank">ThemeWagon</a></p>
+          <div class="col-md-6 text-md-end">
+            <p class="developer-credit small text-secondary m-0">
+              This website was developed by <a href="#" class="text-primary text-decoration-none fw-bold">JEAN
+                MUTAKHA</a>
+            </p>
           </div>
         </div>
       </div>
