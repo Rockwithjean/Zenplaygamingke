@@ -1330,11 +1330,23 @@ a {
   height: 300px;
   object-fit: cover;
   width: 100%;
+  border-radius: 12px;
+}
+
+/* Global Image Rounding */
+img.img-fluid,
+.image-holder img,
+.banner-item img,
+.product-item img,
+.swiper-slide img {
+  border-radius: 12px;
 }
 
 @media (max-width: 768px) {
-  .product-item .image-holder img {
-    height: 250px;
+  img.img-fluid,
+  .image-holder img,
+  .product-item img {
+    border-radius: 10px;
   }
 }
 
@@ -1824,6 +1836,7 @@ a.btn-link.text-light:after {
 .collection-hero-container {
   position: relative;
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
 }
@@ -1925,8 +1938,21 @@ a.btn-link.text-light:after {
 }
 
 @media (max-width: 576px) {
+  .collection-hero,
   .collection-hero-container {
-    min-height: 400px;
+    min-height: 100vh;
+    height: 100vh;
+    min-height: 100dvh;
+    height: 100dvh;
+  }
+
+  .collection-hero-bg {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
 
   .collection-hero-content {
@@ -2231,11 +2257,59 @@ a.btn-link.text-light:after {
   .location-card {
     text-align: left;
   }
+
+  /* Full height hero on mobile */
+  .collection-hero-container {
+    height: 100vh !important;
+    min-height: 100vh !important;
+  }
+
+  /* Fix for Mobile Menu Text Visibility (Z-index issue with preloader or hero overlay) */
+  .offcanvas-body,
+  .offcanvas-header {
+    position: relative;
+    z-index: 9999 !important;
+  }
 }
 
 /* Shop Sidebar Filtering */
 .sidebar .button-group a.is-checked {
   color: var(--bs-primary) !important;
+  font-weight: 700;
+  text-decoration: underline !important;
+}
+
+/* Global Offcanvas Dark Theme */
+.offcanvas {
+  background-color: #111 !important;
+  color: #fff !important;
+  z-index: 99999 !important;
+}
+
+.offcanvas-title {
+  color: #fff !important;
+}
+
+.offcanvas .nav-link {
+  color: rgba(255,255,255,0.85) !important;
+}
+
+.offcanvas .nav-link:hover,
+.offcanvas .nav-link.active {
+  color: #fff !important;
+}
+
+.offcanvas .btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+.offcanvas-header {
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Blog Active Category */
+.blog-cat-link.active-cat {
+  color: #000 !important;
   font-weight: 700;
   text-decoration: underline !important;
 }
