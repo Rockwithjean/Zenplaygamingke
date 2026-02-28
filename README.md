@@ -43,7 +43,7 @@ ZENPLAY WEBSITE/
 1. **Sayen Makutano, Meru**
 2. **Selenite Mall Gitimbine, Meru**
 
-Support & Contact via WhatsApp: `+254 717 498146`
+
 
 ---
 
