@@ -180,9 +180,9 @@
 
         .team-card {
             text-align: center;
-            transition: all 0.4s ease;
-            opacity: 0.8;
-            transform: scale(0.85);
+            transition: all 0.8s ease; /* Smooth transition */
+            opacity: 1; /* Removed dark overlay constraint */
+            transform: scale(0.9);
             background: #fff;
             padding: 1.5rem;
             border-radius: 12px;
@@ -501,13 +501,22 @@
                             <p class="team-member-role">Team Member</p>
                         </div>
                     </div>
+
                     <div class="swiper-slide">
                         <div class="team-card">
-                            <img src="images/ja_member.jpeg" alt="Jean" class="team-member-image">
-                            <h5 class="team-member-name">Jean</h5>
-                            <p class="team-member-role">Team Member</p>
+                            <img src="images/fridah and Derrick .jpeg" alt="Fridah & Derrick" class="team-member-image">
+                            <h5 class="team-member-name">Fridah & Derrick</h5>
+                            <p class="team-member-role">Team Members</p>
                         </div>
                     </div>
+                    <div class="swiper-slide">
+                        <div class="team-card">
+                            <img src="images/fridah and jean.jpeg" alt="Fridah & Jean" class="team-member-image">
+                            <h5 class="team-member-name">Fridah & Jean</h5>
+                            <p class="team-member-role">Team Members</p>
+                        </div>
+                    </div>
+
                 </div>
                 <!-- Add Pagination -->
                 <div class="swiper-pagination mt-5"></div>
@@ -735,6 +744,11 @@
                 spaceBetween: 20,
                 centeredSlides: true,
                 loop: true,
+                speed: 1500,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
                 pagination: {
                     el: ".swiper-pagination",
                     clickable: true,
