@@ -196,7 +196,7 @@
         <div class="container-fluid">
             <div class="row justify-content-between align-items-center w-100">
                 <div class="col-auto">
-                    <a class="navbar-brand text-uppercase fs-3" href="index.html">ZenPlay</a>
+                    <a class="navbar-brand" href="index.html"><img src="images/newzenplaylogo.jpg" alt="ZenPlay Gaming KE" style="max-height: 50px; width: auto;"></a>
                 </div>
                 <div class="col-auto">
                     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
@@ -226,13 +226,109 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-section position-relative py-5" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/blog-hero.jpg'); background-size: cover; background-position: center; min-height: 100vh; display: flex; align-items: center;">
+    <section class="hero-section position-relative py-5" style="background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('images/blog-hero.jpg'); background-size: cover; background-position: center; min-height: 100vh; display: flex; align-items: center;">
         <div class="container py-5">
             <div class="row">
                 <div class="col-12 text-center">
                     <h1 class="section-title text-center text-white mt-4 text-uppercase">Gaming Blog</h1>
                     <p class="text-white-50 text-uppercase letter-spacing-2">News, Reviews & Gaming Tips</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Art Gallery Section -->
+    <section id="art-gallery" class="art-gallery py-5 bg-light">
+        <div class="container pb-5">
+            <div class="row mb-5 text-center">
+                <div class="col-12">
+                    <h2 class="section-title text-uppercase mb-3">ZenPlay Gallery</h2>
+                    <p class="text-secondary letter-spacing-2 text-uppercase fs-7">Moments Captured</p>
+                </div>
+            </div>
+            
+            <div class="featured-grid">
+                <!-- Grid Featured Item 1 -->
+                <div class="gallery-item">
+                    <img src="images/blog-hero.jpg" alt="ZenPlay Lounge" class="img-fluid w-100">
+                    <div class="gallery-overlay">
+                        <svg width="30" height="30" viewBox="0 0 24 24"><use xlink:href="#search"></use></svg>
+                    </div>
+                </div>
+                <!-- Grid Featured Item 2 -->
+                <div class="gallery-item">
+                    <img src="images/zenaestheticwall.jpg" alt="Aesthetic Wall" class="img-fluid w-100">
+                    <div class="gallery-overlay">
+                        <svg width="30" height="30" viewBox="0 0 24 24"><use xlink:href="#search"></use></svg>
+                    </div>
+                </div>
+                <!-- Grid Featured Item 3 -->
+                <div class="gallery-item">
+                    <img src="images/Lock in with us guys😉.jpg" alt="Setup Preview" class="img-fluid w-100">
+                    <div class="gallery-overlay">
+                        <svg width="30" height="30" viewBox="0 0 24 24"><use xlink:href="#search"></use></svg>
+                    </div>
+                </div>
+                <!-- Grid Featured Item 4 -->
+                <div class="gallery-item">
+                    <img src="images/cyberservices.jpg" alt="Cyber Services" class="img-fluid w-100">
+                    <div class="gallery-overlay">
+                        <svg width="30" height="30" viewBox="0 0 24 24"><use xlink:href="#search"></use></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Swiper Carousel -->
+            <div class="swiper gallery-swiper">
+                <div class="swiper-wrapper">
+                    <!-- Gallery Item 5 -->
+                    <div class="swiper-slide">
+                        <div class="gallery-item">
+                            <img src="images/aboutus3.jpg" alt="Gaming Station" class="img-fluid w-100">
+                            <div class="gallery-overlay">
+                                <svg width="30" height="30" viewBox="0 0 24 24"><use xlink:href="#search"></use></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Gallery Item 6 -->
+                    <div class="swiper-slide">
+                        <div class="gallery-item">
+                            <img src="images/wheelset.jpg" alt="Racing Wheel Set" class="img-fluid w-100">
+                            <div class="gallery-overlay">
+                                <svg width="30" height="30" viewBox="0 0 24 24"><use xlink:href="#search"></use></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Gallery Item 7 -->
+                    <div class="swiper-slide">
+                        <div class="gallery-item">
+                            <img src="images/ps5pad.jpg" alt="PS5 Pad" class="img-fluid w-100">
+                            <div class="gallery-overlay">
+                                <svg width="30" height="30" viewBox="0 0 24 24"><use xlink:href="#search"></use></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Gallery Item 8 -->
+                    <div class="swiper-slide">
+                        <div class="gallery-item">
+                            <img src="images/instapost3.jpg" alt="Community Post" class="img-fluid w-100">
+                            <div class="gallery-overlay">
+                                <svg width="30" height="30" viewBox="0 0 24 24"><use xlink:href="#search"></use></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Gallery Item 9 -->
+                    <div class="swiper-slide">
+                        <div class="gallery-item">
+                            <img src="images/aboutuspic1.jpg" alt="Our Lounge" class="img-fluid w-100">
+                            <div class="gallery-overlay">
+                                <svg width="30" height="30" viewBox="0 0 24 24"><use xlink:href="#search"></use></svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination mt-4 position-relative"></div>
             </div>
         </div>
     </section>
@@ -472,8 +568,8 @@
                 <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
                     <div class="footer-brand-info">
                         <div class="footer-logo mb-4">
-                            <img src="images/zenplay-footer-logo.jpg" alt="ZenPlay Gaming Logo" class="img-fluid"
-                                style="max-height: 60px;">
+                            <img src="images/newzenplaylogo.jpg" alt="ZenPlay Gaming Logo" class="img-fluid"
+                                style="max-height: 50px; width: auto;">
                         </div>
                         <p class="brand-desc text-secondary mb-4">
                             Your ultimate destination for premium gaming excellence. Experience high-end consoles, elite
@@ -554,8 +650,6 @@
                             </div>
                         </div>
                         <div class="contact-info-footer mt-4">
-                            <p class="small text-secondary mb-1">Owner: <strong class="text-white">Fridah
-                                    Kirima</strong></p>
                             <p class="small text-secondary m-0">Email: <a href="mailto:zenplaygamingke@gmail.com"
                                     class="text-decoration-none text-primary">zenplaygamingke@gmail.com</a></p>
                         </div>
@@ -668,6 +762,24 @@
           if (e.key === 'Enter') window.blogSearch();
           // live-as-you-type
           window.blogSearch();
+        });
+
+        // Initialize Gallery Swiper
+        new Swiper('.gallery-swiper', {
+          slidesPerView: 1,
+          spaceBetween: 20,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          breakpoints: {
+            768: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 3,
+            }
+          }
         });
       })();
     </script>
