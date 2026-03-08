@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Head Section -->
+    <title>Gaming Blog | ZenPlay Gaming KE - News, Reviews & Gaming Tips</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="author" content="ZenPlay Gaming KE">
+
+    <link rel="canonical" href="https://zenplaygamingke.com/blog.html" />
+
+    <meta name="description" content="Read the latest gaming news, console reviews, esports tips, and setup guides on the ZenPlay Gaming KE blog — your go-to source for gaming in Kenya.">
+    <meta name="keywords" content="gaming blog Kenya, gaming news Meru, console reviews Kenya, esports tips, gaming setup guide, ZenPlay blog, VR gaming Kenya">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Gaming Blog | ZenPlay Gaming KE - News, Reviews & Gaming Tips">
+    <meta property="og:description" content="Latest gaming news, console reviews, esports tips and setup guides from ZenPlay Gaming KE — your go-to gaming resource in Kenya.">
+    <meta property="og:image" content="https://zenplaygamingke.com/images/zenplay-footer-logo.jpg">
+    <meta property="og:url" content="https://zenplaygamingke.com/blog.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZenPlay Gaming KE">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@zenplaygamingke">
+    <meta name="twitter:title" content="Gaming Blog | ZenPlay Gaming KE - News, Reviews & Gaming Tips">
+    <meta name="twitter:description" content="Latest gaming news, console reviews, esports tips and setup guides from ZenPlay Gaming KE — your go-to gaming resource in Kenya.">
+    <meta name="twitter:image" content="https://zenplaygamingke.com/images/zenplay-footer-logo.jpg">
+
+    <link rel="icon" type="image/jpg" href="images/zenplay-footer-logo.jpg" sizes="32x32">
+    <link rel="shortcut icon" href="images/zenplay-footer-logo.jpg">
+    <link rel="apple-touch-icon" href="images/zenplay-footer-logo.jpg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/vendor.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Marcellus&display=swap"
+        rel="stylesheet">
+    <style>
+        .hero-section {
+            background-image: url('images/blog_background.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 !important;
+        }
+
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        .hero-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-section .section-title {
+            color: #fff;
+        }
+
+        .hero-section .text-secondary {
+            color: rgba(255, 255, 255, 0.8) !important;
+        }
+
+        .hero-section::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+            z-index: 1;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .blog-card {
+            border: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-card .post-image img {
+            transition: transform 0.5s ease;
+        }
+
+        .blog-card:hover .post-image img {
+            transform: scale(1.05);
+        }
+
+        .blog-card .post-image {
+            overflow: hidden;
+        }
+
+        .sidebar .widget {
+            margin-bottom: 2rem;
+        }
+
+        .sidebar .widget-title {
+            border-bottom: 2px solid var(--bs-primary);
+            padding-bottom: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .tag-cloud .tag {
+            display: inline-block;
+            padding: 0.35rem 0.85rem;
+            border: 1px solid #ddd;
+            margin: 0.25rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--bs-gray-dark);
+            transition: all 0.3s ease;
+        }
+
+        .tag-cloud .tag:hover {
+            background: var(--bs-primary);
+            border-color: var(--bs-primary);
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body class="blog-page">
+    <!-- SVG Symbol Definitions -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <defs>
+            <symbol xmlns="http://www.w3.org/2000/svg" id="facebook" viewBox="0 0 15 15">
+                <path fill="none" stroke="currentColor"
+                    d="M7.5 14.5a7 7 0 1 1 0-14a7 7 0 0 1 0 14Zm0 0v-8a2 2 0 0 1 2-2h.5m-5 4h5" />
+            </symbol>
+            <symbol xmlns="http://www.w3.org/2000/svg" id="x-twitter" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584l-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+            </symbol>
+            <symbol xmlns="http://www.w3.org/2000/svg" id="youtube" viewBox="0 0 15 15">
+                <path fill="currentColor"
+                    d="m1.61 12.738l-.104.489l.105-.489Zm11.78 0l.104.489l-.105-.489Zm0-10.476l.104-.489l-.105.489Zm-11.78 0l.106.489l-.105-.489ZM6.5 5.5l.277-.416A.5.5 0 0 0 6 5.5h.5Zm0 4H6a.5.5 0 0 0 .777.416L6.5 9.5Zm3-2l.277.416a.5.5 0 0 0 0-.832L9.5 7.5ZM0 3.636v7.728h1V3.636H0Zm15 7.728V3.636h-1v7.728h1ZM1.506 13.227c3.951.847 8.037.847 11.988 0l-.21-.978a27.605 27.605 0 0 1-11.568 0l-.21.978ZM13.494 1.773a28.606 28.606 0 0 0-11.988 0l.21.978a27.607 27.607 0 0 1 11.568 0l.21-.978ZM15 3.636c0-.898-.628-1.675-1.506-1.863l-.21.978c.418.09.716.458.716.885h1Zm-1 7.728a.905.905 0 0 1-.716.885l.21.978A1.905 1.905 0 0 0 15 11.364h-1Zm-14 0c0 .898.628 1.675 1.506 1.863l.21-.978A.905.905 0 0 1 1 11.364H0Zm1-7.728c0-.427.298-.796.716-.885l-.21-.978A1.905 1.905 0 0 0 0 3.636h1ZM6 5.5v4h1v-4H6Zm.777 4.416l3-2l-.554-.832l-3 2l.554.832Zm3-2.832l-3-2l-.554.832l3 2l.554-.832Z" />
+            </symbol>
+            <symbol xmlns="http://www.w3.org/2000/svg" id="whatsapp" viewBox="0 0 16 16">
+                <path fill="currentColor"
+                    d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.501c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+            </symbol>
+            <symbol xmlns="http://www.w3.org/2000/svg" id="tiktok" viewBox="0 0 15 15">
+                <path fill="currentColor"
+                    d="M12.5 5.5v1a3.5 3.5 0 0 1-1.5-.32V10a4.5 4.5 0 1 1-6-4.24V6.8a3.5 3.5 0 1 0 5 3.2V0h1a3.5 3.5 0 0 0 3.5 3.5v1a2.5 2.5 0 0 1-2.5-1v2Z" />
+            </symbol>
+            <symbol xmlns="http://www.w3.org/2000/svg" id="instagram" viewBox="0 0 15 15">
+                <path fill="none" stroke="currentColor"
+                    d="M11 3.5h1M4.5.5h6a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4h-6a4 4 0 0 1-4-4v-6a4 4 0 0 1 4-4Zm3 10a3 3 0 1 1 0-6a3 3 0 0 1 0 6Z" />
+            </symbol>
+            <symbol xmlns="http://www.w3.org/2000/svg" id="cart" viewBox="0 0 24 24">
+                <path fill="currentColor"
+                    d="M8.5 19a1.5 1.5 0 1 0 1.5 1.5A1.5 1.5 0 0 0 8.5 19ZM19 16H7a1 1 0 0 1 0-2h8.491a3.013 3.013 0 0 0 2.885-2.176l1.585-5.55A1 1 0 0 0 19 5H6.74a3.007 3.007 0 0 0-2.82-2H3a1 1 0 0 0 0 2h.921a1.005 1.005 0 0 1 .962.725l.155.545v.005l1.641 5.742A3 3 0 0 0 7 18h12a1 1 0 0 0 0-2Zm-1.326-9l-1.22 4.274a1.005 1.005 0 0 1-.963.726H8.754l-.255-.892L7.326 7ZM16.5 19a1.5 1.5 0 1 0 1.5 1.5a1.5 1.5 0 0 0-1.5-1.5Z" />
+            </symbol>
+            <symbol xmlns="http://www.w3.org/2000/svg" id="search" viewBox="0 0 24 24">
+                <path fill="currentColor"
+                    d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 7-7a7 7 0 0 1-7 7Z" />
+            </symbol>
+        </defs>
+    </svg>
+
+    <!-- Preloader -->
+    <div class="preloader text-white fs-6 text-uppercase overflow-hidden"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top text-uppercase fs-6 p-3 align-items-center">
+        <div class="container-fluid">
+            <div class="row justify-content-between align-items-center w-100">
+                <div class="col-auto">
+                    <a class="navbar-brand text-uppercase fs-3" href="index.html">ZenPlay</a>
+                </div>
+                <div class="col-auto">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                        aria-labelledby="offcanvasNavbarLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <ul class="navbar-nav justify-content-end flex-grow-1 gap-1 gap-md-5 pe-3">
+                                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                                <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+                                <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+                                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section position-relative py-5" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/blog-hero.jpg'); background-size: cover; background-position: center; min-height: 100vh; display: flex; align-items: center;">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="section-title text-center text-white mt-4 text-uppercase">Gaming Blog</h1>
+                    <p class="text-white-50 text-uppercase letter-spacing-2">News, Reviews & Gaming Tips</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section id="blog-content" class="blog-content py-5">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Blog Posts Grid (shop-style: 9/3 split) -->
+                <div class="col-md-9">
+                    <div class="row g-3">
+                        <!-- Post 1 -->
+                        <div class="col-md-4 col-sm-6 blog-post-col" data-category="gaming" data-title="top 10 gaming consoles of 2024">
+                            <article class="blog-card bg-white shadow-sm h-100 rounded-3 overflow-hidden">
+                                <div class="post-image">
+                                    <a href="https://www.ign.com/articles/best-gaming-consoles" target="_blank">
+                                        <img src="images/blog-post1.jpg" alt="Top Gaming Consoles" class="w-100" style="height:180px;object-fit:cover;">
+                                    </a>
+                                </div>
+                                <div class="p-3">
+                                    <span class="badge bg-dark text-uppercase mb-2 fs-7">Gaming</span>
+                                    <h6 class="post-title text-uppercase mb-2" style="font-size:0.8rem;">
+                                        <a href="https://www.ign.com/articles/best-gaming-consoles" target="_blank" class="text-decoration-none text-dark">Top 10 Gaming Consoles of 2024</a>
+                                    </h6>
+                                    <p class="text-secondary mb-2" style="font-size:0.78rem;">Best consoles with powerful performance and exclusive titles...</p>
+                                    <a href="https://www.ign.com/articles/best-gaming-consoles" target="_blank" class="btn btn-dark btn-sm text-uppercase" style="font-size:0.7rem;">Read More</a>
+                                </div>
+                            </article>
+                        </div>
+                        <!-- Post 2 -->
+                        <div class="col-md-4 col-sm-6 blog-post-col" data-category="accessories" data-title="essential gaming accessories guide">
+                            <article class="blog-card bg-white shadow-sm h-100 rounded-3 overflow-hidden">
+                                <div class="post-image">
+                                    <a href="https://www.gamespot.com/articles/best-gaming-accessories/" target="_blank">
+                                        <img src="images/blog-post2.jpg" alt="Gaming Accessories" class="w-100" style="height:180px;object-fit:cover;">
+                                    </a>
+                                </div>
+                                <div class="p-3">
+                                    <span class="badge bg-dark text-uppercase mb-2 fs-7">Accessories</span>
+                                    <h6 class="post-title text-uppercase mb-2" style="font-size:0.8rem;">
+                                        <a href="https://www.gamespot.com/articles/best-gaming-accessories/" target="_blank" class="text-decoration-none text-dark">Essential Gaming Accessories Guide</a>
+                                    </h6>
+                                    <p class="text-secondary mb-2" style="font-size:0.78rem;">Must-have accessories from keyboards to headsets...</p>
+                                    <a href="https://www.gamespot.com/articles/best-gaming-accessories/" target="_blank" class="btn btn-dark btn-sm text-uppercase" style="font-size:0.7rem;">Read More</a>
+                                </div>
+                            </article>
+                        </div>
+                        <!-- Post 3 -->
+                        <div class="col-md-4 col-sm-6 blog-post-col" data-category="setup" data-title="building the ultimate gaming setup">
+                            <article class="blog-card bg-white shadow-sm h-100 rounded-3 overflow-hidden">
+                                <div class="post-image">
+                                    <a href="https://www.ign.com/articles/best-gaming-setup" target="_blank">
+                                        <img src="images/blog-post3.jpg" alt="Gaming Setup" class="w-100" style="height:180px;object-fit:cover;">
+                                    </a>
+                                </div>
+                                <div class="p-3">
+                                    <span class="badge bg-dark text-uppercase mb-2 fs-7">Setup</span>
+                                    <h6 class="post-title text-uppercase mb-2" style="font-size:0.8rem;">
+                                        <a href="https://www.ign.com/articles/best-gaming-setup" target="_blank" class="text-decoration-none text-dark">Building the Ultimate Gaming Setup</a>
+                                    </h6>
+                                    <p class="text-secondary mb-2" style="font-size:0.78rem;">Create your dream gaming station with expert tips...</p>
+                                    <a href="https://www.ign.com/articles/best-gaming-setup" target="_blank" class="btn btn-dark btn-sm text-uppercase" style="font-size:0.7rem;">Read More</a>
+                                </div>
+                            </article>
+                        </div>
+                        <!-- Post 4 -->
+                        <div class="col-md-4 col-sm-6 blog-post-col" data-category="vr" data-title="getting started with vr gaming">
+                            <article class="blog-card bg-white shadow-sm h-100 rounded-3 overflow-hidden">
+                                <div class="post-image">
+                                    <a href="https://www.gamespot.com/articles/best-vr-games/" target="_blank">
+                                        <img src="images/blog-post4.jpg" alt="VR Gaming" class="w-100" style="height:180px;object-fit:cover;">
+                                    </a>
+                                </div>
+                                <div class="p-3">
+                                    <span class="badge bg-dark text-uppercase mb-2 fs-7">VR</span>
+                                    <h6 class="post-title text-uppercase mb-2" style="font-size:0.8rem;">
+                                        <a href="https://www.gamespot.com/articles/best-vr-games/" target="_blank" class="text-decoration-none text-dark">Getting Started with VR Gaming</a>
+                                    </h6>
+                                    <p class="text-secondary mb-2" style="font-size:0.78rem;">From headsets to the best VR titles to play...</p>
+                                    <a href="https://www.gamespot.com/articles/best-vr-games/" target="_blank" class="btn btn-dark btn-sm text-uppercase" style="font-size:0.7rem;">Read More</a>
+                                </div>
+                            </article>
+                        </div>
+                        <!-- Post 5 -->
+                        <div class="col-md-4 col-sm-6 blog-post-col" data-category="esports" data-title="competitive gaming a beginners guide">
+                            <article class="blog-card bg-white shadow-sm h-100 rounded-3 overflow-hidden">
+                                <div class="post-image">
+                                    <a href="https://www.ign.com/articles/what-is-esports" target="_blank">
+                                        <img src="images/blog-post5.jpg" alt="Esports" class="w-100" style="height:180px;object-fit:cover;">
+                                    </a>
+                                </div>
+                                <div class="p-3">
+                                    <span class="badge bg-dark text-uppercase mb-2 fs-7">Esports</span>
+                                    <h6 class="post-title text-uppercase mb-2" style="font-size:0.8rem;">
+                                        <a href="https://www.ign.com/articles/what-is-esports" target="_blank" class="text-decoration-none text-dark">Competitive Gaming: A Beginner's Guide</a>
+                                    </h6>
+                                    <p class="text-secondary mb-2" style="font-size:0.78rem;">How to get started in the world of competitive esports...</p>
+                                    <a href="https://www.ign.com/articles/what-is-esports" target="_blank" class="btn btn-dark btn-sm text-uppercase" style="font-size:0.7rem;">Read More</a>
+                                </div>
+                            </article>
+                        </div>
+                        <!-- Post 6 -->
+                        <div class="col-md-4 col-sm-6 blog-post-col" data-category="racing" data-title="racing simulators the complete guide">
+                            <article class="blog-card bg-white shadow-sm h-100 rounded-3 overflow-hidden">
+                                <div class="post-image">
+                                    <a href="https://www.gamespot.com/articles/best-racing-games/" target="_blank">
+                                        <img src="images/blog-post6.jpg" alt="Racing Simulators" class="w-100" style="height:180px;object-fit:cover;">
+                                    </a>
+                                </div>
+                                <div class="p-3">
+                                    <span class="badge bg-dark text-uppercase mb-2 fs-7">Racing</span>
+                                    <h6 class="post-title text-uppercase mb-2" style="font-size:0.8rem;">
+                                        <a href="https://www.gamespot.com/articles/best-racing-games/" target="_blank" class="text-decoration-none text-dark">Racing Simulators: The Complete Guide</a>
+                                    </h6>
+                                    <p class="text-secondary mb-2" style="font-size:0.78rem;">Wheels, pedals, and the best racing games explained...</p>
+                                    <a href="https://www.gamespot.com/articles/best-racing-games/" target="_blank" class="btn btn-dark btn-sm text-uppercase" style="font-size:0.7rem;">Read More</a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="col-md-3">
+                    <div class="sidebar">
+                        <!-- Search Widget -->
+                        <div class="widget">
+                            <h5 class="widget-title text-uppercase">Search</h5>
+                            <form class="d-flex" id="blog-search-form" onsubmit="return false;">
+                                <input type="text" id="blog-search-input" class="form-control" placeholder="Search articles..." autocomplete="off">
+                                <button class="btn btn-dark ms-2" type="button" onclick="blogSearch()">Go</button>
+                            </form>
+                            <div id="no-results" class="text-secondary small mt-2" style="display:none;">No articles found.</div>
+                        </div>
+
+                        <!-- Categories Widget -->
+                        <div class="widget">
+                            <h5 class="widget-title text-uppercase">Categories</h5>
+                            <ul class="list-unstyled" id="blog-categories">
+                                <li class="mb-2 d-flex justify-content-between">
+                                    <a href="#" class="text-decoration-none text-secondary blog-cat-link active-cat" data-filter="all">All Posts</a>
+                                    <span class="text-secondary">(6)</span>
+                                </li>
+                                <li class="mb-2 d-flex justify-content-between">
+                                    <a href="#" class="text-decoration-none text-secondary blog-cat-link" data-filter="gaming">Gaming</a>
+                                    <span class="text-secondary">(1)</span>
+                                </li>
+                                <li class="mb-2 d-flex justify-content-between">
+                                    <a href="#" class="text-decoration-none text-secondary blog-cat-link" data-filter="accessories">Accessories</a>
+                                    <span class="text-secondary">(1)</span>
+                                </li>
+                                <li class="mb-2 d-flex justify-content-between">
+                                    <a href="#" class="text-decoration-none text-secondary blog-cat-link" data-filter="setup">Setup</a>
+                                    <span class="text-secondary">(1)</span>
+                                </li>
+                                <li class="mb-2 d-flex justify-content-between">
+                                    <a href="#" class="text-decoration-none text-secondary blog-cat-link" data-filter="vr">VR Gaming</a>
+                                    <span class="text-secondary">(1)</span>
+                                </li>
+                                <li class="mb-2 d-flex justify-content-between">
+                                    <a href="#" class="text-decoration-none text-secondary blog-cat-link" data-filter="esports">Esports</a>
+                                    <span class="text-secondary">(1)</span>
+                                </li>
+                                <li class="mb-2 d-flex justify-content-between">
+                                    <a href="#" class="text-decoration-none text-secondary blog-cat-link" data-filter="racing">Racing</a>
+                                    <span class="text-secondary">(1)</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Recent Posts Widget -->
+                        <div class="widget">
+                            <h5 class="widget-title text-uppercase">Recent Posts</h5>
+                            <div class="d-flex mb-3">
+                                <img src="images/blog-sidebar1.jpg" alt="PS5 Games" class="me-3 rounded"
+                                    style="width: 80px; height: 60px; object-fit: cover;">
+                                <div>
+                                    <h6 class="mb-1"><a href="https://www.ign.com/articles/best-ps5-games" target="_blank" class="text-decoration-none">Best PS5 Games of 2024</a></h6>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <img src="images/blog-sidebar2.jpg" alt="Controllers" class="me-3 rounded"
+                                    style="width: 80px; height: 60px; object-fit: cover;">
+                                <div>
+                                    <h6 class="mb-1"><a href="https://www.gamespot.com/articles/best-ps5-controllers/" target="_blank" class="text-decoration-none">Controller Buying Guide</a></h6>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <img src="images/blog-sidebar3.jpg" alt="Headsets" class="me-3 rounded"
+                                    style="width: 80px; height: 60px; object-fit: cover;">
+                                <div>
+                                    <h6 class="mb-1"><a href="https://www.ign.com/articles/best-gaming-headsets" target="_blank" class="text-decoration-none">Gaming Headset Comparison</a></h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tags Widget -->
+                        <div class="widget">
+                            <h5 class="widget-title text-uppercase">Tags</h5>
+                            <div class="tag-cloud">
+                                <a href="#" class="tag blog-tag-link" data-filter="gaming">Gaming</a>
+                                <a href="#" class="tag blog-tag-link" data-filter="accessories">Accessories</a>
+                                <a href="#" class="tag blog-tag-link" data-filter="vr">VR</a>
+                                <a href="#" class="tag blog-tag-link" data-filter="esports">Esports</a>
+                                <a href="#" class="tag blog-tag-link" data-filter="racing">Racing</a>
+                                <a href="#" class="tag blog-tag-link" data-filter="setup">Setup</a>
+                                <a href="#" class="tag blog-tag-link" data-filter="all">All</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter bg-light zenplay-brand-pattern">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 py-5 my-5">
+                    <div class="subscribe-header text-center pb-3">
+                        <h3 class="section-title text-uppercase">Connect with ZenPlay</h3>
+                        <a href="https://www.instagram.com/zenplaygamingke?igsh=MXhoaDJiaTgzajBseQ==" target="_blank"
+                            class="btn btn-dark px-5 mt-3">Follow us on Instagram</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <!-- Creative Footer Section -->
+    <footer id="site-footer" class="site-footer pt-5 pb-4 mt-5">
+        <div class="container">
+            <div class="row g-4 py-5">
+                <!-- Brand & About -->
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <div class="footer-brand-info">
+                        <div class="footer-logo mb-4">
+                            <img src="images/zenplay-footer-logo.jpg" alt="ZenPlay Gaming Logo" class="img-fluid"
+                                style="max-height: 60px;">
+                        </div>
+                        <p class="brand-desc text-secondary mb-4">
+                            Your ultimate destination for premium gaming excellence. Experience high-end consoles, elite
+                            gear, and a
+                            vibrant community environment across our professional gaming lounges.
+                        </p>
+                        <div class="social-links-creative">
+                            <ul class="list-unstyled d-flex gap-3 m-0">
+                                <li><a href="https://x.com/zenplaygamingke" target="_blank"
+                                        class="social-icon-link"><svg width="20" height="20">
+                                            <use xlink:href="#x-twitter"></use>
+                                        </svg></a></li>
+                                <li><a href="https://wa.link/s3adrp" target="_blank" class="social-icon-link"><svg
+                                            width="20" height="20">
+                                            <use xlink:href="#whatsapp"></use>
+                                        </svg></a></li>
+                                <li><a href="https://www.instagram.com/zenplaygamingke?igsh=MXhoaDJiaTgzajBseQ=="
+                                        target="_blank" class="social-icon-link"><svg width="20" height="20">
+                                            <use xlink:href="#instagram"></use>
+                                        </svg></a></li>
+                                <li><a href="https://www.tiktok.com/@zenplaygamingke?is_from_webapp=1&sender_device=pc"
+                                        target="_blank" class="social-icon-link"><svg width="20" height="20">
+                                            <use xlink:href="#tiktok"></use>
+                                        </svg></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Explore -->
+                <div class="col-lg-2 col-md-3 col-6">
+                    <div class="footer-widget">
+                        <h5 class="creative-title mb-4">Explore</h5>
+                        <ul class="footer-menu-links list-unstyled text-uppercase">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">Our Story</a></li>
+                            <li><a href="shop.html">The Shop</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Help Hub -->
+                <div class="col-lg-2 col-md-3 col-6">
+                    <div class="footer-widget">
+                        <h5 class="creative-title mb-4">Support</h5>
+                        <ul class="support-links list-unstyled text-uppercase">
+                            <li>Tech Support</li>
+                            <li>Installation</li>
+                            <li>User Guide</li>
+                            <li>Troubleshooting</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Visit Us (Creative Location Info) -->
+                <div class="col-lg-4 col-md-12">
+                    <div class="footer-widget location-widget">
+                        <h5 class="creative-title mb-4">Our Locations</h5>
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <a href="https://maps.app.goo.gl/hnquw12qiZFu4kPx9" target="_blank"
+                                    class="text-decoration-none">
+                                    <div class="location-card p-3 rounded h-100">
+                                        <h6 class="text-white small text-uppercase mb-2">MAKUTANO</h6>
+                                        <p class="text-secondary small m-0">Sayen Makutano<br>Meru, Kenya</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="https://maps.app.goo.gl/bENSeicoa7fBf5Kw5" target="_blank"
+                                    class="text-decoration-none">
+                                    <div class="location-card p-3 rounded h-100">
+                                        <h6 class="text-white small text-uppercase mb-2">GITIMBINE</h6>
+                                        <p class="text-secondary small m-0">Selenite Mall<br>Meru, Kenya</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="contact-info-footer mt-4">
+                            <p class="small text-secondary mb-1">Owner: <strong class="text-white">Fridah
+                                    Kirima</strong></p>
+                            <p class="small text-secondary m-0">Email: <a href="mailto:zenplaygamingke@gmail.com"
+                                    class="text-decoration-none text-primary">zenplaygamingke@gmail.com</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom Bar -->
+            <div class="footer-bottom border-top border-secondary-subtle pt-4 mt-4">
+                <div class="row align-items-center">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <p class="copyright-text small text-secondary m-0">
+                            © 2026 <strong class="text-white">ZenPlay Gaming</strong>. All Rights Reserved.
+                        </p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <p class="developer-credit small text-secondary m-0">
+                            This website was developed by <a href="#"
+                                class="text-primary text-decoration-none fw-bold">JEAN MUTAKHA</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/SmoothScroll.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="js/script.min.js"></script>
+    <script src="js/cart.js"></script>
+
+    <!-- Blog Search & Filter -->
+    <script>
+      (function () {
+        var posts = document.querySelectorAll('.blog-post-col');
+        var noResults = document.getElementById('no-results');
+
+        function showAll() {
+          posts.forEach(function (p) { p.style.display = ''; });
+        }
+
+        function filterByCategory(cat) {
+          var visible = 0;
+          posts.forEach(function (p) {
+            if (cat === 'all' || p.dataset.category === cat) {
+              p.style.display = '';
+              visible++;
+            } else {
+              p.style.display = 'none';
+            }
+          });
+          noResults.style.display = visible === 0 ? '' : 'none';
+        }
+
+        // Category sidebar links
+        document.querySelectorAll('.blog-cat-link').forEach(function (link) {
+          link.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelectorAll('.blog-cat-link').forEach(function (l) {
+              l.classList.remove('active-cat');
+            });
+            this.classList.add('active-cat');
+            // clear search
+            document.getElementById('blog-search-input').value = '';
+            filterByCategory(this.dataset.filter);
+          });
+        });
+
+        // Tag cloud links
+        document.querySelectorAll('.blog-tag-link').forEach(function (tag) {
+          tag.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelectorAll('.blog-cat-link').forEach(function (l) {
+              l.classList.remove('active-cat');
+              if (l.dataset.filter === tag.dataset.filter) l.classList.add('active-cat');
+            });
+            document.getElementById('blog-search-input').value = '';
+            filterByCategory(this.dataset.filter);
+          });
+        });
+
+        // Live search
+        window.blogSearch = function () {
+          var q = document.getElementById('blog-search-input').value.trim().toLowerCase();
+          if (!q) { showAll(); noResults.style.display = 'none'; return; }
+          // Reset category active state
+          document.querySelectorAll('.blog-cat-link').forEach(function (l) { l.classList.remove('active-cat'); });
+          var visible = 0;
+          posts.forEach(function (p) {
+            var title = p.dataset.title || '';
+            var cat = p.dataset.category || '';
+            if (title.includes(q) || cat.includes(q)) {
+              p.style.display = '';
+              visible++;
+            } else {
+              p.style.display = 'none';
+            }
+          });
+          noResults.style.display = visible === 0 ? '' : 'none';
+        };
+
+        // Trigger search on Enter key
+        document.getElementById('blog-search-input').addEventListener('keyup', function (e) {
+          if (e.key === 'Enter') window.blogSearch();
+          // live-as-you-type
+          window.blogSearch();
+        });
+      })();
+    </script>
+</body>
+
+</html>
