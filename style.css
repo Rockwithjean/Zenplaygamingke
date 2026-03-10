@@ -2307,8 +2307,6 @@ a.btn-link.text-light:after {
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-}
-
 
 /* ============================================
    Blog Overlay Cards
@@ -2591,5 +2589,54 @@ a.btn-link.text-light:after {
 
 .gallery-item:hover .gallery-overlay {
   opacity: 1;
+}
+
+/* UI/UX REFINEMENTS - 2026 GAMING THeME */
+
+/* 1. RGB Glow Effects */
+.btn-primary:hover,
+.btn-dark:hover {
+  box-shadow: 0 0 15px rgba(140, 144, 126, 0.6);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+.product-item:hover,
+.blog-card:hover,
+.gallery-item:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 255, 255, 0.1);
+  transform: translateY(-5px);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* 2. Scroll Reveal Animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 3. Accessibility - Focus States */
+a:focus,
+button:focus,
+.btn:focus {
+  outline: 2px solid #8c907e !important;
+  outline-offset: 3px;
+  box-shadow: 0 0 10px rgba(140, 144, 126, 0.4) !important;
+}
+
+/* 4. Smooth Image Transitions */
+img {
+  transition: filter 0.3s ease;
+}
+
+.product-item:hover img,
+.blog-card:hover img {
+  filter: brightness(1.1);
 }
 
