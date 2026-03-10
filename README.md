@@ -1,50 +1,54 @@
-# ZenPlay Gaming KE 🎮
+# ZenPlay Gaming Lounge
 
-Welcome to the **ZenPlay Gaming KE** website repository. ZenPlay is Meru's premier gaming lounge and shop, equipped with the latest consoles, VR headsets, professional racing simulators, and premium gaming gear and accessories.
+ZenPlay Gaming Lounge is the premier destination for high-end gaming and esports in Meru, Kenya. This repository contains the official website for the business, serving as a digital hub for gaming enthusiasts, a storefront for premium gear, and a platform for community updates.
 
-🌐 **Website Repo:** [https://github.com/Rockwithjean/Zenplaygamingke](https://github.com/Rockwithjean/Zenplaygamingke)
+## Live Website
+The website is live and accessible at: [https://zenplaygaming.co.ke/](https://zenplaygaming.co.ke/)
 
-## ✨ Core Features
+## Core Features
 
-- **Dynamic Shop Filtering:** Isotope-powered dynamic grid sorting for gaming consoles, controllers, VR, and accessories.
-- **Interactive Gaming Blog:** Live search and category/tag filtering using vanilla JavaScript. Instant feedback as you type or click tag bubbles.
-- **Responsive Layout:** Beautiful, fluid, mobile-first design leveraging Bootstrap grids and modern UI transitions.
-- **Optimized SEO:** Complete Open Graph & Twitter Cards integration for vibrant social sharing links (WhatsApp, X, Facebook, Instagram) with canonical URLs per page to prevent duplicate content formatting.
-- **Interactive UI Components:** Smooth Swiper carousels for the Hero section, Testimonials, Best Sellers, and the "Meet Our Team" section.
+- **Dynamic Shop Filtering**: Automated categorization and sorting for gaming consoles, controllers, VR hardware, and accessories.
+- **Interactive Gaming Blog**: Integrated search and category-based filtering for the latest industry news and community updates.
+- **Responsive Architecture**: Mobile-first design optimized for all devices, ensuring a seamless user experience.
+- **Advanced SEO Integration**: Comprehensive implementation of JSON-LD schema, Open Graph protocols, and canonical URL management for optimal search engine visibility.
+- **Interactive Components**: High-performance carousels and smooth transitions for a modern, premium aesthetic.
 
-## 🛠️ Tech Stack & Technologies Used
+## Technology Stack
 
-- **HTML5 & CSS3** - Foundation and styling with smooth hover states, responsive backgrounds, and CSS variables.
-- **Bootstrap 5 & Vanilla JS** - Core grid layouts, custom client-side filtering algorithms, and interactive Offcanvas menus.
-- **Swiper.js** - Premium mobile touch-friendly carousels.
-- **Isotope.js** - Dynamic layout filtering (Masonry-style animated reordering) in the Shop section.
+- **Frontend**: HTML5, CSS3, and JavaScript.
+- **Frameworks**: bootstrap 5 for responsive layout and grid systems.
+- **Libraries**: Isotope.js for dynamic filtering, Swiper.js for interactive carousels.
+- **SEO**: JSON-LD (Schema.org) for Local Business and Gaming Lounge synchronization.
 
-## 🗂️ Project Directory Structure
+## Directory Structure
 
 ```text
 ZENPLAY WEBSITE/
-│
-├── index.html        # Main landing page & hero sections
-├── about.html        # The ZenPlay story & team profiles
-├── shop.html         # Live storefront with category filters
-├── blog.html         # Gaming articles with live Search & Tags
-├── contact.html      # Locations, map integration, and contact forms
-│
-├── style.css         # Main stylesheet with branding and layout themes
-│
-├── css/              # External CSS assets (Bootstrap vendor, etc.)
-├── js/               # JavaScript files (minified core script)
-├── images/           # Compressed website imagery, banners, & team portraits
-└── fonts/            # Local web-font configurations
+├── index.html        # Homepage and primary service overview
+├── about.html        # Company history and team profiles
+├── shop.html         # Interactive product catalog
+├── blog.html         # News and community articles
+├── contact.html      # Locations and contact protocols
+├── style.css         # Main design system and branding
+├── css/              # Visual assets and style dependencies
+├── js/               # Core logic and interactivity scripts
+├── images/           # Optimized photography and brand assets
+└── fonts/            # Typography configurations
 ```
 
-## 🎮 Locations
+## Branch Locations
 
 1. **Sayen Makutano, Meru**
 2. **Selenite Mall Gitimbine, Meru**
 
+## Social Media and Contact
 
+- **Instagram**: [https://www.instagram.com/zenplaygamingke](https://www.instagram.com/zenplaygamingke)
+- **TikTok**: [https://www.tiktok.com/@zenplaygamingke](https://www.tiktok.com/@zenplaygamingke)
+- **WhatsApp**: [https://wa.link/s3adrp](https://wa.link/s3adrp)
+- **X (Twitter)**: [https://x.com/zenplaygamingke](https://x.com/zenplaygamingke)
+- **Email**: zenplaygamingke@gmail.com
 
 ---
 
-_Built with passion by the ZenPlay Gaming community._
+Developed for ZenPlay Gaming Lounge.
