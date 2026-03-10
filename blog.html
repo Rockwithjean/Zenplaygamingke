@@ -2,175 +2,101 @@
 <html lang="en">
 
 <head>
-    <!-- Head Section -->
-    <title>Gaming Blog | ZenPlay Gaming Lounge - Esports Kenya & Gaming News</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="author" content="ZenPlay Gaming Lounge">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="author" content="ZenPlay Gaming Lounge">
 
-    <link rel="canonical" href="https://zenplaygaming.co.ke/blog.html" />
+  <title>Gaming Blog | ZenPlay Gaming Lounge - Esports Kenya & Gaming News</title>
+  <link rel="canonical" href="https://zenplaygaming.co.ke/blog.html" />
 
-    <meta name="description" content="Stay updated with the latest in Esports Kenya, gaming reviews, and community news from ZenPlay Gaming Lounge, Meru's top choice for gamers.">
-    <meta name="keywords" content="ZenPlay blog, gaming news Kenya, esports Meru, gaming community events Meru">
+  <meta name="description" content="Stay updated with the latest in Esports Kenya, gaming reviews, and community news from ZenPlay Gaming Lounge, Meru's top choice for gamers.">
+  <meta name="keywords" content="ZenPlay blog, gaming news Kenya, esports Meru, gaming community events Meru">
 
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Gaming Blog | ZenPlay Gaming KE - Latest News & Community Stories">
-    <meta property="og:description" content="Stay updated with ZenPlay Gaming KE — Meru's hub for gaming news, reviews, and community stories.">
-    <meta property="og:image" content="https://zenplaygaming.co.ke/images/zenplay-footer-logo.jpg">
-    <meta property="og:url" content="https://zenplaygaming.co.ke/blog.html">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="ZenPlay Gaming Lounge">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
 
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@zenplaygamingke">
-    <meta name="twitter:title" content="Gaming Blog | ZenPlay Gaming KE - Latest News & Community Stories">
-    <meta name="twitter:description" content="Stay updated with ZenPlay Gaming KE — Meru's hub for gaming news, reviews, and community stories.">
-    <meta name="twitter:image" content="https://zenplaygaming.co.ke/images/zenplay-footer-logo.jpg">
+  <link rel="preload" as="image" href="images/blog_background.jpg">
 
-    <link rel="icon" type="image/jpg" href="images/zenplay-footer-logo.jpg" sizes="32x32">
-    <link rel="shortcut icon" href="images/zenplay-footer-logo.jpg">
-    <link rel="apple-touch-icon" href="images/zenplay-footer-logo.jpg">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/vendor.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Marcellus&display=swap"
-        rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="style.css">
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "GamingLounge",
+  <link rel="stylesheet" type="text/css" href="css/vendor.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" media="print" onload="this.media='all'" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700&family=Marcellus&display=swap" rel="stylesheet">
+
+  <meta property="og:title" content="Gaming Blog | ZenPlay Gaming KE - Latest News & Community Stories">
+  <meta property="og:description" content="Stay updated with ZenPlay Gaming KE — Meru's hub for gaming news, reviews, and community stories.">
+  <meta property="og:image" content="https://zenplaygaming.co.ke/images/zenplay-footer-logo.jpg">
+  <meta property="og:url" content="https://zenplaygaming.co.ke/blog.html">
+  <meta property="og:type" content="article"> <meta property="og:site_name" content="ZenPlay Gaming Lounge">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://zenplaygaming.co.ke/images/zenplay-footer-logo.jpg">
+
+  <link rel="icon" type="image/jpg" href="images/zenplay-footer-logo.jpg" sizes="32x32">
+  <link rel="apple-touch-icon" href="images/zenplay-footer-logo.jpg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "ZenPlay Gaming Blog",
+    "description": "Latest Esports and Gaming news in Meru, Kenya.",
+    "publisher": {
+      "@type": "Organization",
       "name": "ZenPlay Gaming Lounge",
-      "url": "https://zenplaygaming.co.ke/blog.html",
-      "logo": "https://zenplaygaming.co.ke/images/zenplay-footer-logo.jpg",
-      "description": "Gaming Blog and News from ZenPlay Gaming Lounge.",
-      "telephone": "+254717498146",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Meru",
-        "addressCountry": "KE"
-      },
-      "sameAs": [
-        "https://www.instagram.com/zenplaygamingke",
-        "https://www.tiktok.com/@zenplaygamingke",
-        "https://wa.link/s3adrp"
-      ]
+      "logo": "https://zenplaygaming.co.ke/images/zenplay-footer-logo.jpg"
+    },
+    "url": "https://zenplaygaming.co.ke/blog.html"
+  }
+  </script>
+
+  <style>
+    .hero-section {
+      background-image: url('images/blog_background.jpg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 !important;
     }
-    </script>
-    <style>
-        .hero-section {
-            background-image: url('images/blog_background.jpg');
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            color: #fff;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0 !important;
-        }
-
-        .hero-section::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 1;
-        }
-
-        .hero-section .container {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-section .section-title {
-            color: #fff;
-        }
-
-        .hero-section .text-secondary {
-            color: rgba(255, 255, 255, 0.8) !important;
-        }
-
-        .hero-section::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 150px;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
-            z-index: 1;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        .blog-card {
-            border: none;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            overflow: hidden;
-        }
-
-        .blog-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .blog-card .post-image img {
-            transition: transform 0.5s ease;
-        }
-
-        .blog-card:hover .post-image img {
-            transform: scale(1.05);
-        }
-
-        .blog-card .post-image {
-            overflow: hidden;
-        }
-
-        .sidebar .widget {
-            margin-bottom: 2rem;
-        }
-
-        .sidebar .widget-title {
-            border-bottom: 2px solid var(--bs-primary);
-            padding-bottom: 0.75rem;
-            margin-bottom: 1rem;
-        }
-
-        .tag-cloud .tag {
-            display: inline-block;
-            padding: 0.35rem 0.85rem;
-            border: 1px solid #ddd;
-            margin: 0.25rem;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            text-decoration: none;
-            color: var(--bs-gray-dark);
-            transition: all 0.3s ease;
-        }
-
-        .tag-cloud .tag:hover {
-            background: var(--bs-primary);
-            border-color: var(--bs-primary);
-            color: #fff;
-        }
-    </style>
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+    .hero-section .container { position: relative; z-index: 2; }
+    .hero-section .section-title { color: #fff; }
+    .hero-section .text-secondary { color: rgba(255, 255, 255, 0.8) !important; }
+    .hero-section::after {
+      content: "";
+      position: absolute;
+      bottom: 0; left: 0; width: 100%; height: 150px;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+      z-index: 1;
+    }
+    html { scroll-behavior: smooth; }
+    .blog-card { border: none; transition: transform 0.3s ease, box-shadow 0.3s ease; overflow: hidden; }
+    .blog-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+    .blog-card .post-image img { transition: transform 0.5s ease; }
+    .blog-card:hover .post-image img { transform: scale(1.05); }
+    .sidebar .widget { margin-bottom: 2rem; }
+    .sidebar .widget-title { border-bottom: 2px solid var(--bs-primary); padding-bottom: 0.75rem; margin-bottom: 1rem; }
+    .tag-cloud .tag { display: inline-block; padding: 0.35rem 0.85rem; border: 1px solid #ddd; margin: 0.25rem; font-size: 0.85rem; text-transform: uppercase; text-decoration: none; color: #333; transition: all 0.3s ease; }
+    .tag-cloud .tag:hover { background: #ff4500; border-color: #ff4500; color: #fff; }
+  </style>
 </head>
-
 <body class="blog-page">
     <!-- SVG Symbol Definitions -->
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
