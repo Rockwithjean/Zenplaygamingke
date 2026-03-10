@@ -22,8 +22,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const revealElements = document.querySelectorAll('.reveal');
     revealElements.forEach(el => revealObserver.observe(el));
 
-    // 2. Dynamic RGB Glow for interactive elements (optional JS enhancement)
-    // We already handled basic glows in CSS, but we could add mouse-following glows here if requested.
-    
+    // 2. Navbar Scroll Effect (Immediate visibility on scroll)
+    const navbar = document.querySelector('.navbar.fixed-top');
+    if (navbar) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-black');
+            } else {
+                navbar.classList.remove('bg-black');
+            }
+        });
+    }
+
     console.log('ZenPlay UI Refinements Loaded.');
 });
