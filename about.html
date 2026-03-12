@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="format-detection" content="telephone=no">
-  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="author" content="ZenPlay Gaming Lounge">
 
   <title>About ZenPlay Gaming Lounge | Meru's Premier Gaming & Esports Hub</title>
@@ -19,8 +19,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
 
-  <link rel="preload" as="image" href="images/instapost6.jpg">
-  <link rel="preload" as="image" href="images/aboutus3.jpg">
+  <link rel="preload" as="image" href="images/instapost6.webp">
+  <link rel="preload" as="image" href="images/aboutus3.webp">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="style.css">
@@ -32,12 +32,12 @@
 
   <meta property="og:title" content="About Us | ZenPlay Gaming KE - Our Story & Gaming Lounge in Meru">
   <meta property="og:description" content="Discover the story behind ZenPlay Gaming KE — Meru's premier gaming lounge.">
-  <meta property="og:image" content="https://zenplaygaming.co.ke/images/zenplay-footer-logo.jpg">
+  <meta property="og:image" content="https://zenplaygaming.co.ke/images/zenplay-footer-logo.webp">
   <meta property="og:url" content="https://zenplaygaming.co.ke/about.html">
   <meta property="og:type" content="website">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://zenplaygaming.co.ke/images/zenplay-footer-logo.jpg">
+  <meta name="twitter:image" content="https://zenplaygaming.co.ke/images/zenplay-footer-logo.webp">
 
   <script type="application/ld+json">
   {
@@ -59,7 +59,7 @@
 
   <style>
     .hero-section {
-      background-image: url('images/instapost6.jpg');
+      background-image: url('images/instapost6.webp');
       background-size: cover;
       background-position: center;
       position: relative;
@@ -75,7 +75,7 @@
       content: "";
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
-      background-image: url('images/aboutus3.jpg');
+      background-image: url('images/aboutus3.webp');
       background-size: cover;
       background-position: center;
       animation: bg-fade 10s infinite alternate;
@@ -110,6 +110,7 @@
     .swiper-slide-active .team-card { transform: scale(1); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); }
     @media (min-width: 992px) { .swiper-slide:nth-child(even) { margin-top: 3rem; } }
     .team-member-image { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 8px; margin-bottom: 1.5rem; }
+    .team-member-image.contain-image { object-fit: contain; background: #f9f9f9; }
     .team-member-name { font-family: var(--heading-font); text-transform: uppercase; font-weight: 700; margin-bottom: 0.25rem; letter-spacing: 1px; font-size: 1.1rem; }
     .team-member-role { font-size: 0.8rem; text-transform: uppercase; color: var(--bs-primary); letter-spacing: 2px; }
   </style>
@@ -196,7 +197,7 @@
             <div class="row justify-content-between align-items-center w-100">
 
                 <div class="col-auto">
-                    <a class="navbar-brand" href="/"><img src="images/nzlogo.png" alt="ZenPlay Gaming Lounge" style="max-height: 220px; width: auto; margin-top: -75px; margin-bottom: -75px;"></a>
+                    <a class="navbar-brand" href="/"><img src="images/nzlogo.webp" alt="ZenPlay Gaming Lounge" style="max-height: 220px; width: auto; margin-top: -75px; margin-bottom: -75px;"></a>
                 </div>
 
                 <div class="col-auto">
@@ -337,42 +338,52 @@
             <div class="row mb-5 justify-content-center">
                 <div class="col-12 text-center">
                     <div class="team-card p-0 overflow-hidden" style="max-width: 1100px; margin: 0 auto;">
-                        <img src="images/allteammembers.JPG" alt="ZenPlay Team Group" class="img-fluid rounded" style="width: 100%; height: auto; display: block;">
+                        <img src="images/allteammembers.webp" alt="ZenPlay Team Group" class="img-fluid rounded" style="width: 100%; height: auto; display: block;" loading="lazy">
                     </div>
                 </div>
             </div>
             <!-- Swiper -->
             <div class="swiper team-swiper">
-                <div class="swiper-wrapper justify-content-center">
+                <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class="team-card">
-                            <img src="images/aboutuspic1.jpg" alt="Derrick & Shaban" class="team-member-image">
+                            <img src="images/aboutuspic1.webp" alt="Derrick & Shaban" class="team-member-image" loading="lazy">
                             <h5 class="team-member-name">Derrick & Shaban</h5>
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div class="team-card">
-                            <img src="images/Bettypic.JPG" alt="Betty" class="team-member-image">
+                            <img src="images/Bettypic.webp" alt="Betty" class="team-member-image rotate-270 contain-image" loading="lazy">
                             <h5 class="team-member-name">Betty</h5>
                         </div>
                     </div>
 
                     <div class="swiper-slide">
                         <div class="team-card">
-                            <img src="images/fridah and Derrick .jpeg" alt="Fridah & Derrick" class="team-member-image">
+                            <img src="images/fridah and Derrick .webp" alt="Fridah & Derrick" class="team-member-image" loading="lazy">
                             <h5 class="team-member-name">Fridah & Derrick</h5>
                         </div>
                     </div>
 
                     <div class="swiper-slide">
                         <div class="team-card">
-                            <img src="images/alex,bethandbrian.JPG" alt="Alex, Beth & Brian" class="team-member-image">
+                            <img src="images/alex,beth and brian.webp" alt="Alex, Beth & Brian" class="team-member-image" loading="lazy">
                             <h5 class="team-member-name">Alex, Beth & Brian</h5>
                         </div>
                     </div>
 
+                    <div class="swiper-slide">
+                        <div class="team-card">
+                            <img src="images/fridah and jean.webp" alt="Fridah & Jean" class="team-member-image" loading="lazy">
+                            <h5 class="team-member-name">Fridah & Jean</h5>
+                        </div>
+                    </div>
+
                 </div>
-                <!-- Add Pagination -->
+                <!-- Navigation -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <!-- Pagination -->
                 <div class="swiper-pagination mt-5"></div>
             </div>
         </div>
@@ -411,7 +422,7 @@
     </section>
 
     <!-- Why Choose Us Section -->
-    <section class="why-us py-5 bg-light responsive-bg-section reveal" style="--bg-image: url('images/racing-simulator.jpeg');">
+    <section class="why-us py-5 bg-light responsive-bg-section reveal" style="--bg-image: url('images/racing-simulator.webp');">
         <div class="responsive-bg-overlay d-md-none"></div>
         <div class="container position-relative" style="z-index: 2;">
             <div class="row align-items-center g-5">
@@ -439,7 +450,7 @@
                 </div>
                 <div class="col-md-6 d-none d-md-block">
                     <div class="image-holder">
-                        <img src="images/racing-simulator.jpeg" alt="Racing Simulator" class="img-fluid">
+                        <img src="images/racing-simulator.webp" alt="Racing Simulator" class="img-fluid" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -470,7 +481,7 @@
                 <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
                     <div class="footer-brand-info">
                         <div class="footer-logo mb-4">
-                            <img src="images/newzenplaylogo.jpg" alt="ZenPlay Gaming Logo" class="img-fluid"
+                            <img src="images/newzenplaylogo.webp" alt="ZenPlay Gaming Logo" class="img-fluid"
                                 style="max-height: 80px; width: auto;">
                         </div>
                         <p class="brand-desc text-secondary mb-4">
@@ -581,28 +592,32 @@
     <!-- Scripts -->
     <script src="js/jquery.min.js"></script>
     <script src="js/plugins.js"></script>
-    <script src="js/SmoothScroll.js"></script>
+    <script src="js/SmoothScroll.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script src="js/script.min.js"></script>
+    <script src="js/script.min.js" defer></script>
     <script>
         $(document).ready(function () {
             // Team Swiper Initialization
             var teamSwiper = new Swiper(".team-swiper", {
-                slidesPerView: 1.5,
+                slidesPerView: 1.2,
                 spaceBetween: 20,
                 centeredSlides: true,
                 loop: true,
-                speed: 1500,
+                speed: 1000,
                 autoplay: {
-                    delay: 5000,
+                    delay: 4000,
                     disableOnInteraction: false,
                 },
                 pagination: {
                     el: ".swiper-pagination",
                     clickable: true,
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
                 },
                 breakpoints: {
                     768: {
@@ -610,7 +625,7 @@
                         spaceBetween: 30,
                     },
                     1024: {
-                        slidesPerView: 3.5,
+                        slidesPerView: 3,
                         spaceBetween: 40,
                         centeredSlides: false,
                     },
@@ -623,7 +638,7 @@
             });
         });
     </script>
-    <script src="js/ui-refinements.js"></script>
+    <script src="js/ui-refinements.js" defer></script>
 </body>
 
 </html>
