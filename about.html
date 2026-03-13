@@ -35,25 +35,51 @@
   <meta property="og:image" content="https://zenplaygaming.co.ke/images/zenplay-footer-logo.webp">
   <meta property="og:url" content="https://zenplaygaming.co.ke/about.html">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ZenPlay Gaming Lounge">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://zenplaygaming.co.ke/images/zenplay-footer-logo.webp">
 
+  <link rel="icon" type="image/png" href="images/favicon.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="images/favicon.png">
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "AboutPage",
-    "mainEntity": {
-      "@type": "GamingLounge",
-      "name": "ZenPlay Gaming Lounge",
-      "description": "Leading gaming lounge and esports hub in Meru, Kenya.",
-      "telephone": "+254717498146",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Meru",
-        "addressCountry": "KE"
+    "@graph": [
+      {
+        "@type": "AboutPage",
+        "mainEntity": {
+          "@type": "LocalBusiness",
+          "name": "ZenPlay Gaming Lounge",
+          "description": "Leading gaming lounge and esports hub in Meru, Kenya.",
+          "telephone": "+254717498146",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Meru",
+            "addressRegion": "Meru County",
+            "addressCountry": "KE"
+          }
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://zenplaygaming.co.ke/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "About",
+            "item": "https://zenplaygaming.co.ke/about.html"
+          }
+        ]
       }
-    }
+    ]
   }
   </script>
 
@@ -242,6 +268,8 @@
         </div>
     </nav>
 
+    <main>
+
     <!-- Hero Section -->
     <section class="hero-section position-relative">
         <div class="hero-overlay"></div>
@@ -277,7 +305,7 @@
       </div>
       <div class="row">
         <div class="col-md-3 text-center" data-aos="fade-in" data-aos-delay="0">
-          <a href="https://wa.link/s3adrp" target="_blank" class="text-decoration-none text-reset d-block">
+          <a href="https://wa.link/s3adrp" target="_blank" rel="noopener" class="text-decoration-none text-reset d-block">
             <div class="py-5">
               <svg width="38" height="38" viewBox="0 0 24 24">
                 <use xlink:href="#calendar"></use>
@@ -465,12 +493,14 @@
                     <div class="subscribe-header text-center pb-3">
                         <h3 class="section-title text-uppercase">Connect with ZenPlay</h3>
                         <a href="https://www.instagram.com/zenplaygamingke?igsh=MXhoaDJiaTgzajBseQ==" target="_blank"
-                            class="btn btn-dark px-5 mt-3">Follow us on Instagram</a>
+                            class="btn btn-dark px-5 mt-3" rel="noopener">Follow us on Instagram</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    </main>
 
     <!-- Footer Section -->
     <!-- Creative Footer Section -->
@@ -491,20 +521,20 @@
                         </p>
                         <div class="social-links-creative">
                             <ul class="list-unstyled d-flex gap-3 m-0">
-                                <li><a href="https://x.com/zenplaygamingke" target="_blank"
+                                <li><a href="https://x.com/zenplaygamingke" target="_blank" rel="noopener"
                                         class="social-icon-link"><svg width="20" height="20">
                                             <use xlink:href="#x-twitter"></use>
                                         </svg></a></li>
-                                <li><a href="https://wa.link/s3adrp" target="_blank" class="social-icon-link"><svg
+                                <li><a href="https://wa.link/s3adrp" target="_blank" rel="noopener" class="social-icon-link"><svg
                                             width="20" height="20">
                                             <use xlink:href="#whatsapp"></use>
                                         </svg></a></li>
                                 <li><a href="https://www.instagram.com/zenplaygamingke?igsh=MXhoaDJiaTgzajBseQ=="
-                                        target="_blank" class="social-icon-link"><svg width="20" height="20">
+                                        target="_blank" rel="noopener" class="social-icon-link"><svg width="20" height="20">
                                             <use xlink:href="#instagram"></use>
                                         </svg></a></li>
                                 <li><a href="https://www.tiktok.com/@zenplaygamingke?is_from_webapp=1&sender_device=pc"
-                                        target="_blank" class="social-icon-link"><svg width="20" height="20">
+                                        target="_blank" rel="noopener" class="social-icon-link"><svg width="20" height="20">
                                             <use xlink:href="#tiktok"></use>
                                         </svg></a></li>
                             </ul>
@@ -544,7 +574,7 @@
                         <h5 class="creative-title mb-4">Our Locations</h5>
                         <div class="row g-3">
                             <div class="col-6">
-                                <a href="https://maps.app.goo.gl/VF2cjWrQj98tzxUT7" target="_blank"
+                                <a href="https://maps.app.goo.gl/VF2cjWrQj98tzxUT7" target="_blank" rel="noopener"
                                     class="text-decoration-none">
                                     <div class="location-card p-3 rounded h-100">
                                         <h6 class="text-white small text-uppercase mb-2">MAKUTANO</h6>
