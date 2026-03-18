@@ -262,186 +262,436 @@
         </div>
     </section>
 
+
     <!-- Shop Content -->
-    <section class="shop-content py-5 reveal">
-        <div class="container">
+    <section class="shop-content py-5">
+        <div class="container-fluid px-5">
             <div class="row">
                 <!-- Sidebar -->
-                <div class="col-md-3">
-                    <div class="sidebar">
+                <div class="col-lg-2">
+                    <div class="sidebar sticky-top" style="top: 100px;">
                         <div class="widget mb-5">
                             <h5 class="widget-title text-uppercase mb-3">Categories</h5>
-                            <ul class="list-unstyled button-group">
-                                <li class="mb-2"><a href="#" data-filter="*" class="text-decoration-none text-secondary is-checked">All
-                                        Products</a></li>
-                                <li class="mb-2"><a href="#" data-filter=".cat-consoles" class="text-decoration-none text-secondary">Consoles</a>
-                                </li>
-                                <li class="mb-2"><a href="#" data-filter=".cat-controllers" class="text-decoration-none text-secondary">Controllers</a>
-                                </li>
-                                <li class="mb-2"><a href="#" data-filter=".cat-headsets" class="text-decoration-none text-secondary">Headsets</a>
-                                </li>
-                                <li class="mb-2"><a href="#" data-filter=".cat-accessories" class="text-decoration-none text-secondary">Accessories</a>
-                                </li>
-                                <li class="mb-2"><a href="#" data-filter=".cat-racing" class="text-decoration-none text-secondary">Racing
-                                        Simulators</a></li>
-                                <li class="mb-2"><a href="#" data-filter=".cat-games" class="text-decoration-none text-secondary">Games</a></li>
+                            <ul class="list-unstyled button-group filters-button-group">
+                                <li class="mb-2"><a href="#" data-filter="*" class="text-decoration-none text-secondary is-checked">All Products</a></li>
+                                <li class="mb-2"><a href="#" data-filter=".cat-vr" class="text-decoration-none text-secondary">VR & Meta Quest</a></li>
+                                <li class="mb-2"><a href="#" data-filter=".cat-consoles" class="text-decoration-none text-secondary">Gaming Consoles</a></li>
+                                <li class="mb-2"><a href="#" data-filter=".cat-controllers" class="text-decoration-none text-secondary">Controllers & Accessories</a></li>
+                                <li class="mb-2"><a href="#" data-filter=".cat-ps5" class="text-decoration-none text-secondary">PS5 Games</a></li>
+                                <li class="mb-2"><a href="#" data-filter=".cat-ps4" class="text-decoration-none text-secondary">PS4 Games</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
                 <!-- Product Grid -->
-                <div class="col-md-9">
-                    <div class="row grid g-4">
-                        <!-- Product 1 -->
-                        <div class="col-md-4 mb-4 grid-item cat-controllers">
-                            <div class="product-item">
-                                <div class="image-holder position-relative">
-                                    <a href="#">
-                                        <!-- PS5 DualSense Controller Image -->
-                                        <img src="images/controller.webp" alt="PS5 DualSense Controller" class="img-fluid" loading="lazy">
-                                    </a>
-                                </div>
-                                <div class="product-content">
-                                    <h5 class="text-uppercase fs-5 mt-3">
-                                        <a href="#">PS5 DualSense Controller</a>
-                                    </h5>
-                                    <span class="product-price">KSH 8,000.00</span>
-                                    <a href="https://wa.link/s3adrp" class="btn btn-primary text-decoration-none">Order Now</a>
-                                </div>
+                <div class="col-lg-10">
+                    <div class="row grid g-3">
+                        
+                        <!-- VR & Meta Quest -->
+                        <div class="grid-item cat-vr">
+                            <div class="product-card text-center">
+                                <img src="Games/Oculusquest2Virtualrealityheadset256gb.webp" alt="Oculus Quest 2" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">Oculus Quest 2</h5>
+                                <p class="price mb-2">KSH 62,000</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
                             </div>
                         </div>
-                        <!-- Product 2 -->
-                        <div class="col-md-4 mb-4 grid-item cat-headsets">
-                            <div class="product-item">
-                                <div class="image-holder position-relative">
-                                    <a href="#">
-                                        <!-- Meta Quest 3 VR Headset Image -->
-                                        <img src="images/metaquestvr.webp" alt="Meta Quest 3" class="img-fluid" loading="lazy">
-                                    </a>
-                                </div>
-                                <div class="product-content">
-                                    <h5 class="text-uppercase fs-5 mt-3">
-                                        <a href="#">Meta Quest 3</a>
-                                    </h5>
-                                    <span class="product-price">KSH 74,999.00</span>
-                                    <a href="https://wa.link/s3adrp" class="btn btn-primary text-decoration-none">Order Now</a>
-                                </div>
+                        <div class="grid-item cat-vr">
+                            <div class="product-card text-center">
+                                <img src="Games/Meta-Quest-3-Virtual-Rality-Headset128gb.webp" alt="Meta Quest 3s" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">Quest 3s (128GB)</h5>
+                                <p class="price mb-2">KSH 40,000</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
                             </div>
                         </div>
-                        <!-- Product 3 -->
-                        <div class="col-md-4 mb-4 grid-item cat-accessories">
-                            <div class="product-item">
-                                <div class="image-holder position-relative">
-                                    <a href="#">
-                                        <!-- DualSense Charging Station Image -->
-                                        <img src="images/charging-dock.webp" alt="DualSense Charging Station" class="img-fluid" loading="lazy">
-                                    </a>
-                                </div>
-                                <div class="product-content">
-                                    <h5 class="text-uppercase fs-5 mt-3">
-                                        <a href="#">DualSense Charging Station</a>
-                                    </h5>
-                                    <span class="product-price">KSH 4,499.00</span>
-                                    <a href="https://wa.link/s3adrp" class="btn btn-primary text-decoration-none">Order Now</a>
-                                </div>
+                        <div class="grid-item cat-vr">
+                            <div class="product-card text-center">
+                                <img src="Games/Meta-Quest-3-Virtual-Rality-Headset128gb.webp" alt="Meta Quest 3 128" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">Quest 3 (128GB)</h5>
+                                <p class="price mb-2">KSH 45,000</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
                             </div>
                         </div>
-                        <!-- Product 4 -->
-                        <div class="col-md-4 mb-4 grid-item cat-accessories cat-racing">
-                            <div class="product-item">
-                                <div class="image-holder position-relative">
-                                    <a href="#">
-                                        <!-- Logitech G29 Racing Wheel Image -->
-                                        <img src="images/logitech-wheel.webp" alt="Logitech G29 Racing Wheel" class="img-fluid" loading="lazy">
-                                    </a>
-                                </div>
-                                <div class="product-content">
-                                    <h5 class="text-uppercase fs-5 mt-3">
-                                        <a href="#">Logitech G29 Racing Wheel</a>
-                                    </h5>
-                                    <span class="product-price">KSH 37,499.00</span>
-                                    <a href="https://wa.link/s3adrp" class="btn btn-primary text-decoration-none">Order Now</a>
-                                </div>
+                        <div class="grid-item cat-vr">
+                            <div class="product-card text-center">
+                                <img src="Games/Meta-Quest-3-Virtual-Rality-Headset512gb.webp" alt="Meta Quest 3 512" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">Quest 3 (512GB)</h5>
+                                <p class="price mb-2">KSH 60,000</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
                             </div>
                         </div>
-                        <!-- Product 5 -->
-                        <div class="col-md-4 mb-4 grid-item cat-consoles">
-                            <div class="product-item">
-                                <div class="image-holder position-relative">
-                                    <a href="#">
-                                        <!-- PlayStation console Image -->
-                                        <img src="images/ps5-console.webp" alt="PlayStation console" class="img-fluid" loading="lazy">
-                                    </a>
-                                </div>
-                                <div class="product-content">
-                                    <h5 class="text-uppercase fs-5 mt-3">
-                                        <a href="#">PlayStation console</a>
-                                    </h5>
-                                    <span class="product-price">KSH 70,000.00</span>
-                                    <a href="https://wa.link/s3adrp" class="btn btn-primary text-decoration-none">Order Now</a>
-                                </div>
+                        <div class="grid-item cat-vr">
+                            <div class="product-card text-center">
+                                <img src="Games/metaquestaccessories.webp" alt="Meta Quest Accessories" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">Quest Accessories</h5>
+                                <p class="price mb-2">KSH 8,500</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
                             </div>
                         </div>
-                        <!-- Product 6 -->
-                        <div class="col-md-4 mb-4 grid-item cat-games">
-                            <div class="product-item">
-                                <div class="image-holder position-relative">
-                                    <a href="#">
-                                        <!-- Mortal Kombat 1 Image -->
-                                        <img src="images/mortal-kombat.webp" alt="Mortal Kombat 1" class="img-fluid" loading="lazy">
-                                    </a>
-                                </div>
-                                <div class="product-content">
-                                    <h5 class="text-uppercase fs-5 mt-3">
-                                        <a href="#">Mortal Kombat 1</a>
-                                    </h5>
-                                    <span class="product-price">KSH 5,000.00</span>
-                                    <a href="https://wa.link/s3adrp" class="btn btn-primary text-decoration-none">Order Now</a>
-                                </div>
+
+                        <!-- Consoles -->
+                        <div class="grid-item cat-consoles">
+                            <div class="product-card text-center">
+                                <img src="Games/playstation4slim.webp" alt="PS4 Slim" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">PS4 Slim</h5>
+                                <p class="price mb-2">KSH 39,000</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
                             </div>
                         </div>
-                        <!-- Product 7 -->
-                        <div class="col-md-4 mb-4 grid-item cat-games cat-racing">
-                            <div class="product-item">
-                                <div class="image-holder position-relative">
-                                    <a href="#">
-                                        <!-- Gran Turismo Game Disk Image -->
-                                        <img src="images/gran-turismo.webp" alt="Gran Turismo" class="img-fluid" loading="lazy">
-                                    </a>
-                                </div>
-                                <div class="product-content">
-                                    <h5 class="text-uppercase fs-5 mt-3">
-                                        <a href="#">Gran Turismo</a>
-                                    </h5>
-                                    <span class="product-price">KSH 6,000.00</span>
-                                    <a href="https://wa.link/s3adrp" class="btn btn-primary text-decoration-none">Order Now</a>
-                                </div>
+                        <div class="grid-item cat-consoles">
+                            <div class="product-card text-center">
+                                <img src="Games/playstation5slimdigital.webp" alt="PS5 Slim Digital" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">PS5 Slim Digital</h5>
+                                <p class="price mb-2">KSH 62,000</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
                             </div>
                         </div>
-                        <!-- Product 8 -->
-                        <div class="col-md-4 mb-4 grid-item cat-games">
-                            <div class="product-item">
-                                <div class="image-holder position-relative">
-                                    <a href="#">
-                                        <!-- GTA V Game Image -->
-                                        <img src="images/gta-v.webp" alt="GTA V" class="img-fluid" loading="lazy">
-                                    </a>
-                                </div>
-                                <div class="product-content">
-                                    <h5 class="text-uppercase fs-5 mt-3">
-                                        <a href="#">GTA V</a>
-                                    </h5>
-                                    <span class="product-price">KSH 4,000.00</span>
-                                    <a href="https://wa.link/s3adrp" class="btn btn-primary text-decoration-none">Order Now</a>
-                                </div>
+                        <div class="grid-item cat-consoles">
+                            <div class="product-card text-center">
+                                <img src="images/ps5-console.webp" alt="PS5 Slim Standard" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">PS5 Slim Disc</h5>
+                                <p class="price mb-2">KSH 70,000</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
                             </div>
                         </div>
+                        <div class="grid-item cat-consoles">
+                            <div class="product-card text-center">
+                                <img src="Games/Xboxonesseries.webp" alt="Xbox S" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">Xbox Series S</h5>
+                                <p class="price mb-2">KSH 45,000</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+                        <div class="grid-item cat-consoles">
+                            <div class="product-card text-center">
+                                <img src="Games/Xboxonexseries.webp" alt="Xbox X" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">Xbox Series X</h5>
+                                <p class="price mb-2">KSH 70,000</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+                        <div class="grid-item cat-consoles">
+                            <div class="product-card text-center">
+                                <img src="Games/Playstation5portal.webp" alt="PS Portal" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">PS Portal</h5>
+                                <p class="price mb-2">KSH 35,000</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+                        <div class="grid-item cat-consoles">
+                            <div class="product-card text-center">
+                                <img src="Games/nitendoswitch.webp" alt="Switch" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">Nintendo Switch</h5>
+                                <p class="price mb-2">KSH 35,000</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Controllers & Wheels -->
+                        <div class="grid-item cat-controllers">
+                            <div class="product-card text-center">
+                                <img src="images/controller.webp" alt="PS5 White" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">PS5 Controller (W)</h5>
+                                <p class="price mb-2">KSH 8,000</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+                        <div class="grid-item cat-controllers">
+                            <div class="product-card text-center">
+                                <img src="Games/Ps5dualsensecolouredcontroller.webp" alt="PS5 Coloured" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">PS5 Controller (C)</h5>
+                                <p class="price mb-2">KSH 9,500</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+                        <div class="grid-item cat-controllers">
+                            <div class="product-card text-center">
+                                <img src="Games/Ps4controller.webp" alt="PS4 New" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">PS4 Controller (N)</h5>
+                                <p class="price mb-2">KSH 6,500</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+                        <div class="grid-item cat-controllers">
+                            <div class="product-card text-center">
+                                <img src="Games/Ps4contollerrefub.webp" alt="PS4 Refurb" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">PS4 Controller (R)</h5>
+                                <p class="price mb-2">KSH 5,000</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+                        <div class="grid-item cat-controllers">
+                            <div class="product-card text-center">
+                                <img src="Games/Ps4copycontrollerpad.webp" alt="PS4 Copy" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">PS4 Copy Pad</h5>
+                                <p class="price mb-2">KSH 3,000</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+                        <div class="grid-item cat-controllers">
+                            <div class="product-card text-center">
+                                <img src="Games/logtechg29drivingforceracingwheel.webp" alt="G29" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">Logitech G29</h5>
+                                <p class="price mb-2">KSH 33,000</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+                        <div class="grid-item cat-controllers">
+                            <div class="product-card text-center">
+                                <img src="Games/logitechg920drivingforceracingwheel.webp" alt="G920" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">Logitech G920</h5>
+                                <p class="price mb-2">KSH 50,000</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+                        <div class="grid-item cat-controllers">
+                            <div class="product-card text-center">
+                                <img src="Games/rivaracingwheel.webp" alt="RWA" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">RWA Racing Wheel</h5>
+                                <p class="price mb-2">KSH 20,000</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+
+                        <!-- PS5 Games -->
+                        <div class="grid-item cat-ps5">
+                            <div class="product-card text-center">
+                                <img src="Games/Ps5NBA2K26.webp" alt="NBA 26" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">NBA 2K26</h5>
+                                <p class="price mb-2">KSH 6,000</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+                        <div class="grid-item cat-ps5">
+                            <div class="product-card text-center">
+                                <img src="Games/Ps5NBA2K25.webp" alt="NBA 25" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">NBA 2K25</h5>
+                                <p class="price mb-2">KSH 4,500</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+                        <div class="grid-item cat-ps5">
+                            <div class="product-card text-center">
+                                <img src="Games/ps5blackmyth.webp" alt="Black Myth" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">Black Myth Wukong</h5>
+                                <p class="price mb-2">KSH 7,500</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+                        <div class="grid-item cat-ps5">
+                            <div class="product-card text-center">
+                                <img src="Games/ps5callofdutyblackops6.webp" alt="BO6" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">COD Black Ops 6</h5>
+                                <p class="price mb-2">KSH 7,000</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+                        <div class="grid-item cat-ps5">
+                            <div class="product-card text-center">
+                                <img src="Games/ps5ghostoftsushima.webp" alt="Ghost Tsushima" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">Ghost of Tsushima</h5>
+                                <p class="price mb-2">KSH 4,500</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+                        <div class="grid-item cat-ps5">
+                            <div class="product-card text-center">
+                                <img src="Games/ps5Godofwar.webp" alt="GoW" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">GoW Ragnarok</h5>
+                                <p class="price mb-2">KSH 6,000</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+                        <div class="grid-item cat-ps5">
+                            <div class="product-card text-center">
+                                <img src="Games/ps5spiderman2.webp" alt="SM2" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">Spider-Man 2</h5>
+                                <p class="price mb-2">KSH 6,000</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+                        <div class="grid-item cat-ps5">
+                            <div class="product-card text-center">
+                                <img src="Games/ps5astrobot.webp" alt="Astro" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">Astro Bot</h5>
+                                <p class="price mb-2">KSH 7,500</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+                        <div class="grid-item cat-ps5">
+                            <div class="product-card text-center">
+                                <img src="Games/ps5assassinscreedshadows.webp" alt="AC" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">AC Shadows</h5>
+                                <p class="price mb-2">KSH 7,500</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+                        <div class="grid-item cat-ps5">
+                            <div class="product-card text-center">
+                                <img src="Games/ps5hogwartslegacy.webp" alt="Hogwarts" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">Hogwarts Legacy</h5>
+                                <p class="price mb-2">KSH 8,000</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+                        <div class="grid-item cat-ps5">
+                            <div class="product-card text-center">
+                                <img src="Games/ps5mortalkombat1.webp" alt="MK1" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">Mortal Kombat 1</h5>
+                                <p class="price mb-2">KSH 4,700</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+                        <div class="grid-item cat-ps5">
+                            <div class="product-card text-center">
+                                <img src="Games/ps5granturismo7.webp" alt="GT7" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">Gran Turismo 7</h5>
+                                <p class="price mb-2">KSH 6,000</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+                        <div class="grid-item cat-ps5">
+                            <div class="product-card text-center">
+                                <img src="Games/ps5easportsfc26.webp" alt="FC26" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">EA Sports FC26</h5>
+                                <p class="price mb-2">KSH 6,500</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+                        <div class="grid-item cat-ps5">
+                            <div class="product-card text-center">
+                                <img src="Games/ps5ghostofyotei.webp" alt="Yotei" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">Ghost of Yotei</h5>
+                                <p class="price mb-2">KSH 9,500</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+                        <div class="grid-item cat-ps5">
+                            <div class="product-card text-center">
+                                <img src="Games/WWE2K25PS5.webp" alt="WWE" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">WWE 2K25</h5>
+                                <p class="price mb-2">KSH 5,500</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+
+                        <!-- PS4 Games -->
+                        <div class="grid-item cat-ps4">
+                            <div class="product-card text-center">
+                                <img src="images/gta-v.webp" alt="GTA V" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">GTA V (PS4)</h5>
+                                <p class="price mb-2">KSH 2,500</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+                        <div class="grid-item cat-ps4">
+                            <div class="product-card text-center">
+                                <img src="Games/ps4horizon.webp" alt="Horizon" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">Horizon ZD</h5>
+                                <p class="price mb-2">KSH 5,000</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+                        <div class="grid-item cat-ps4">
+                            <div class="product-card text-center">
+                                <img src="Games/ps4legomarvelsuperheroes2.webp" alt="Lego" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">Lego Marvel 2</h5>
+                                <p class="price mb-2">KSH 2,500</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+                        <div class="grid-item cat-ps4">
+                            <div class="product-card text-center">
+                                <img src="Games/ps4injustice2.webp" alt="Injustice" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">Injustice 2</h5>
+                                <p class="price mb-2">KSH 2,500</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+                        <div class="grid-item cat-ps4">
+                            <div class="product-card text-center">
+                                <img src="Games/ps4minecraftstorymode.webp" alt="Minecraft" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">Minecraft SM</h5>
+                                <p class="price mb-2">KSH 4,000</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+                         <div class="grid-item cat-ps4">
+                            <div class="product-card text-center">
+                                <img src="Games/ps4easportsfc26.webp" alt="FC26 PS4" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">EA FC26 (PS4)</h5>
+                                <p class="price mb-2">KSH 6,500</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+                        <div class="grid-item cat-ps4">
+                            <div class="product-card text-center">
+                                <img src="Games/ps4needforspeedheat.webp" alt="NFS Heat" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">NFS Heat</h5>
+                                <p class="price mb-2">KSH 3,000</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+                        <div class="grid-item cat-ps4">
+                            <div class="product-card text-center">
+                                <img src="Games/ps4needforspeedplayback.webp" alt="NFS Payback" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">NFS Payback</h5>
+                                <p class="price mb-2">KSH 3,000</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Extra Items to fill ~80 -->
+                        <div class="grid-item cat-ps5">
+                            <div class="product-card text-center">
+                                <img src="Games/ps5thelastofuspart1.webp" alt="TLOU1" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">TLOU Part I</h5>
+                                <p class="price mb-2">KSH 4,500</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+                        <div class="grid-item cat-ps5">
+                            <div class="product-card text-center">
+                                <img src="Games/ps5thelastofuspart2disk.webp" alt="TLOU2" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">TLOU Part II</h5>
+                                <p class="price mb-2">KSH 5,500</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+                         <div class="grid-item cat-ps5">
+                            <div class="product-card text-center">
+                                <img src="Games/ps5horizon.webp" alt="HFW" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">Horizon FW</h5>
+                                <p class="price mb-2">KSH 5,500</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+                         <div class="grid-item cat-ps5">
+                            <div class="product-card text-center">
+                                <img src="Games/ps5eldenring.webp" alt="Elden" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">Elden Ring</h5>
+                                <p class="price mb-2">KSH 5,300</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+                         <div class="grid-item cat-ps5">
+                            <div class="product-card text-center">
+                                <img src="Games/ps5needforspeedunbound.webp" alt="NFS" class="img-fluid mb-2">
+                                <h5 class="card-title text-uppercase">NFS Unbound</h5>
+                                <p class="price mb-2">KSH 4,000</p>
+                                <a href="https://wa.link/s3adrp" class="btn btn-primary btn-sm w-100">Order Now</a>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
+
+
 
 
     <!-- Newsletter Section -->
