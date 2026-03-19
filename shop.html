@@ -1034,6 +1034,30 @@
       window.addEventListener('load', function() {
         if (window.jQuery) {
           initShopFilters();
+
+          // Deep-link: auto-filter based on URL hash (e.g. shop.html#cat-consoles)
+          var hash = window.location.hash.replace('#', '');
+          if (hash) {
+            var filterVal = '.' + hash;
+            var $btnGroup = $('.filters-button-group');
+            var $grid = $('.row.grid');
+            var $target = $btnGroup.find('a[data-filter="' + filterVal + '"]');
+
+            if ($target.length) {
+              // Apply active state
+              $btnGroup.find('.is-checked').removeClass('is-checked');
+              $target.addClass('is-checked');
+
+              // Apply isotope filter
+              $grid.isotope({ filter: filterVal });
+
+              // Smooth-scroll to the shop grid section
+              setTimeout(function() {
+                var gridTop = $('.shop-content').offset().top - 100;
+                $('html, body').animate({ scrollTop: gridTop }, 500);
+              }, 300);
+            }
+          }
         }
       });
     })();
