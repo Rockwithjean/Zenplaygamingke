@@ -2675,13 +2675,23 @@ img {
   width: 20%;
   padding: 10px;
   float: left;
-  animation: itemFadeIn 0.8s ease backwards;
+  /* Isotope controls these via inline style; CSS transitions make it smooth */
+  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              opacity  0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
+/* Items fading OUT when filtered away */
+.grid-item.isotope-hidden {
+  opacity: 0 !important;
+  transform: scale(0.92) translateY(8px) !important;
+  pointer-events: none;
+}
+
+/* Initial page-load stagger animation */
 @keyframes itemFadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px) scale(0.95);
+    transform: translateY(24px) scale(0.94);
   }
   to {
     opacity: 1;
@@ -2689,33 +2699,37 @@ img {
   }
 }
 
-.shop-category-title {
-  font-family: var(--heading-font);
-  font-size: 2.5rem;
-  margin-top: 60px;
-  margin-bottom: 30px;
-  text-align: center;
-  position: relative;
-  padding-bottom: 15px;
+.grid-item {
+  animation: itemFadeIn 0.55s ease backwards;
 }
 
-@media (max-width: 1400px) {
-  .grid-item { width: 25%; }
+/* -------------------------------------------------
+   Product Card – hover lift effect
+------------------------------------------------- */
+.grid-item .product-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 10px;
+  padding: 8px;
 }
 
-@media (max-width: 1100px) {
-  .grid-item { width: 33.333%; }
+.grid-item .product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
 }
 
-@media (max-width: 992px) {
-  .grid-item { width: 50%; }
+.grid-item .product-card img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: contain;
+  background: #f8f9fa;
+  border-radius: 8px;
+  transition: transform 0.35s ease;
 }
 
-@media (max-width: 576px) {
-  .grid-item { width: 100%; }
+.grid-item .product-card:hover img {
+  transform: scale(1.04);
 }
 
-/* Refinement for denser grid */
 .grid-item .product-card .card-title {
   font-size: 1rem;
   margin-top: 10px;
@@ -2727,11 +2741,81 @@ img {
   color: #111;
 }
 
-.grid-item .product-card img {
-  width: 100%;
-  aspect-ratio: 1/1;
-  object-fit: contain;
-  background: #f8f9fa;
-  border-radius: 8px;
+/* -------------------------------------------------
+   Sidebar Filter Links – active + hover polish
+------------------------------------------------- */
+.filters-button-group a {
+  position: relative;
+  display: inline-block;
+  color: #6c757d;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  padding-bottom: 3px;
+  transition: color 0.25s ease;
 }
+
+/* Animated underline on every link */
+.filters-button-group a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: #8c907e;
+  border-radius: 2px;
+  transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.filters-button-group a:hover {
+  color: #333;
+}
+
+.filters-button-group a:hover::after {
+  width: 60%;
+}
+
+/* Active filter state */
+.filters-button-group a.is-checked {
+  color: #111;
+  font-weight: 600;
+}
+
+.filters-button-group a.is-checked::after {
+  width: 100%;
+}
+
+/* Click ripple flash */
+@keyframes filterPulse {
+  0%   { opacity: 0.25; transform: scale(1); }
+  100% { opacity: 0;    transform: scale(2.5); }
+}
+
+.filters-button-group a.filter-clicked::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 4px;
+  background: rgba(140,144,126,0.35);
+  animation: filterPulse 0.45s ease forwards;
+  pointer-events: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1400px) { .grid-item { width: 25%; } }
+@media (max-width: 1100px) { .grid-item { width: 33.333%; } }
+@media (max-width: 992px)  { .grid-item { width: 50%; } }
+@media (max-width: 576px)  { .grid-item { width: 100%; } }
+
+/* Shop category section title */
+.shop-category-title {
+  font-family: var(--heading-font);
+  font-size: 2.5rem;
+  margin-top: 60px;
+  margin-bottom: 30px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 15px;
+}
+
 
