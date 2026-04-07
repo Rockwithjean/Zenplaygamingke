@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zippa by Zenplay – Quick Gigs & Errands Kenya</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.8/dist/umd/supabase.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #0d0d0d; --paper: #f5f2eb; --cream: #ede9df; --sand: #d4cfc2;
+    --accent: #e8452a; --green: #22c55e; --muted: #6b6560;
+    --white: #ffffff; --border: rgba(13,13,13,0.12);
+    --radius: 14px; --radius-lg: 22px;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
+
+  /* NAV */
+  nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 5%; height: 64px; background: var(--paper); border-bottom: 1px solid var(--border); backdrop-filter: blur(12px); }
+  .logo { display: flex; flex-direction: column; line-height: 1; }
+  .logo-main { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.5rem; color: var(--ink); letter-spacing: -0.5px; }
+  .logo-main span { color: var(--accent); }
+  .logo-sub { font-size: 0.62rem; color: var(--muted); font-weight: 400; letter-spacing: 0.5px; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-cta { background: var(--ink); color: var(--paper); padding: 10px 22px; border-radius: 50px; font-size: 0.875rem; font-weight: 500; text-decoration: none; transition: background 0.2s, transform 0.1s; }
+  .nav-cta:hover { background: var(--accent); transform: translateY(-1px); }
+
+  /* HERO */
+  .hero { min-height: 88vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 5% 5%; gap: 4rem; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -40%; right: -10%; width: 60vw; height: 60vw; border-radius: 50%; background: radial-gradient(circle, #e8452a18 0%, transparent 70%); pointer-events: none; }
+  .hero-tag { display: inline-flex; align-items: center; gap: 8px; background: var(--cream); border: 1px solid var(--border); border-radius: 50px; padding: 6px 16px; font-size: 0.8rem; font-weight: 500; color: var(--muted); margin-bottom: 1.5rem; animation: fadeUp 0.6s ease both; }
+  .hero-tag::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+  h1 { font-family: 'Syne', sans-serif; font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 800; line-height: 1.05; letter-spacing: -2px; color: var(--ink); animation: fadeUp 0.6s 0.1s ease both; }
+  h1 em { font-style: normal; color: var(--accent); }
+  .hero-sub { margin-top: 1.25rem; font-size: 1.05rem; color: var(--muted); max-width: 420px; font-weight: 300; animation: fadeUp 0.6s 0.2s ease both; }
+  .hero-actions { display: flex; gap: 12px; margin-top: 2rem; flex-wrap: wrap; animation: fadeUp 0.6s 0.3s ease both; }
+  .btn-primary { background: var(--accent); color: var(--white); padding: 14px 30px; border-radius: 50px; font-size: 0.95rem; font-weight: 500; text-decoration: none; border: none; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; box-shadow: 0 4px 20px rgba(232,69,42,0.35); display: inline-block; }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(232,69,42,0.4); }
+  .btn-secondary { background: transparent; color: var(--ink); padding: 14px 30px; border-radius: 50px; font-size: 0.95rem; font-weight: 500; text-decoration: none; border: 1.5px solid var(--border); cursor: pointer; transition: border-color 0.2s, background 0.2s; display: inline-block; }
+  .btn-secondary:hover { border-color: var(--ink); background: var(--cream); }
+  .hero-stats { display: flex; gap: 2.5rem; margin-top: 2.5rem; animation: fadeUp 0.6s 0.4s ease both; }
+  .stat-num { font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 700; color: var(--ink); }
+  .stat-label { font-size: 0.8rem; color: var(--muted); font-weight: 400; }
+
+  /* FLOATING CARDS */
+  .hero-visual { position: relative; height: 500px; animation: fadeUp 0.8s 0.2s ease both; }
+  .job-card-float { position: absolute; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 18px 22px; box-shadow: 0 8px 32px rgba(0,0,0,0.08); min-width: 220px; transition: transform 0.3s; }
+  .job-card-float:hover { transform: translateY(-4px); }
+  .jcf-1 { top: 0; left: 10%; animation: float1 4s ease-in-out infinite; }
+  .jcf-2 { top: 140px; right: 0; animation: float2 4.5s 0.5s ease-in-out infinite; }
+  .jcf-3 { bottom: 60px; left: 5%; animation: float1 5s 1s ease-in-out infinite; }
+  .jcf-badge { display: inline-flex; align-items: center; gap: 5px; background: var(--cream); border-radius: 50px; padding: 4px 10px; font-size: 0.72rem; font-weight: 500; color: var(--muted); margin-bottom: 10px; }
+  .jcf-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.95rem; color: var(--ink); margin-bottom: 4px; }
+  .jcf-company { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; }
+  .jcf-footer { display: flex; align-items: center; justify-content: space-between; }
+  .jcf-salary { font-weight: 600; font-size: 0.85rem; color: var(--accent); }
+  .jcf-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
+  .jcf-live { font-size: 0.72rem; color: var(--muted); display: flex; align-items: center; gap: 4px; }
+  .applicants-badge { position: absolute; bottom: 170px; right: 10px; background: var(--ink); color: var(--paper); border-radius: var(--radius); padding: 10px 16px; font-size: 0.8rem; font-weight: 500; box-shadow: 0 6px 20px rgba(0,0,0,0.2); animation: float2 3.5s 0.8s ease-in-out infinite; }
+  .applicants-badge strong { font-family: 'Syne', sans-serif; font-size: 1.2rem; display: block; }
+
+  /* SECTIONS */
+  .section { padding: 6rem 5%; }
+  .section-label { font-size: 0.78rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem; }
+  h2 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: clamp(1.8rem, 3.5vw, 2.8rem); letter-spacing: -1px; line-height: 1.15; color: var(--ink); }
+
+  /* HOW IT WORKS */
+  .how-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3.5rem; }
+  .how-col h3 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.1rem; margin-bottom: 1.5rem; padding: 10px 18px; border-radius: 50px; display: inline-block; }
+  .for-employers h3 { background: var(--ink); color: var(--paper); }
+  .for-workers h3 { background: var(--accent); color: var(--white); }
+  .step { display: flex; gap: 16px; align-items: flex-start; padding: 18px 0; border-bottom: 1px solid var(--border); }
+  .step:last-child { border-bottom: none; }
+  .step-num { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.4rem; color: var(--sand); flex-shrink: 0; width: 36px; }
+  .step-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 3px; }
+  .step-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
+
+  /* CATEGORIES */
+  .categories-section { padding: 5rem 5%; background: var(--paper); }
+  .cat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 14px; margin-top: 2.5rem; }
+  .cat-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 16px; text-align: center; cursor: pointer; transition: all 0.2s; }
+  .cat-card:hover { background: var(--ink); color: var(--paper); transform: translateY(-2px); }
+  .cat-icon { font-size: 1.6rem; margin-bottom: 10px; display: block; }
+  .cat-name { font-family: 'Syne', sans-serif; font-weight: 600; font-size: 0.85rem; }
+  .cat-count { font-size: 0.75rem; color: var(--muted); margin-top: 3px; }
+  .cat-card:hover .cat-count { color: rgba(245,242,235,0.6); }
+
+  /* SEARCH */
+  .search-wrap { margin-top: 1.5rem; position: relative; max-width: 480px; }
+  .search-wrap input { width: 100%; padding: 13px 20px 13px 44px; border-radius: 50px; border: 1.5px solid var(--border); background: var(--white); font-family: 'DM Sans', sans-serif; font-size: 0.9rem; color: var(--ink); outline: none; transition: border-color 0.2s; }
+  .search-wrap input:focus { border-color: var(--accent); }
+  .search-wrap svg { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); opacity: 0.4; }
+
+  /* LISTINGS */
+  .listings-section { padding: 6rem 5%; background: var(--cream); }
+  .section-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 1rem; flex-wrap: wrap; gap: 1rem; }
+  .filters { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 1.5rem; }
+  .filter-btn { padding: 8px 18px; border-radius: 50px; border: 1.5px solid var(--border); background: var(--white); color: var(--ink); font-size: 0.82rem; font-weight: 500; cursor: pointer; transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
+  .filter-btn:hover, .filter-btn.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .jobs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; margin-top: 2rem; }
+
+  /* JOB CARD */
+  .job-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 22px; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; position: relative; }
+  .job-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.09); }
+  .job-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+  .job-logo { width: 44px; height: 44px; border-radius: 10px; background: var(--cream); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; border: 1px solid var(--border); }
+  .job-tag { background: var(--cream); color: var(--muted); padding: 4px 10px; border-radius: 50px; font-size: 0.72rem; font-weight: 500; }
+  .job-tag.urgent { background: #fff0ed; color: var(--accent); }
+  .job-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem; margin-bottom: 4px; }
+  .job-company { font-size: 0.82rem; color: var(--muted); margin-bottom: 14px; }
+  .job-meta { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+  .job-meta span { font-size: 0.78rem; color: var(--muted); display: flex; align-items: center; gap: 4px; }
+  .job-card-footer { display: flex; align-items: center; justify-content: space-between; }
+  .salary-tag { font-weight: 600; font-size: 0.9rem; color: var(--ink); }
+  .apply-btn { background: var(--ink); color: var(--paper); padding: 9px 18px; border-radius: 50px; font-size: 0.8rem; font-weight: 500; border: none; cursor: pointer; transition: background 0.2s, transform 0.1s; font-family: 'DM Sans', sans-serif; }
+  .apply-btn:hover { background: var(--accent); transform: scale(1.02); }
+  .new-badge { position: absolute; top: 16px; left: 16px; background: var(--accent); color: white; font-size: 0.65rem; font-weight: 600; padding: 3px 8px; border-radius: 50px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .expires-tag { font-size: 0.72rem; color: var(--muted); margin-top: 8px; }
+
+  /* SKELETON LOADER */
+  .skeleton { background: linear-gradient(90deg, var(--cream) 25%, var(--sand) 50%, var(--cream) 75%); background-size: 200% 100%; animation: shimmer 1.4s infinite; border-radius: var(--radius); }
+  @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+  .skeleton-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 22px; }
+  .skel-line { height: 14px; margin-bottom: 10px; }
+  .skel-short { width: 40%; }
+  .skel-med { width: 65%; }
+  .skel-full { width: 100%; }
+
+  /* POST JOB */
+  .post-section { padding: 6rem 5%; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .post-desc { font-size: 1rem; color: var(--muted); margin-top: 1rem; max-width: 400px; line-height: 1.7; }
+  .feature-list { list-style: none; margin-top: 2rem; display: flex; flex-direction: column; gap: 12px; }
+  .feature-list li { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--muted); }
+  .feature-list li::before { content: ''; width: 20px; height: 20px; border-radius: 50%; background: #e8452a18 url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4l2.5 2.5L9 1' stroke='%23e8452a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center; flex-shrink: 0; }
+  .post-form-wrap { background: var(--ink); border-radius: var(--radius-lg); padding: 36px; color: var(--paper); }
+  .post-form-wrap h3 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.3rem; margin-bottom: 0.4rem; }
+  .post-form-wrap p { font-size: 0.85rem; color: rgba(245,242,235,0.55); margin-bottom: 1.5rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+  .form-group label { font-size: 0.78rem; color: rgba(245,242,235,0.6); font-weight: 500; }
+  .form-group input, .form-group select, .form-group textarea { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; color: var(--paper); padding: 11px 14px; font-size: 0.875rem; font-family: 'DM Sans', sans-serif; outline: none; transition: border-color 0.2s; }
+  .form-group input::placeholder { color: rgba(245,242,235,0.3); }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--accent); }
+  .form-group select option { background: #1a1a1a; }
+  .form-group textarea { resize: vertical; min-height: 80px; }
+  .wa-hint { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .wa-hint span { font-size: 0.75rem; color: rgba(245,242,235,0.4); }
+  .btn-post { width: 100%; background: var(--accent); color: white; border: none; border-radius: 50px; padding: 14px; font-size: 0.95rem; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: opacity 0.2s, transform 0.1s; margin-top: 6px; }
+  .btn-post:hover { opacity: 0.9; transform: translateY(-1px); }
+  .btn-post:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+  /* MODAL */
+  .modal-overlay { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(13,13,13,0.65); backdrop-filter: blur(6px); align-items: center; justify-content: center; padding: 20px; }
+  .modal-overlay.active { display: flex; }
+  .modal { background: var(--white); border-radius: var(--radius-lg); padding: 36px; max-width: 500px; width: 100%; position: relative; animation: modalIn 0.3s ease; max-height: 90vh; overflow-y: auto; }
+  .modal-close { position: absolute; top: 16px; right: 16px; background: var(--cream); border: none; border-radius: 50%; width: 32px; height: 32px; cursor: pointer; font-size: 1rem; color: var(--muted); display: flex; align-items: center; justify-content: center; }
+  .modal h3 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.3rem; margin-bottom: 0.3rem; }
+  .modal-job-info { background: var(--cream); border-radius: 10px; padding: 12px 16px; margin: 1rem 0 1.2rem; font-size: 0.85rem; }
+  .modal .form-group input, .modal .form-group textarea { background: var(--paper); border: 1.5px solid var(--border); border-radius: 10px; color: var(--ink); padding: 11px 14px; font-size: 0.875rem; font-family: 'DM Sans', sans-serif; outline: none; transition: border-color 0.2s; width: 100%; }
+  .modal .form-group input:focus, .modal .form-group textarea:focus { border-color: var(--accent); }
+  .modal .form-group label { color: var(--muted); font-size: 0.78rem; font-weight: 500; }
+  .no-login-note { text-align: center; font-size: 0.78rem; color: var(--muted); margin-top: 10px; }
+  .no-login-note strong { color: var(--accent); }
+
+  /* SUCCESS MODAL */
+  .success-modal { text-align: center; padding: 10px 0; }
+  .success-icon { font-size: 3rem; margin-bottom: 1rem; }
+  .success-modal h3 { margin-bottom: 0.5rem; }
+  .success-modal p { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+  .manage-link-box { background: var(--cream); border-radius: 10px; padding: 14px 16px; margin: 1rem 0; word-break: break-all; font-size: 0.8rem; color: var(--ink); border: 1.5px dashed var(--sand); }
+  .manage-link-box strong { display: block; font-size: 0.75rem; color: var(--muted); margin-bottom: 4px; }
+  .copy-btn { background: var(--ink); color: var(--paper); border: none; border-radius: 50px; padding: 10px 22px; font-size: 0.85rem; font-weight: 500; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: background 0.2s; margin-top: 8px; }
+  .copy-btn:hover { background: var(--accent); }
+
+  /* CTA STRIP */
+  .cta-strip { margin: 0 5% 6rem; background: var(--ink); border-radius: var(--radius-lg); padding: 4rem 5%; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+  .cta-strip h2 { color: var(--paper); }
+  .cta-strip p { color: rgba(245,242,235,0.55); margin-top: 0.5rem; max-width: 400px; }
+  .cta-strip .btn-secondary { border-color: rgba(255,255,255,0.2); color: var(--paper); }
+  .cta-strip .btn-secondary:hover { background: rgba(255,255,255,0.08); }
+
+  /* FOOTER */
+  footer { border-top: 1px solid var(--border); padding: 3rem 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  .footer-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.2rem; color: var(--ink); }
+  .footer-logo span { color: var(--accent); }
+  .footer-domain { font-size: 0.78rem; color: var(--accent); font-weight: 500; }
+  footer p { font-size: 0.8rem; color: var(--muted); }
+
+  /* TOAST */
+  .toast { position: fixed; bottom: 24px; right: 24px; background: var(--green); color: white; border-radius: 12px; padding: 14px 22px; font-weight: 500; font-size: 0.9rem; z-index: 9999; transform: translateY(80px); opacity: 0; transition: all 0.4s cubic-bezier(0.34,1.56,0.64,1); max-width: 320px; }
+  .toast.show { transform: translateY(0); opacity: 1; }
+
+  /* EMPTY STATE */
+  .empty-state { grid-column: 1/-1; text-align: center; padding: 4rem 2rem; color: var(--muted); }
+  .empty-state .empty-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+  .empty-state p { font-size: 0.9rem; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes float1 { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-12px); } }
+  @keyframes float2 { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(10px); } }
+  @keyframes modalIn { from { opacity: 0; transform: scale(0.95) translateY(12px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 5%; }
+    .hero-visual { height: 300px; }
+    .how-grid { grid-template-columns: 1fr; }
+    .post-section { grid-template-columns: 1fr; gap: 3rem; }
+    .nav-links { display: none; }
+    .cta-strip { flex-direction: column; text-align: center; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">
+    <div class="logo-main">Zipp<span>a</span></div>
+    <div class="logo-sub">by zenplaygaming.co.ke</div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#jobs">Browse Gigs</a></li>
+    <li><a href="#how">How it Works</a></li>
+    <li><a href="#post">Post a Gig</a></li>
+  </ul>
+  <a href="#post" class="nav-cta">Post a Gig →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="hero-tag">Quick gigs & errands — no login to apply</div>
+    <h1>Get things<br>done. Or get<br><em>paid. Fast.</em></h1>
+    <p class="hero-sub">Kenya's quickest way to find short contracts, errands & one-off gigs — or earn cash on your own schedule. No sign-up needed.</p>
+    <div class="hero-actions">
+      <a href="#jobs" class="btn-primary">Find a Gig</a>
+      <a href="#post" class="btn-secondary">Post a Task</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num" id="heroCount">—</div><div class="stat-label">Active Gigs</div></div>
+      <div><div class="stat-num">KES 500</div><div class="stat-label">Avg. per errand</div></div>
+      <div><div class="stat-num">0</div><div class="stat-label">Sign-ups needed</div></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="job-card-float jcf-1">
+      <div class="jcf-badge">🛵 Errand</div>
+      <div class="jcf-title">Grocery Run – Westlands</div>
+      <div class="jcf-company">Private client · Nairobi</div>
+      <div class="jcf-footer"><div class="jcf-salary">KES 800</div><div class="jcf-live"><div class="jcf-dot"></div> Today only</div></div>
+    </div>
+    <div class="job-card-float jcf-2">
+      <div class="jcf-badge">🔨 Handyman</div>
+      <div class="jcf-title">Furniture Assembly</div>
+      <div class="jcf-company">HomeStyle · Kiambu</div>
+      <div class="jcf-footer"><div class="jcf-salary">KES 1,500</div><div class="jcf-live"><div class="jcf-dot"></div> Urgent</div></div>
+    </div>
+    <div class="job-card-float jcf-3">
+      <div class="jcf-badge">🧹 Cleaning</div>
+      <div class="jcf-title">End-of-tenancy Clean</div>
+      <div class="jcf-company">Estate agent · Kilimani</div>
+      <div class="jcf-footer"><div class="jcf-salary">KES 2,500</div><div class="jcf-live"><div class="jcf-dot"></div> Available now</div></div>
+    </div>
+    <div class="applicants-badge"><strong id="applyCount">—</strong>applied today</div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section" id="how">
+  <div style="text-align:center; margin-bottom: 0.5rem;">
+    <div class="section-label">Simple process</div>
+    <h2>Two sides, one platform.</h2>
+  </div>
+  <div class="how-grid">
+    <div class="for-employers how-col">
+      <h3>For Task Posters</h3>
+      <div class="step"><div class="step-num">01</div><div><div class="step-title">Post your task</div><div class="step-desc">Describe the gig — errand, cleaning, delivery, odd job. No account needed.</div></div></div>
+      <div class="step"><div class="step-num">02</div><div><div class="step-title">Receive responses</div><div class="step-desc">Interested workers message you directly on WhatsApp with their details.</div></div></div>
+      <div class="step"><div class="step-num">03</div><div><div class="step-title">Get it done</div><div class="step-desc">Pick the best fit, agree on terms, and get your task completed fast.</div></div></div>
+    </div>
+    <div class="for-workers how-col">
+      <h3>For Gig Workers</h3>
+      <div class="step"><div class="step-num">01</div><div><div class="step-title">Browse open gigs</div><div class="step-desc">Filter by category, location or pay. Find tasks that work for your schedule.</div></div></div>
+      <div class="step"><div class="step-num">02</div><div><div class="step-title">Apply in seconds</div><div class="step-desc">No account, no login. Tap Apply — WhatsApp opens with your message pre-filled.</div></div></div>
+      <div class="step"><div class="step-num">03</div><div><div class="step-title">Get paid</div><div class="step-desc">Complete the task, collect your cash. Work when you want.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories-section">
+  <div class="section-label">Explore</div>
+  <h2>Browse by category</h2>
+  <div class="cat-grid">
+    <div class="cat-card" onclick="filterByCategory('Errands')"><span class="cat-icon">🛵</span><div class="cat-name">Errands</div></div>
+    <div class="cat-card" onclick="filterByCategory('Cleaning')"><span class="cat-icon">🧹</span><div class="cat-name">Cleaning</div></div>
+    <div class="cat-card" onclick="filterByCategory('Delivery')"><span class="cat-icon">📦</span><div class="cat-name">Delivery</div></div>
+    <div class="cat-card" onclick="filterByCategory('Handyman')"><span class="cat-icon">🔨</span><div class="cat-name">Handyman</div></div>
+    <div class="cat-card" onclick="filterByCategory('Childcare')"><span class="cat-icon">👶</span><div class="cat-name">Childcare</div></div>
+    <div class="cat-card" onclick="filterByCategory('Digital')"><span class="cat-icon">💻</span><div class="cat-name">Digital</div></div>
+    <div class="cat-card" onclick="filterByCategory('Events')"><span class="cat-icon">🎉</span><div class="cat-name">Events</div></div>
+    <div class="cat-card" onclick="filterByCategory('Moving')"><span class="cat-icon">🚚</span><div class="cat-name">Moving</div></div>
+  </div>
+</section>
+
+<!-- GIG LISTINGS -->
+<section class="listings-section" id="jobs">
+  <div class="section-header">
+    <div>
+      <div class="section-label">Available now</div>
+      <h2>Latest gigs & tasks</h2>
+    </div>
+  </div>
+  <div class="search-wrap">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input type="text" id="searchInput" placeholder="Search gigs, locations..." oninput="handleSearch()">
+  </div>
+  <div class="filters">
+    <button class="filter-btn active" onclick="setFilter(this,'All')">All Gigs</button>
+    <button class="filter-btn" onclick="setFilter(this,'Errand')">Errands</button>
+    <button class="filter-btn" onclick="setFilter(this,'Contract')">Short Contract</button>
+    <button class="filter-btn" onclick="setFilter(this,'One-off')">One-off</button>
+    <button class="filter-btn" onclick="setFilter(this,'Recurring')">Recurring</button>
+  </div>
+  <div class="jobs-grid" id="jobsGrid"></div>
+</section>
+
+<!-- POST A GIG -->
+<section class="post-section" id="post">
+  <div>
+    <div class="section-label">For Task Posters</div>
+    <h2>Post a gig in<br>under 2 minutes.</h2>
+    <p class="post-desc">Got an errand, odd job, or short contract? Post it free and get responses from available workers nearby — no account needed.</p>
+    <ul class="feature-list">
+      <li>Completely free to post</li>
+      <li>No account or sign-up required</li>
+      <li>Workers message you on WhatsApp directly</li>
+      <li>Goes live immediately</li>
+      <li>Auto-expires after 14 days</li>
+      <li>Secret link to edit or close your gig anytime</li>
+    </ul>
+  </div>
+  <div class="post-form-wrap">
+    <h3>Post a task or gig</h3>
+    <p>Takes less than 2 minutes. No sign-up needed.</p>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Task Title *</label>
+        <input type="text" id="pJobTitle" placeholder="e.g. Grocery run, Furniture fix">
+      </div>
+      <div class="form-group">
+        <label>Your Name / Business</label>
+        <input type="text" id="pCompany" placeholder="e.g. Jane W. or HomeStyle">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Category</label>
+        <select id="pCategory">
+          <option>Errands</option><option>Cleaning</option><option>Delivery</option>
+          <option>Handyman</option><option>Childcare</option><option>Digital</option>
+          <option>Events</option><option>Moving</option><option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Gig Type</label>
+        <select id="pType">
+          <option>One-off</option><option>Errand</option>
+          <option>Contract</option><option>Recurring</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Location *</label>
+        <input type="text" id="pLocation" placeholder="e.g. Westlands, Nairobi">
+      </div>
+      <div class="form-group">
+        <label>Pay / Budget *</label>
+        <input type="text" id="pSalary" placeholder="e.g. KES 800 or negotiable">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Task Description *</label>
+      <textarea id="pDesc" placeholder="What needs to be done? Requirements, timing, tools needed..."></textarea>
+    </div>
+    <div class="form-group">
+      <label>Your WhatsApp Number * <span style="font-weight:400;color:rgba(245,242,235,0.4)">(workers will message you here)</span></label>
+      <input type="tel" id="pContact" placeholder="e.g. 0712345678 or +254712345678">
+    </div>
+    <div class="wa-hint">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <span style="font-size:0.75rem;color:rgba(245,242,235,0.4);">Applicants will open WhatsApp and message you directly</span>
+    </div>
+    <button class="btn-post" id="postBtn" onclick="postJob()">Post This Gig Now →</button>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-strip">
+  <div>
+    <h2>Ready to earn<br>on your terms?</h2>
+    <p>New gigs and errands posted every day across Kenya. No login needed to apply.</p>
+  </div>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;">
+    <a href="#jobs" class="btn-primary">Browse Gigs →</a>
+    <a href="#post" class="btn-secondary">Post a Task</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">Zipp<span>a</span></div>
+    <div class="footer-domain">zenplaygaming.co.ke</div>
+  </div>
+  <p>© 2026 Zippa by Zenplay. Quick gigs across Kenya.</p>
+  <p>No sign-up. No friction. Just work.</p>
+</footer>
+
+<!-- APPLY MODAL -->
+<div class="modal-overlay" id="applyModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('applyModal')">✕</button>
+    <h3>Apply for this gig</h3>
+    <p style="font-size:0.85rem;color:var(--muted);margin-top:4px;">No account needed — just your details.</p>
+    <div class="modal-job-info" id="modalJobInfo"></div>
+    <div class="form-group">
+      <label>Full Name *</label>
+      <input type="text" id="aName" placeholder="Your full name">
+    </div>
+    <div class="form-group">
+      <label>Phone or WhatsApp *</label>
+      <input type="text" id="aContact" placeholder="Best way to reach you">
+    </div>
+    <div class="form-group">
+      <label>Why are you a good fit? (optional)</label>
+      <textarea id="aMessage" placeholder="Quick note about your experience or availability..." style="min-height:90px;resize:vertical;"></textarea>
+    </div>
+    <button class="btn-post" onclick="submitApplication()">
+      <span style="display:flex;align-items:center;justify-content:center;gap:8px;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Apply via WhatsApp
+      </span>
+    </button>
+    <div class="no-login-note">✓ Opens WhatsApp with your details pre-filled · <strong>No login required</strong></div>
+  </div>
+</div>
+
+<!-- SUCCESS MODAL (shown after posting) -->
+<div class="modal-overlay" id="successModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('successModal')">✕</button>
+    <div class="success-modal">
+      <div class="success-icon">🎉</div>
+      <h3>Your gig is live!</h3>
+      <p>Workers can now find and apply for your task on Zippa. Save your private management link below — it's the only way to edit or close your gig.</p>
+      <div class="manage-link-box">
+        <strong>Your private management link</strong>
+        <span id="manageLinkText">—</span>
+      </div>
+      <button class="copy-btn" onclick="copyManageLink()">Copy Link</button>
+      <p style="font-size:0.75rem;color:var(--muted);margin-top:1rem;">Save this link somewhere safe. We don't store your number or email, so we can't recover it for you.</p>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ─────────────────────────────────────────────
+// SUPABASE CONFIG — replace with your own values
+// ─────────────────────────────────────────────
+const SUPABASE_URL = 'https://jazwgivqjkfmgididgmc.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImphendnaXZxamtmbWdpZGlkZ21jIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUyODU3NjUsImV4cCI6MjA5MDg2MTc2NX0.XC0qnNJf4xwOI5mOSwLOrubL2xk5rMSpT4nn0KgOdrI';
+const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+// ─────────────────────────────────────────────
+const ICONS = { Errands:'🛵', Cleaning:'🧹', Delivery:'📦', Handyman:'🔨', Childcare:'👶', Digital:'💻', Events:'🎉', Moving:'🚚', Other:'📋' };
+
+let allJobs = [];
+let currentJob = null;
+let activeFilter = 'All';
+let searchTerm = '';
+let manageLink = '';
+
+// ── LOAD GIGS FROM SUPABASE ──
+async function loadJobs() {
+  showSkeletons();
+  const now = new Date().toISOString();
+  const { data, error } = await supabase
+    .from('gigs')
+    .select('*')
+    .eq('status', 'active')
+    .gt('expires_at', now)
+    .order('created_at', { ascending: false });
+
+  if (error) {
+    console.error(error);
+    showToast('Could not load gigs. Please refresh.', '#e8452a');
+    return;
+  }
+  allJobs = data || [];
+  updateHeroCount();
+  renderJobs(getFiltered());
+}
+
+function updateHeroCount() {
+  document.getElementById('heroCount').textContent = allJobs.length + '+';
+  // Rough "applied today" estimate based on count
+  document.getElementById('applyCount').textContent = Math.max(3, Math.floor(allJobs.length * 1.8));
+}
+
+// ── FILTERING & SEARCH ──
+function getFiltered() {
+  return allJobs.filter(j => {
+    const matchFilter = activeFilter === 'All' || j.type === activeFilter;
+    const matchSearch = !searchTerm ||
+      j.title.toLowerCase().includes(searchTerm) ||
+      j.location.toLowerCase().includes(searchTerm) ||
+      j.category.toLowerCase().includes(searchTerm) ||
+      (j.company || '').toLowerCase().includes(searchTerm);
+    return matchFilter && matchSearch;
+  });
+}
+
+function setFilter(btn, type) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeFilter = type;
+  renderJobs(getFiltered());
+}
+
+function handleSearch() {
+  searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+  renderJobs(getFiltered());
+}
+
+function filterByCategory(cat) {
+  searchTerm = cat.toLowerCase();
+  document.getElementById('searchInput').value = cat;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  renderJobs(getFiltered());
+  document.getElementById('jobs').scrollIntoView({ behavior: 'smooth' });
+}
+
+// ── RENDER ──
+function showSkeletons() {
+  const grid = document.getElementById('jobsGrid');
+  grid.innerHTML = Array(6).fill('').map(() => `
+    <div class="skeleton-card">
+      <div class="skeleton skel-line skel-short" style="margin-bottom:16px;height:20px;"></div>
+      <div class="skeleton skel-line skel-full"></div>
+      <div class="skeleton skel-line skel-med"></div>
+      <div class="skeleton skel-line skel-short" style="margin-top:16px;height:36px;border-radius:50px;"></div>
+    </div>`).join('');
+}
+
+function daysLeft(expiresAt) {
+  const diff = new Date(expiresAt) - new Date();
+  const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+  if (days <= 1) return 'Expires today';
+  if (days <= 3) return `Expires in ${days} days`;
+  return '';
+}
+
+function isNew(createdAt) {
+  return (new Date() - new Date(createdAt)) < 1000 * 60 * 60 * 24;
+}
+
+function renderJobs(list) {
+  const grid = document.getElementById('jobsGrid');
+  if (!list.length) {
+    grid.innerHTML = `<div class="empty-state"><div class="empty-icon">🔍</div><p>No gigs found. Try a different search or check back soon!</p></div>`;
+    return;
+  }
+  grid.innerHTML = list.map(j => {
+    const fresh = isNew(j.created_at);
+    const expiry = daysLeft(j.expires_at);
+    return `
+    <div class="job-card" onclick="openApply('${j.id}')">
+      ${fresh ? '<div class="new-badge">New</div>' : ''}
+      <div class="job-card-header">
+        <div class="job-logo">${ICONS[j.category] || '📋'}</div>
+        <span class="job-tag${j.urgent ? ' urgent' : ''}">${j.urgent ? '🔥 Urgent' : j.type}</span>
+      </div>
+      <div class="job-title">${j.title}</div>
+      <div class="job-company">${j.company || 'Private'} · ${j.location}</div>
+      <div class="job-meta">
+        <span>📍 ${j.location}</span>
+        <span>🕐 ${j.type}</span>
+        <span>📁 ${j.category}</span>
+      </div>
+      <div class="job-card-footer">
+        <div class="salary-tag">${j.salary}</div>
+        <button class="apply-btn" onclick="event.stopPropagation();openApply('${j.id}')">Apply Now</button>
+      </div>
+      ${expiry ? `<div class="expires-tag">⏳ ${expiry}</div>` : ''}
+    </div>`;
+  }).join('');
+}
+
+// ── APPLY MODAL ──
+function openApply(id) {
+  currentJob = allJobs.find(j => j.id === id);
+  if (!currentJob) return;
+  document.getElementById('modalJobInfo').innerHTML = `<strong>${currentJob.title}</strong> · ${currentJob.location} · <strong style="color:var(--accent)">${currentJob.salary}</strong>`;
+  document.getElementById('aName').value = '';
+  document.getElementById('aContact').value = '';
+  document.getElementById('aMessage').value = '';
+  document.getElementById('applyModal').classList.add('active');
+}
+
+function closeModal(id) { document.getElementById(id).classList.remove('active'); }
+
+function submitApplication() {
+  const name = document.getElementById('aName').value.trim();
+  const contact = document.getElementById('aContact').value.trim();
+  const message = document.getElementById('aMessage').value.trim();
+  if (!name || !contact) { showToast('Please enter your name and contact.', '#e8452a'); return; }
+
+  const lines = [
+    'Hi! I saw your gig on Zippa (zenplaygaming.co.ke) and I\'m interested.',
+    '',
+    '*Gig:* ' + currentJob.title,
+    '*Location:* ' + currentJob.location,
+    '*Pay:* ' + currentJob.salary,
+    '',
+    '*My name:* ' + name,
+    '*My contact:* ' + contact,
+    message ? '*About me:* ' + message : '',
+    '',
+    'Looking forward to hearing from you!'
+  ].filter(l => l !== null && l !== undefined);
+
+  const text = lines.join('\n');
+  let num = currentJob.whatsapp.replace(/[\s\-\+]/g, '');
+  if (num.startsWith('0')) num = '254' + num.slice(1);
+  if (!num.startsWith('254') && num.length === 9) num = '254' + num;
+
+  closeModal('applyModal');
+  window.open('https://wa.me/' + num + '?text=' + encodeURIComponent(text), '_blank');
+  showToast('Opening WhatsApp...');
+}
+
+// ── POST JOB ──
+function generateToken() {
+  return Array.from(crypto.getRandomValues(new Uint8Array(18))).map(b => b.toString(36)).join('').slice(0, 24);
+}
+
+async function postJob() {
+  const title = document.getElementById('pJobTitle').value.trim();
+  const company = document.getElementById('pCompany').value.trim() || 'Private';
+  const location = document.getElementById('pLocation').value.trim();
+  const whatsapp = document.getElementById('pContact').value.trim();
+  const desc = document.getElementById('pDesc').value.trim();
+  const salary = document.getElementById('pSalary').value.trim() || 'Negotiable';
+
+  if (!title || !location || !whatsapp || !desc) {
+    showToast('Please fill in all required fields.', '#e8452a'); return;
+  }
+  const cleaned = whatsapp.replace(/[\s\-\+]/g, '');
+  if (!/^\d{9,12}$/.test(cleaned)) {
+    showToast('Please enter a valid WhatsApp number.', '#e8452a'); return;
+  }
+
+  const btn = document.getElementById('postBtn');
+  btn.disabled = true;
+  btn.textContent = 'Posting...';
+
+  const cat = document.getElementById('pCategory').value;
+  const type = document.getElementById('pType').value;
+  const editToken = generateToken();
+  const expiresAt = new Date(Date.now() + 14 * 24 * 60 * 60 * 1000).toISOString();
+
+  const { data, error } = await supabase.from('gigs').insert([{
+    title, company, location, category: cat, type, salary,
+    description: desc, whatsapp: cleaned,
+    edit_token: editToken, status: 'active', urgent: false,
+    expires_at: expiresAt
+  }]).select().single();
+
+  btn.disabled = false;
+  btn.textContent = 'Post This Gig Now →';
+
+  if (error) {
+    console.error('Supabase insert error:', error);
+    showToast('Error: ' + (error.message || error.code || 'Unknown error — check console'), '#e8452a');
+    return;
+  }
+
+  // Build and show the manage link
+  manageLink = window.location.origin + '/manage.html?token=' + editToken;
+  document.getElementById('manageLinkText').textContent = manageLink;
+  document.getElementById('successModal').classList.add('active');
+
+  // Clear form and reload listings
+  ['pJobTitle','pCompany','pLocation','pSalary','pDesc','pContact'].forEach(id => document.getElementById(id).value = '');
+  await loadJobs();
+}
+
+function copyManageLink() {
+  navigator.clipboard.writeText(manageLink).then(() => showToast('Link copied!'));
+}
+
+// ── TOAST ──
+function showToast(msg, bg = '#22c55e') {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.background = bg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3500);
+}
+
+// Close modals on overlay click
+['applyModal','successModal'].forEach(id => {
+  document.getElementById(id).addEventListener('click', function(e) {
+    if (e.target === this) closeModal(id);
+  });
+});
+
+// ── INIT ──
+// Quick connection check
+(async () => {
+  const { error } = await supabase.from('gigs').select('id').limit(1);
+  if (error) {
+    console.warn('Supabase connection check failed:', error.message);
+  } else {
+    console.log('✅ Supabase connected OK');
+  }
+})();
+loadJobs();
+</script>
+</body>
+</html>
