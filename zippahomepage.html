@@ -10,7 +10,7 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
     --ink: #ffffff; --paper: #0a0a0a; --cream: #141414; --sand: #262626;
-    --accent: #ff5e3d; --green: #22c55e; --muted: #9c9993;
+    --accent: #fbbf24; --yellow: #fbbf24; --green: #22c55e; --muted: #9c9993;
     --white: #111111; --border: rgba(255,255,255,0.08);
     --radius: 14px; --radius-lg: 22px;
   }
@@ -21,7 +21,7 @@
   nav { position: sticky; top: 20px; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 3%; height: 64px; background: rgba(15, 15, 15, 0.75); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(16px); width: 92%; max-width: 1200px; margin: 0 auto; border-radius: 50px; box-shadow: 0 10px 40px rgba(0,0,0,0.4); transition: all 0.3s ease; }
   .logo { display: flex; flex-direction: column; line-height: 1; }
   .logo-main { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.5rem; color: var(--ink); letter-spacing: -0.5px; }
-  .logo-main span { color: var(--accent); }
+  .logo-main span { color: var(--yellow); }
   .logo-sub { font-size: 0.62rem; color: var(--muted); font-weight: 400; letter-spacing: 0.5px; }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
@@ -31,16 +31,16 @@
 
   /* HERO */
   .hero { min-height: 88vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 5% 5%; gap: 4rem; position: relative; overflow: hidden; margin-top: 2rem; }
-  .hero::before { content: ''; position: absolute; top: -20%; right: -10%; width: 50vw; height: 50vw; border-radius: 50%; background: radial-gradient(circle, #e8452a 0%, #ff8c5a 50%, transparent 80%); opacity: 0.15; filter: blur(80px); pointer-events: none; animation: pulseGlow 8s infinite alternate ease-in-out; }
+  .hero::before { content: ''; position: absolute; top: -20%; right: -10%; width: 50vw; height: 50vw; border-radius: 50%; background: radial-gradient(circle, #f59e0b 0%, #fcd34d 50%, transparent 80%); opacity: 0.15; filter: blur(80px); pointer-events: none; animation: pulseGlow 8s infinite alternate ease-in-out; }
   .hero::after { content: ''; position: absolute; bottom: -20%; left: -10%; width: 40vw; height: 40vw; border-radius: 50%; background: radial-gradient(circle, #22c55e 0%, #a7f3d0 50%, transparent 80%); opacity: 0.08; filter: blur(80px); pointer-events: none; animation: pulseGlow 10s infinite alternate-reverse ease-in-out; }
   .hero-tag { display: inline-flex; align-items: center; gap: 8px; background: var(--cream); border: 1px solid var(--border); border-radius: 50px; padding: 6px 16px; font-size: 0.8rem; font-weight: 500; color: var(--muted); margin-bottom: 1.5rem; animation: fadeUp 0.6s ease both; }
   .hero-tag::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
   h1 { font-family: 'Syne', sans-serif; font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 800; line-height: 1.05; letter-spacing: -2px; color: var(--ink); animation: fadeUp 0.6s 0.1s ease both; }
-  h1 em { font-style: normal; color: var(--accent); }
+  h1 em { font-style: normal; color: var(--yellow); }
   .hero-sub { margin-top: 1.25rem; font-size: 1.05rem; color: var(--muted); max-width: 420px; font-weight: 300; animation: fadeUp 0.6s 0.2s ease both; }
   .hero-actions { display: flex; gap: 16px; margin-top: 2.5rem; flex-wrap: wrap; animation: fadeUp 0.6s 0.3s ease both; }
-  .btn-primary { background: linear-gradient(135deg, var(--accent) 0%, #fc5c42 100%); color: var(--white); padding: 15px 34px; border-radius: 50px; font-size: 0.95rem; font-weight: 600; text-decoration: none; border: none; cursor: pointer; transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1); box-shadow: 0 6px 24px rgba(232,69,42,0.3); display: inline-block; position: relative; overflow: hidden; }
-  .btn-primary:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 12px 32px rgba(232,69,42,0.45); }
+  .btn-primary { background: linear-gradient(135deg, var(--accent) 0%, #f59e0b 100%); color: var(--white); padding: 15px 34px; border-radius: 50px; font-size: 0.95rem; font-weight: 600; text-decoration: none; border: none; cursor: pointer; transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1); box-shadow: 0 6px 24px rgba(251,191,36,0.3); display: inline-block; position: relative; overflow: hidden; }
+  .btn-primary:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 12px 32px rgba(251,191,36,0.45); }
   .btn-primary::after { content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); transform: skewX(-20deg); transition: 0s; }
   .btn-primary:hover::after { left: 150%; transition: left 0.6s ease-in-out; }
   .btn-secondary { background: rgba(255,255,255,0.05); backdrop-filter: blur(8px); color: var(--ink); padding: 15px 34px; border-radius: 50px; font-size: 0.95rem; font-weight: 600; text-decoration: none; border: 1.5px solid var(--border); cursor: pointer; transition: all 0.25s ease; display: inline-block; }
@@ -60,7 +60,7 @@
   .jcf-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.95rem; color: var(--ink); margin-bottom: 4px; }
   .jcf-company { font-size: 0.8rem; color: var(--muted); margin-bottom: 12px; }
   .jcf-footer { display: flex; align-items: center; justify-content: space-between; }
-  .jcf-salary { font-weight: 700; font-size: 0.9rem; color: var(--accent); }
+  .jcf-salary { font-weight: 700; font-size: 0.9rem; color: var(--yellow); }
   .jcf-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
   .jcf-live { font-size: 0.72rem; color: var(--muted); display: flex; align-items: center; gap: 4px; }
   .applicants-badge { position: absolute; bottom: 170px; right: 10px; background: rgba(255,255,255,0.1); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.1); color: var(--ink); border-radius: var(--radius); padding: 10px 16px; font-size: 0.8rem; font-weight: 500; box-shadow: 0 6px 20px rgba(0,0,0,0.4); animation: float2 3.5s 0.8s ease-in-out infinite; }
@@ -68,7 +68,7 @@
 
   /* SECTIONS */
   .section { padding: 6rem 5%; }
-  .section-label { font-size: 0.78rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem; }
+  .section-label { font-size: 0.78rem; font-weight: 600; color: var(--yellow); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem; }
   h2 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: clamp(1.8rem, 3.5vw, 2.8rem); letter-spacing: -1px; line-height: 1.15; color: var(--ink); }
 
   /* HOW IT WORKS */
@@ -114,12 +114,12 @@
   /* JOB CARD */
   .job-card { background: rgba(20,20,20,0.6); backdrop-filter: blur(8px); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); cursor: pointer; position: relative; overflow: hidden; }
   .job-card::after { content: ''; position: absolute; inset: 0; border-radius: var(--radius-lg); box-shadow: inset 0 0 0 1.5px var(--accent); opacity: 0; transition: opacity 0.3s ease; pointer-events: none; }
-  .job-card:hover { background: var(--white); transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 8px 30px rgba(255,94,61,0.15); }
+  .job-card:hover { background: var(--white); transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 8px 30px rgba(251,191,36,0.15); }
   .job-card:hover::after { opacity: 0.15; }
   .job-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
   .job-logo { width: 44px; height: 44px; border-radius: 10px; background: var(--cream); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; border: 1px solid var(--border); }
   .job-tag { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: var(--muted); padding: 4px 10px; border-radius: 50px; font-size: 0.72rem; font-weight: 500; }
-  .job-tag.urgent { background: rgba(255,94,61,0.1); border-color: rgba(255,94,61,0.2); color: var(--accent); }
+  .job-tag.urgent { background: rgba(251,191,36,0.1); border-color: rgba(251,191,36,0.2); color: var(--yellow); }
   .job-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem; margin-bottom: 4px; }
   .job-company { font-size: 0.82rem; color: var(--muted); margin-bottom: 14px; }
   .job-meta { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
@@ -127,8 +127,8 @@
   .job-card-footer { display: flex; align-items: center; justify-content: space-between; }
   .salary-tag { font-weight: 600; font-size: 0.9rem; color: var(--ink); }
   .apply-btn { background: rgba(255,255,255,0.08); color: var(--ink); padding: 10px 20px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; border: 1px solid rgba(255,255,255,0.1); cursor: pointer; transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1); font-family: 'DM Sans', sans-serif; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
-  .apply-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); transform: scale(1.05) translateY(-2px); box-shadow: 0 8px 20px rgba(255,94,61,0.3); }
-  .new-badge { position: absolute; top: 16px; left: 16px; background: var(--accent); color: white; font-size: 0.65rem; font-weight: 600; padding: 3px 8px; border-radius: 50px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .apply-btn:hover { background: var(--accent); color: var(--white); border-color: var(--accent); transform: scale(1.05) translateY(-2px); box-shadow: 0 8px 20px rgba(251,191,36,0.3); }
+  .new-badge { position: absolute; top: 16px; left: 16px; background: var(--accent); color: var(--white); font-size: 0.65rem; font-weight: 600; padding: 3px 8px; border-radius: 50px; text-transform: uppercase; letter-spacing: 0.5px; }
   .expires-tag { font-size: 0.72rem; color: var(--muted); margin-top: 8px; }
 
   /* SKELETON LOADER */
@@ -145,7 +145,7 @@
   .post-desc { font-size: 1rem; color: var(--muted); margin-top: 1rem; max-width: 400px; line-height: 1.7; }
   .feature-list { list-style: none; margin-top: 2rem; display: flex; flex-direction: column; gap: 12px; }
   .feature-list li { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--muted); }
-  .feature-list li::before { content: ''; width: 20px; height: 20px; border-radius: 50%; background: #e8452a18 url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4l2.5 2.5L9 1' stroke='%23e8452a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center; flex-shrink: 0; }
+  .feature-list li::before { content: ''; width: 20px; height: 20px; border-radius: 50%; background: #fbbf2418 url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4l2.5 2.5L9 1' stroke='%23fbbf24' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center; flex-shrink: 0; }
   .post-form-wrap { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 36px; color: var(--ink); box-shadow: 0 10px 40px rgba(0,0,0,0.4); }
   .post-form-wrap h3 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.3rem; margin-bottom: 0.4rem; }
   .post-form-wrap p { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.5rem; }
@@ -159,7 +159,7 @@
   .form-group textarea { resize: vertical; min-height: 80px; }
   .wa-hint { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
   .wa-hint span { font-size: 0.75rem; color: var(--muted); }
-  .btn-post { width: 100%; background: var(--accent); color: white; border: none; border-radius: 50px; padding: 14px; font-size: 0.95rem; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: opacity 0.2s, transform 0.1s; margin-top: 6px; }
+  .btn-post { width: 100%; background: var(--accent); color: var(--white); border: none; border-radius: 50px; padding: 14px; font-size: 0.95rem; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: opacity 0.2s, transform 0.1s; margin-top: 6px; }
   .btn-post:hover { opacity: 0.9; transform: translateY(-1px); }
   .btn-post:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
 
@@ -174,7 +174,7 @@
   .modal .form-group input:focus, .modal .form-group textarea:focus { border-color: var(--accent); }
   .modal .form-group label { color: var(--muted); font-size: 0.78rem; font-weight: 500; }
   .no-login-note { text-align: center; font-size: 0.78rem; color: var(--muted); margin-top: 10px; }
-  .no-login-note strong { color: var(--accent); }
+  .no-login-note strong { color: var(--yellow); }
 
   /* SUCCESS MODAL */
   .success-modal { text-align: center; padding: 10px 0; }
@@ -196,8 +196,8 @@
   /* FOOTER */
   footer { border-top: 1px solid var(--border); padding: 3rem 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
   .footer-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.2rem; color: var(--ink); }
-  .footer-logo span { color: var(--accent); }
-  .footer-domain { font-size: 0.78rem; color: var(--accent); font-weight: 500; }
+  .footer-logo span { color: var(--yellow); }
+  .footer-domain { font-size: 0.78rem; color: var(--yellow); font-weight: 500; }
   footer p { font-size: 0.8rem; color: var(--muted); }
 
   /* TOAST */
@@ -269,9 +269,9 @@
 <!-- HERO -->
 <section class="hero">
   <div>
-    <div class="hero-tag">Quick gigs & errands — no login to apply</div>
-    <h1>Get things<br>done. Or get<br><em>paid. Fast.</em></h1>
-    <p class="hero-sub">Kenya's quickest way to find short contracts, errands & one-off gigs — or earn cash on your own schedule. No sign-up needed.</p>
+    <div class="hero-tag">Verified gigs & managed facilitation — No direct contact</div>
+    <h1>Expertly<br>Facilitated.<br><em>Paid. Secure.</em></h1>
+    <p class="hero-sub">Kenya's premium managed marketplace for quick gigs. We handle the vetting, negotiations, and connections so you can focus on the work.</p>
     <div class="hero-actions">
       <a href="#jobs" class="btn-primary">Find a Gig</a>
       <a href="#post" class="btn-secondary">Post a Task</a>
@@ -314,15 +314,15 @@
   <div class="how-grid">
     <div class="for-employers how-col">
       <h3>For Task Posters</h3>
-      <div class="step"><div class="step-num">01</div><div><div class="step-title">Post your task</div><div class="step-desc">Describe the gig — errand, cleaning, delivery, odd job. No account needed.</div></div></div>
-      <div class="step"><div class="step-num">02</div><div><div class="step-title">Receive responses</div><div class="step-desc">Interested workers message you directly on WhatsApp with their details.</div></div></div>
-      <div class="step"><div class="step-num">03</div><div><div class="step-title">Get it done</div><div class="step-desc">Pick the best fit, agree on terms, and get your task completed fast.</div></div></div>
+      <div class="step"><div class="step-num">01</div><div><div class="step-title">Submit your task</div><div class="step-desc">Describe your gig and pay a small listing fee via M-Pesa.</div></div></div>
+      <div class="step"><div class="step-num">02</div><div><div class="step-title">Review & Approval</div><div class="step-desc">Our team reviews and verifies your payment before the gig goes live.</div></div></div>
+      <div class="step"><div class="step-num">03</div><div><div class="step-title">Zenplay Facilitates</div><div class="step-desc">We find the best worker, negotiate terms, and manage the connection for you.</div></div></div>
     </div>
     <div class="for-workers how-col">
       <h3>For Gig Workers</h3>
-      <div class="step"><div class="step-num">01</div><div><div class="step-title">Browse open gigs</div><div class="step-desc">Filter by category, location or pay. Find tasks that work for your schedule.</div></div></div>
-      <div class="step"><div class="step-num">02</div><div><div class="step-title">Apply in seconds</div><div class="step-desc">No account, no login. Tap Apply — WhatsApp opens with your message pre-filled.</div></div></div>
-      <div class="step"><div class="step-num">03</div><div><div class="step-title">Get paid</div><div class="step-desc">Complete the task, collect your cash. Work when you want.</div></div></div>
+      <div class="step"><div class="step-num">01</div><div><div class="step-title">Find a Gig</div><div class="step-desc">Browse verified listings. Pay a small commission fee to apply.</div></div></div>
+      <div class="step"><div class="step-num">02</div><div><div class="step-title">Zenplay Connects You</div><div class="step-desc">We review your application and facilitate the offer with the employer.</div></div></div>
+      <div class="step"><div class="step-num">03</div><div><div class="step-title">Work & Earn</div><div class="step-desc">Complete the job with Zenplay's support and collect your payment.</div></div></div>
     </div>
   </div>
 </section>
@@ -372,12 +372,12 @@
     <h2>Post a gig in<br>under 2 minutes.</h2>
     <p class="post-desc">Got an errand, odd job, or short contract? Post it free and get responses from available workers nearby — no account needed.</p>
     <ul class="feature-list">
-      <li>Completely free to post</li>
-      <li>No account or sign-up required</li>
-      <li>Workers message you on WhatsApp directly</li>
-      <li>Goes live immediately</li>
-      <li>Auto-expires after 14 days</li>
-      <li>Secret link to edit or close your gig anytime</li>
+      <li>Affordable listing fee (KES 200)</li>
+      <li>Payment via M-Pesa Till Number</li>
+      <li>Expertly reviewed and verified</li>
+      <li>Goes live after approval</li>
+      <li>Zenplay facilitates all communication</li>
+      <li>Secure and professional connections</li>
     </ul>
   </div>
   <div class="post-form-wrap">
@@ -424,9 +424,14 @@
       <label>Task Description *</label>
       <textarea id="pDesc" placeholder="What needs to be done? Requirements, timing, tools needed..."></textarea>
     </div>
+    <div class="form-group" style="background: rgba(251, 191, 36, 0.05); padding: 15px; border-radius: 10px; border: 1px dashed var(--accent);">
+      <label style="color: var(--accent); font-weight: 700;">PAYMENT REQUIRED: KES 200</label>
+      <p style="font-size: 0.75rem; margin-bottom: 8px;">1. Send KES 200 to <strong>Till Number: [INSERT TILL]</strong><br>2. Paste the M-Pesa Confirmation Code below.</p>
+      <input type="text" id="pMpesa" placeholder="e.g. RAK2OXZ123">
+    </div>
     <div class="form-group">
-      <label>Your WhatsApp Number * <span style="font-weight:400;color:rgba(245,242,235,0.4)">(workers will message you here)</span></label>
-      <input type="tel" id="pContact" placeholder="e.g. 0712345678 or +254712345678">
+      <label>Your WhatsApp Number *</label>
+      <input type="tel" id="pContact" placeholder="e.g. 0712345678">
     </div>
     <div class="wa-hint">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -477,13 +482,18 @@
       <label>Why are you a good fit? (optional)</label>
       <textarea id="aMessage" placeholder="Quick note about your experience or availability..." style="min-height:90px;resize:vertical;"></textarea>
     </div>
+    <div class="form-group" style="background: rgba(251, 191, 36, 0.05); padding: 15px; border-radius: 10px; border: 1px dashed var(--accent); margin-bottom: 1rem;">
+      <label style="color: var(--accent); font-weight: 700;">APPLICATION FEE: KES 50</label>
+      <p style="font-size: 0.75rem; margin-bottom: 8px;">1. Send KES 50 to <strong>Till Number: [INSERT TILL]</strong><br>2. Zenplay will contact the employer for you.</p>
+      <input type="text" id="aMpesa" placeholder="M-Pesa Confirmation Code">
+    </div>
     <button class="btn-post" onclick="submitApplication()">
       <span style="display:flex;align-items:center;justify-content:center;gap:8px;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Apply via WhatsApp
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#111111"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Apply & Verify Payment
       </span>
     </button>
-    <div class="no-login-note">✓ Opens WhatsApp with your details pre-filled · <strong>No login required</strong></div>
+    <div class="no-login-note">✓ Processed by Zenplay · <strong>Verified Connections Only</strong></div>
   </div>
 </div>
 
@@ -493,8 +503,8 @@
     <button class="modal-close" onclick="closeModal('successModal')">✕</button>
     <div class="success-modal">
       <div class="success-icon">🎉</div>
-      <h3>Your gig is live!</h3>
-      <p>Workers can now find and apply for your task on Zippa. Save your private management link below — it's the only way to edit or close your gig.</p>
+      <h3>Submission received!</h3>
+      <p>Your gig has been submitted for review. Once we verify your M-Pesa payment, it will go live on Zippa. Save your private management link below.</p>
       <div class="manage-link-box">
         <strong>Your private management link</strong>
         <span id="manageLinkText">—</span>
@@ -514,6 +524,9 @@
 const SUPABASE_URL = 'https://jazwgivqjkfmgididgmc.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImphendnaXZxamtmbWdpZGlkZ21jIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUyODU3NjUsImV4cCI6MjA5MDg2MTc2NX0.XC0qnNJf4xwOI5mOSwLOrubL2xk5rMSpT4nn0KgOdrI';
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+// ── ZENPLAY CONFIG ──
+const ZENPLAY_WHATSAPP = '254700000000'; // Replace with your central facilitate number
 
 // ─────────────────────────────────────────────
 const ICONS = { Errands:'🛵', Cleaning:'🧹', Delivery:'📦', Handyman:'🔨', Childcare:'👶', Digital:'💻', Events:'🎉', Moving:'🚚', Other:'📋' };
@@ -644,7 +657,7 @@ function renderJobs(list) {
 function openApply(id) {
   currentJob = allJobs.find(j => j.id === id);
   if (!currentJob) return;
-  document.getElementById('modalJobInfo').innerHTML = `<strong>${currentJob.title}</strong> · ${currentJob.location} · <strong style="color:var(--accent)">${currentJob.salary}</strong>`;
+  document.getElementById('modalJobInfo').innerHTML = `<strong>${currentJob.title}</strong> · ${currentJob.location} · <strong style="color:var(--yellow)">${currentJob.salary}</strong>`;
   document.getElementById('aName').value = '';
   document.getElementById('aContact').value = '';
   document.getElementById('aMessage').value = '';
@@ -657,30 +670,27 @@ function submitApplication() {
   const name = document.getElementById('aName').value.trim();
   const contact = document.getElementById('aContact').value.trim();
   const message = document.getElementById('aMessage').value.trim();
-  if (!name || !contact) { showToast('Please enter your name and contact.', '#e8452a'); return; }
+  const mpesa = document.getElementById('aMpesa').value.trim();
+  if (!name || !contact || !mpesa) { showToast('Please fill in all required fields including M-Pesa code.', '#e8452a'); return; }
 
   const lines = [
-    'Hi! I saw your gig on Zippa (zenplaygaming.co.ke) and I\'m interested.',
+    '*NEW APPLICATION VIA ZENPLAY*',
     '',
     '*Gig:* ' + currentJob.title,
     '*Location:* ' + currentJob.location,
-    '*Pay:* ' + currentJob.salary,
     '',
-    '*My name:* ' + name,
-    '*My contact:* ' + contact,
-    message ? '*About me:* ' + message : '',
+    '*Worker Name:* ' + name,
+    '*Worker Contact:* ' + contact,
+    '*M-Pesa Code:* ' + mpesa,
+    message ? '*Message:* ' + message : '',
     '',
-    'Looking forward to hearing from you!'
+    'Zenplay Team, please facilitate this connection.'
   ].filter(l => l !== null && l !== undefined);
 
   const text = lines.join('\n');
-  let num = currentJob.whatsapp.replace(/[\s\-\+]/g, '');
-  if (num.startsWith('0')) num = '254' + num.slice(1);
-  if (!num.startsWith('254') && num.length === 9) num = '254' + num;
-
   closeModal('applyModal');
-  window.open('https://wa.me/' + num + '?text=' + encodeURIComponent(text), '_blank');
-  showToast('Opening WhatsApp...');
+  window.open('https://wa.me/' + ZENPLAY_WHATSAPP + '?text=' + encodeURIComponent(text), '_blank');
+  showToast('Connecting with Zenplay...');
 }
 
 // ── POST JOB ──
@@ -695,9 +705,10 @@ async function postJob() {
   const whatsapp = document.getElementById('pContact').value.trim();
   const desc = document.getElementById('pDesc').value.trim();
   const salary = document.getElementById('pSalary').value.trim() || 'Negotiable';
+  const mpesa = document.getElementById('pMpesa').value.trim();
 
-  if (!title || !location || !whatsapp || !desc) {
-    showToast('Please fill in all required fields.', '#e8452a'); return;
+  if (!title || !location || !whatsapp || !desc || !mpesa) {
+    showToast('Please fill in all required fields including M-Pesa code.', '#e8452a'); return;
   }
   const cleaned = whatsapp.replace(/[\s\-\+]/g, '');
   if (!/^\d{9,12}$/.test(cleaned)) {
@@ -716,8 +727,8 @@ async function postJob() {
   const { data, error } = await supabase.from('gigs').insert([{
     title, company, location, category: cat, type, salary,
     description: desc, whatsapp: cleaned,
-    edit_token: editToken, status: 'active', urgent: false,
-    expires_at: expiresAt
+    edit_token: editToken, status: 'pending', urgent: false,
+    expires_at: expiresAt, mpesa_code: mpesa
   }]).select().single();
 
   btn.disabled = false;

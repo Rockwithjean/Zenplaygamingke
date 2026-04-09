@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zippa Admin – Review Pending Gigs</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.8/dist/umd/supabase.js"></script>
+<style>
+  :root {
+    --ink: #ffffff; --paper: #0a0a0a; --cream: #141414; --yellow: #fbbf24;
+    --muted: #9c9993; --white: #111111; --border: rgba(255,255,255,0.08);
+  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); margin: 0; padding: 2rem; }
+  .container { max-width: 1000px; margin: 0 auto; }
+  h1 { font-family: 'Syne', sans-serif; font-weight: 800; color: var(--yellow); }
+  .auth-box { background: var(--white); padding: 2rem; border-radius: 12px; border: 1px solid var(--border); text-align: center; margin-top: 5rem; }
+  input { background: var(--cream); border: 1px solid var(--border); color: var(--ink); padding: 12px; border-radius: 8px; width: 100%; max-width: 300px; margin-bottom: 1rem; outline: none; }
+  button { background: var(--yellow); color: #000; border: none; padding: 12px 24px; border-radius: 50px; font-weight: 700; cursor: pointer; transition: opacity 0.2s; }
+  button:hover { opacity: 0.9; }
+  
+  .dashboard { display: none; }
+  .job-list { display: grid; gap: 1.5rem; margin-top: 2rem; }
+  .job-card { background: var(--white); border: 1px solid var(--border); padding: 1.5rem; border-radius: 12px; display: flex; justify-content: space-between; align-items: flex-start; }
+  .job-info h3 { margin: 0; font-family: 'Syne', sans-serif; }
+  .job-info p { color: var(--muted); font-size: 0.9rem; margin: 5px 0; }
+  .mpesa-code { display: inline-block; background: rgba(251, 191, 36, 0.1); color: var(--yellow); padding: 4px 10px; border-radius: 4px; font-weight: 700; margin-top: 8px; }
+  .actions { display: flex; gap: 10px; }
+  .btn-approve { background: #22c55e; color: #fff; }
+  .btn-delete { background: #ef4444; color: #fff; }
+  
+  .loader { display: none; color: var(--yellow); margin-top: 2rem; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div id="authArea" class="auth-box">
+    <h1>Zippa Admin</h1>
+    <p style="color:var(--muted)">Enter Admin Key to Manage Pending Gigs</p>
+    <input type="password" id="adminKey" placeholder="Admin Secret Key">
+    <br>
+    <button onclick="login()">Access Dashboard</button>
+  </div>
+
+  <div id="dashboardArea" class="dashboard">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <h1>Pending Review <span id="count" style="color:var(--muted); font-size:1.2rem;">(0)</span></h1>
+      <button onclick="logout()" style="background:transparent; border:1px solid var(--border); color:var(--muted); padding:8px 16px;">Logout</button>
+    </div>
+    <p id="loader" class="loader">Fetching pending gigs...</p>
+    <div id="jobList" class="job-list"></div>
+  </div>
+</div>
+
+<script>
+const SUPABASE_URL = 'https://jazwgivqjkfmgididgmc.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImphendnaXZxamtmbWdpZGlkZ21jIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUyODU3NjUsImV4cCI6MjA5MDg2MTc2NX0.XC0qnNJf4xwOI5mOSwLOrubL2xk5rMSpT4nn0KgOdrI';
+const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+const ADMIN_SECRET = 'zenplay2026'; // Change this to your preferred simple key
+
+function login() {
+  const key = document.getElementById('adminKey').value;
+  if (key === ADMIN_SECRET) {
+    document.getElementById('authArea').style.display = 'none';
+    document.getElementById('dashboardArea').style.display = 'block';
+    loadPending();
+  } else {
+    alert('Invalid Key');
+  }
+}
+
+function logout() {
+  document.getElementById('authArea').style.display = 'block';
+  document.getElementById('dashboardArea').style.display = 'none';
+  document.getElementById('adminKey').value = '';
+}
+
+async function loadPending() {
+  const loader = document.getElementById('loader');
+  const list = document.getElementById('jobList');
+  loader.style.display = 'block';
+  list.innerHTML = '';
+
+  const { data, error } = await supabase
+    .from('gigs')
+    .select('*')
+    .eq('status', 'pending')
+    .order('created_at', { ascending: false });
+
+  loader.style.display = 'none';
+  
+  if (error) {
+    alert('Error loading data: ' + error.message);
+    return;
+  }
+
+  document.getElementById('count').textContent = `(${data.length})`;
+
+  if (data.length === 0) {
+    list.innerHTML = '<p style="text-align:center; color:var(--muted); margin-top:3rem;">No pending gigs found.</p>';
+    return;
+  }
+
+  list.innerHTML = data.map(j => `
+    <div class="job-card" id="job-${j.id}">
+      <div class="job-info">
+        <h3>${j.title}</h3>
+        <p><strong>Location:</strong> ${j.location} | <strong>Pay:</strong> ${j.salary}</p>
+        <p><strong>Poster:</strong> ${j.company} (${j.whatsapp})</p>
+        <p style="margin-top:10px;">${j.description}</p>
+        <div class="mpesa-code">M-Pesa: ${j.mpesa_code || 'N/A'}</div>
+      </div>
+      <div class="actions">
+        <button class="btn-approve" onclick="approve('${j.id}')">Approve</button>
+        <button class="btn-delete" onclick="remove('${j.id}')">Reject</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+async function approve(id) {
+  if (!confirm('Confirm you have verified payment for this gig?')) return;
+  
+  const { error } = await supabase
+    .from('gigs')
+    .update({ status: 'active' })
+    .eq('id', id);
+
+  if (error) {
+    alert('Error approving: ' + error.message);
+  } else {
+    document.getElementById(`job-${id}`).remove();
+    alert('Gig Approved! It is now live on the site.');
+  }
+}
+
+async function remove(id) {
+  if (!confirm('Are you sure you want to reject and delete this gig?')) return;
+  
+  const { error } = await supabase
+    .from('gigs')
+    .delete()
+    .eq('id', id);
+
+  if (error) {
+    alert('Error deleting: ' + error.message);
+  } else {
+    document.getElementById(`job-${id}`).remove();
+  }
+}
+</script>
+</body>
+</html>
