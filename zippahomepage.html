@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Zippa by Zenplay – Quick Gigs & Errands Kenya</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.8/dist/umd/supabase.js"></script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -91,11 +92,18 @@
   .cat-card:hover { transform: translateY(-4px) scale(1.02); border-color: transparent; box-shadow: 0 16px 32px rgba(0,0,0,0.1); }
   .cat-card:hover::before { opacity: 1; }
   .cat-card:hover .cat-name { color: var(--white); }
-  .cat-icon { font-size: 2rem; margin-bottom: 12px; display: block; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.06)); transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
-  .cat-card:hover .cat-icon { transform: scale(1.15) translateY(-4px); filter: drop-shadow(0 6px 12px rgba(0,0,0,0.2)); }
+  .cat-icon { width: 2.4rem; height: 2.4rem; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; background: rgba(251,191,36,0.1); border-radius: 10px; transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+  .cat-icon i { font-size: 1.1rem; color: var(--yellow); transition: color 0.3s ease; }
+  .cat-card:hover .cat-icon { transform: scale(1.15) translateY(-4px); background: rgba(251,191,36,0.2); }
   .cat-name { font-family: 'Syne', sans-serif; font-weight: 600; font-size: 0.85rem; }
   .cat-count { font-size: 0.75rem; color: var(--muted); margin-top: 3px; }
   .cat-card:hover .cat-count { color: rgba(245,242,235,0.6); }
+  /* JOB META ICONS */
+  .job-meta span i { font-size: 0.72rem; color: var(--yellow); opacity: 0.8; }
+  .job-logo i { font-size: 1.15rem; color: var(--yellow); }
+  .jcf-badge i { font-size: 0.75rem; color: var(--yellow); }
+  /* BADGE ICON */
+  .cat-card:hover .cat-icon i { color: var(--yellow); }
 
   /* SEARCH */
   .search-wrap { margin-top: 1.5rem; position: relative; max-width: 480px; }
@@ -284,19 +292,19 @@
   </div>
   <div class="hero-visual">
     <div class="job-card-float jcf-1">
-      <div class="jcf-badge">🛵 Errand</div>
+      <div class="jcf-badge"><i class="fa-solid fa-motorcycle"></i> Errand</div>
       <div class="jcf-title">Grocery Run – Westlands</div>
       <div class="jcf-company">Private client · Nairobi</div>
       <div class="jcf-footer"><div class="jcf-salary">KES 800</div><div class="jcf-live"><div class="jcf-dot"></div> Today only</div></div>
     </div>
     <div class="job-card-float jcf-2">
-      <div class="jcf-badge">🔨 Handyman</div>
+      <div class="jcf-badge"><i class="fa-solid fa-hammer"></i> Handyman</div>
       <div class="jcf-title">Furniture Assembly</div>
       <div class="jcf-company">HomeStyle · Kiambu</div>
       <div class="jcf-footer"><div class="jcf-salary">KES 1,500</div><div class="jcf-live"><div class="jcf-dot"></div> Urgent</div></div>
     </div>
     <div class="job-card-float jcf-3">
-      <div class="jcf-badge">🧹 Cleaning</div>
+      <div class="jcf-badge"><i class="fa-solid fa-broom"></i> Cleaning</div>
       <div class="jcf-title">End-of-tenancy Clean</div>
       <div class="jcf-company">Estate agent · Kilimani</div>
       <div class="jcf-footer"><div class="jcf-salary">KES 2,500</div><div class="jcf-live"><div class="jcf-dot"></div> Available now</div></div>
@@ -332,14 +340,14 @@
   <div class="section-label">Explore</div>
   <h2>Browse by category</h2>
   <div class="cat-grid">
-    <div class="cat-card" onclick="filterByCategory('Errands')"><span class="cat-icon">🛵</span><div class="cat-name">Errands</div></div>
-    <div class="cat-card" onclick="filterByCategory('Cleaning')"><span class="cat-icon">🧹</span><div class="cat-name">Cleaning</div></div>
-    <div class="cat-card" onclick="filterByCategory('Delivery')"><span class="cat-icon">📦</span><div class="cat-name">Delivery</div></div>
-    <div class="cat-card" onclick="filterByCategory('Handyman')"><span class="cat-icon">🔨</span><div class="cat-name">Handyman</div></div>
-    <div class="cat-card" onclick="filterByCategory('Childcare')"><span class="cat-icon">👶</span><div class="cat-name">Childcare</div></div>
-    <div class="cat-card" onclick="filterByCategory('Digital')"><span class="cat-icon">💻</span><div class="cat-name">Digital</div></div>
-    <div class="cat-card" onclick="filterByCategory('Events')"><span class="cat-icon">🎉</span><div class="cat-name">Events</div></div>
-    <div class="cat-card" onclick="filterByCategory('Moving')"><span class="cat-icon">🚚</span><div class="cat-name">Moving</div></div>
+    <div class="cat-card" onclick="filterByCategory('Errands')"><div class="cat-icon"><i class="fa-solid fa-motorcycle"></i></div><div class="cat-name">Errands</div></div>
+    <div class="cat-card" onclick="filterByCategory('Cleaning')"><div class="cat-icon"><i class="fa-solid fa-broom"></i></div><div class="cat-name">Cleaning</div></div>
+    <div class="cat-card" onclick="filterByCategory('Delivery')"><div class="cat-icon"><i class="fa-solid fa-box"></i></div><div class="cat-name">Delivery</div></div>
+    <div class="cat-card" onclick="filterByCategory('Handyman')"><div class="cat-icon"><i class="fa-solid fa-hammer"></i></div><div class="cat-name">Handyman</div></div>
+    <div class="cat-card" onclick="filterByCategory('Childcare')"><div class="cat-icon"><i class="fa-solid fa-baby"></i></div><div class="cat-name">Childcare</div></div>
+    <div class="cat-card" onclick="filterByCategory('Digital')"><div class="cat-icon"><i class="fa-solid fa-laptop-code"></i></div><div class="cat-name">Digital</div></div>
+    <div class="cat-card" onclick="filterByCategory('Events')"><div class="cat-icon"><i class="fa-solid fa-calendar-star"></i></div><div class="cat-name">Events</div></div>
+    <div class="cat-card" onclick="filterByCategory('Moving')"><div class="cat-icon"><i class="fa-solid fa-truck-moving"></i></div><div class="cat-name">Moving</div></div>
   </div>
 </section>
 
@@ -502,7 +510,7 @@
   <div class="modal">
     <button class="modal-close" onclick="closeModal('successModal')">✕</button>
     <div class="success-modal">
-      <div class="success-icon">🎉</div>
+      <div class="success-icon"><i class="fa-solid fa-circle-check" style="color:#22c55e;"></i></div>
       <h3>Submission received!</h3>
       <p>Your gig has been submitted for review. Once we verify your M-Pesa payment, it will go live on Zippa. Save your private management link below.</p>
       <div class="manage-link-box">
@@ -529,7 +537,17 @@ const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 const ZENPLAY_WHATSAPP = '254717498146'; // Replace with your central facilitate number
 
 // ─────────────────────────────────────────────
-const ICONS = { Errands:'🛵', Cleaning:'🧹', Delivery:'📦', Handyman:'🔨', Childcare:'👶', Digital:'💻', Events:'🎉', Moving:'🚚', Other:'📋' };
+const ICONS = {
+  Errands:  '<i class="fa-solid fa-motorcycle"></i>',
+  Cleaning: '<i class="fa-solid fa-broom"></i>',
+  Delivery: '<i class="fa-solid fa-box"></i>',
+  Handyman: '<i class="fa-solid fa-hammer"></i>',
+  Childcare:'<i class="fa-solid fa-baby"></i>',
+  Digital:  '<i class="fa-solid fa-laptop-code"></i>',
+  Events:   '<i class="fa-solid fa-calendar-star"></i>',
+  Moving:   '<i class="fa-solid fa-truck-moving"></i>',
+  Other:    '<i class="fa-solid fa-clipboard-list"></i>'
+};
 
 let allJobs = [];
 let currentJob = null;
@@ -624,7 +642,7 @@ function isNew(createdAt) {
 function renderJobs(list) {
   const grid = document.getElementById('jobsGrid');
   if (!list.length) {
-    grid.innerHTML = `<div class="empty-state"><div class="empty-icon">🔍</div><p>No gigs found. Try a different search or check back soon!</p></div>`;
+    grid.innerHTML = `<div class="empty-state"><div class="empty-icon"><i class="fa-solid fa-magnifying-glass" style="font-size:2rem;color:var(--muted);"></i></div><p>No gigs found. Try a different search or check back soon!</p></div>`;
     return;
   }
   grid.innerHTML = list.map(j => {
@@ -634,21 +652,21 @@ function renderJobs(list) {
     <div class="job-card" onclick="openApply('${j.id}')">
       ${fresh ? '<div class="new-badge">New</div>' : ''}
       <div class="job-card-header">
-        <div class="job-logo">${ICONS[j.category] || '📋'}</div>
-        <span class="job-tag${j.urgent ? ' urgent' : ''}">${j.urgent ? '🔥 Urgent' : j.type}</span>
+        <div class="job-logo">${ICONS[j.category] || '<i class="fa-solid fa-clipboard-list"></i>'}</div>
+        <span class="job-tag${j.urgent ? ' urgent' : ''}">${j.urgent ? '<i class="fa-solid fa-bolt" style="font-size:0.7rem;"></i> Urgent' : j.type}</span>
       </div>
       <div class="job-title">${j.title}</div>
       <div class="job-company">${j.company || 'Private'} · ${j.location}</div>
       <div class="job-meta">
-        <span>📍 ${j.location}</span>
-        <span>🕐 ${j.type}</span>
-        <span>📁 ${j.category}</span>
+        <span><i class="fa-solid fa-location-dot"></i> ${j.location}</span>
+        <span><i class="fa-regular fa-clock"></i> ${j.type}</span>
+        <span><i class="fa-solid fa-tag"></i> ${j.category}</span>
       </div>
       <div class="job-card-footer">
         <div class="salary-tag">${j.salary}</div>
         <button class="apply-btn" onclick="event.stopPropagation();openApply('${j.id}')">Apply Now</button>
       </div>
-      ${expiry ? `<div class="expires-tag">⏳ ${expiry}</div>` : ''}
+      ${expiry ? `<div class="expires-tag"><i class="fa-regular fa-hourglass-half" style="font-size:0.68rem;"></i> ${expiry}</div>` : ''}
     </div>`;
   }).join('');
 }
