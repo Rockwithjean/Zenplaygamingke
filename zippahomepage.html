@@ -478,9 +478,9 @@
 
     h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(3rem, 5.5vw, 5rem);
+      font-size: clamp(2.2rem, 6vw, 5rem);
       font-weight: 700;
-      line-height: 1.0;
+      line-height: 1.1;
       letter-spacing: -2px;
       color: var(--ink);
       animation: fadeUp 0.7s 0.1s ease both
@@ -1959,9 +1959,8 @@
     /* ── RESPONSIVE ── */
     @media(max-width:900px) {
       .hero {
-        grid-template-columns: 1fr;
         padding: 100px 5% 60px;
-        gap: 3rem
+        gap: 2rem
       }
 
       .hero-img-wrap {
@@ -2066,8 +2065,9 @@
       }
 
       h1 {
-        font-size: 2.4rem;
-        letter-spacing: -1.5px
+        font-size: 2rem;
+        letter-spacing: -1px;
+        line-height: 1.1;
       }
 
       .hero-stats {
@@ -2080,6 +2080,11 @@
 
       .hero-stats .stat-num {
         font-size: 1.5rem
+      }
+
+      .hero-sub {
+        max-width: 100%;
+        font-size: 0.95rem;
       }
 
       .cta-strip {
@@ -2110,7 +2115,7 @@
     .hero-video-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(10, 10, 15, 0.65);
+      background: rgba(10, 10, 15, 0.75);
       z-index: 1;
     }
 
@@ -2221,7 +2226,7 @@
 
       <!-- VIDEO BACKGROUND -->
       <video autoplay muted loop playsinline class="hero-video">
-        <source src="videos/bg.mp4" type="video/mp4">
+        <source src="videos/bgvideo.mp4" type="video/mp4">
       </video>
 
       <!-- DARK OVERLAY -->
@@ -2242,7 +2247,7 @@
         and connections — you focus on the work.</p>
       <div class="hero-actions">
         <a href="#jobs" class="btn-primary">Find a Gig <i class="fa-solid fa-arrow-right"></i></a>
-        <a href="#post" class="btn-outline">Post a Task <i class="fa-solid fa-plus"></i></a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfK_OcekkmWPe_8NdBuHKUo4PxSu2NL9vYqvxYM3pSqMNOcMw/viewform?usp=publish-editor" target="_blank" class="btn-outline">Post a Task <i class="fa-solid fa-plus"></i></a>
       </div>
       <div class="hero-stats">
         <div>
@@ -2415,7 +2420,7 @@
         <h2>Post a gig in<br>under 2 minutes.</h2>
         <p class="post-desc">Got an errand, odd job, or a short contract? Fill out our quick form and get responses from
           verified workers nearby. We handle the vetting so you can focus on the result.</p>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSefwX30yZPjydBpz2qpgttHaYXxv71piKLr-JAv0JXgpUduIw/viewform?usp=header"
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfK_OcekkmWPe_8NdBuHKUo4PxSu2NL9vYqvxYM3pSqMNOcMw/viewform?usp=publish-editor"
           target="_blank" class="post-btn">
           Post Your Gig Now <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.8em"></i>
         </a>
