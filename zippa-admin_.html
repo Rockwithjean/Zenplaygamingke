@@ -1175,8 +1175,15 @@
             <!-- DASHBOARD -->
             <div class="page active" id="page-dashboard">
                 <div class="page-header">
-                    <h1>Dashboard</h1>
-                    <p>Welcome back. Here's what's happening on Zippa.</p>
+                    <div style="display:flex;justify-content:space-between;align-items:center;width:100%">
+                        <div>
+                            <h1>Dashboard</h1>
+                            <p>Welcome back. Here's what's happening on Zippa.</p>
+                        </div>
+                        <button class="btn btn-outline btn-sm" onclick="testConnection()">
+                            <i class="fa-solid fa-plug"></i> Test Connection
+                        </button>
+                    </div>
                 </div>
                 <div class="stats-row">
                     <div class="stat-card purple">
@@ -1550,12 +1557,19 @@
         // ── SUPABASE CONFIG ──
         const SUPABASE_URL = 'https://jazwgivqjkfmgididgmc.supabase.co';
         const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImphendnaXZxamtmbWdpZGlkZ21jIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUyODU3NjUsImV4cCI6MjA5MDg2MTc2NX0.XC0qnNJf4xwOI5mOSwLOrubL2xk5rMSpT4nn0KgOdrI';
+        console.log('Initializing Supabase with URL:', SUPABASE_URL);
         const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
         // ── STORAGE ──
         async function loadGigs() {
+            console.log('Fetching gigs from Supabase...');
             const { data, error } = await _supabase.from('gigs').select('*').order('created_at', { ascending: false });
-            if (error) { console.error('Error loading gigs:', error); return []; }
+            if (error) { 
+                console.error('Supabase Fetch Error:', error); 
+                showToast(`Fetch Failed: ${error.message}`, '#dc2626');
+                return []; 
+            }
+            console.log('Gigs loaded:', data.length);
             return data.map(g => ({
                 id: g.id,
                 title: g.title,
@@ -1586,6 +1600,20 @@
             if (id === 'snippet') renderSnippet();
             if (id === 'gigs') renderGigsTable();
             if (id === 'dashboard') renderDashboard();
+        }
+
+        // ── CONNECTION TEST ──
+        async function testConnection() {
+            showToast('Testing connection...', '#7c3aed');
+            try {
+                const { data, error } = await _supabase.from('gigs').select('count', { count: 'exact', head: true });
+                if (error) throw error;
+                showToast('Connected successfully!', '#16a34a');
+                refreshAll();
+            } catch (err) {
+                console.error('Connection Test Failed:', err);
+                showToast(`Connection Failed: ${err.message}`, '#dc2626');
+            }
         }
 
         // ── STATS ──
@@ -1681,8 +1709,8 @@
 
             const { error } = await _supabase.from('gigs').insert([gigData]);
             if (error) {
-                showToast('Error saving to database.', '#dc2626');
-                console.error(error);
+                showToast(`DB Error: ${error.message}`, '#dc2626');
+                console.error('Supabase Error:', error);
                 return;
             }
 
@@ -1752,7 +1780,11 @@
             };
 
             const { error } = await _supabase.from('gigs').update(gigData).eq('id', editingId);
-            if (error) { showToast('Error updating gig.', '#dc2626'); return; }
+            if (error) {
+                showToast(`DB Error: ${error.message}`, '#dc2626');
+                console.error('Supabase Error:', error);
+                return;
+            }
 
             closeEdit();
             await refreshAll();
