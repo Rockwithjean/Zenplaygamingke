@@ -137,8 +137,9 @@
     }
 
     .nav-center {
+      list-style: none;
       display: flex;
-      gap: 2px;
+      gap: 4px;
       align-items: center;
       flex: 1;
       justify-content: center
@@ -2193,7 +2194,7 @@
         <div class="logo-by">by zenplaygaming.co.ke</div>
       </div>
     </div>
-    <ul class="nav-center" style="list-style:none;display:flex;gap:4px;align-items:center">
+    <ul class="nav-center">
       <li class="nav-item">
         <a href="#categories" class="nav-link">Browse Gigs <i class="fa-solid fa-chevron-down"
             style="font-size:0.65rem;margin-left:2px"></i></a>
@@ -2225,7 +2226,7 @@
     <div class="hero-bg">
 
       <!-- VIDEO BACKGROUND -->
-      <video autoplay muted loop playsinline class="hero-video">
+      <video autoplay muted loop playsinline webkit-playsinline class="hero-video" id="heroVideo">
         <source src="videos/bgvideo.mp4" type="video/mp4">
       </video>
 
@@ -2646,6 +2647,15 @@
     ['applyModal', 'successModal'].forEach(id => {
       const el = document.getElementById(id);
       if (el) el.addEventListener('click', function (e) { if (e.target === this) this.classList.remove('active') });
+    });
+    // Force video play on mobile
+    window.addEventListener('load', () => {
+      const v = document.getElementById('heroVideo');
+      if (v) {
+        v.play().catch(() => {
+          console.log('Autoplay prevented');
+        });
+      }
     });
   </script>
 </body>
