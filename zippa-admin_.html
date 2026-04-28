@@ -9,6 +9,7 @@
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
         *,
         *::before,
@@ -1546,11 +1547,35 @@
             document.getElementById('pwInput').value = '';
         }
 
+        // ── SUPABASE CONFIG ──
+        const SUPABASE_URL = 'https://jazwgivqjkfmgididgmc.supabase.co';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImphendnaXZxamtmbWdpZGlkZ21jIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUyODU3NjUsImV4cCI6MjA5MDg2MTc2NX0.XC0qnNJf4xwOI5mOSwLOrubL2xk5rMSpT4nn0KgOdrI';
+        const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
         // ── STORAGE ──
-        // Gigs are saved in localStorage so they persist across sessions
-        function loadGigs() { try { return JSON.parse(localStorage.getItem('zippa_gigs') || '[]'); } catch (e) { return []; } }
-        function saveGigs(g) { localStorage.setItem('zippa_gigs', JSON.stringify(g)); }
-        let gigs = loadGigs();
+        async function loadGigs() {
+            const { data, error } = await _supabase.from('gigs').select('*').order('created_at', { ascending: false });
+            if (error) { console.error('Error loading gigs:', error); return []; }
+            return data.map(g => ({
+                id: g.id,
+                title: g.title,
+                company: g.company,
+                location: g.location,
+                category: g.category,
+                type: g.type,
+                salary: g.salary,
+                desc: g.description,
+                urgent: g.urgent,
+                visible: g.visible,
+                addedAt: g.created_at
+            }));
+        }
+
+        async function saveGigsToSupabase(gig) {
+            // This is a helper for add/update
+        }
+
+        let gigs = [];
 
         // ── NAVIGATION ──
         function showPage(id, btn) {
@@ -1564,8 +1589,8 @@
         }
 
         // ── STATS ──
-        function refreshAll() {
-            gigs = loadGigs();
+        async function refreshAll() {
+            gigs = await loadGigs();
             renderDashboard();
             renderGigsTable();
             renderSnippet();
@@ -1633,7 +1658,7 @@
         }
 
         // ── ADD GIG ──
-        function addGig() {
+        async function addGig() {
             const title = document.getElementById('fTitle').value.trim();
             const location = document.getElementById('fLocation').value.trim();
             const category = document.getElementById('fCategory').value;
@@ -1642,23 +1667,27 @@
             if (!title || !location || !category || !type || !salary) {
                 showToast('Please fill in all required fields.', '#dc2626'); return;
             }
-            const gig = {
-                id: Date.now().toString(),
+            const gigData = {
                 title,
                 company: document.getElementById('fCompany').value.trim() || 'Private',
                 location,
                 category,
                 type,
                 salary,
-                desc: document.getElementById('fDesc').value.trim(),
+                description: document.getElementById('fDesc').value.trim(),
                 urgent: document.getElementById('fUrgent').classList.contains('on'),
-                visible: document.getElementById('fVisible').classList.contains('on'),
-                addedAt: new Date().toISOString()
+                visible: document.getElementById('fVisible').classList.contains('on')
             };
-            gigs.push(gig);
-            saveGigs(gigs);
+
+            const { error } = await _supabase.from('gigs').insert([gigData]);
+            if (error) {
+                showToast('Error saving to database.', '#dc2626');
+                console.error(error);
+                return;
+            }
+
             clearForm();
-            refreshAll();
+            await refreshAll();
             showToast('Gig added successfully!', '#16a34a');
             showPage('gigs', document.querySelector('[onclick*="gigs"]'));
         }
@@ -1672,14 +1701,16 @@
         }
 
         // ── TOGGLE VISIBLE ──
-        function toggleVisible(id) {
+        async function toggleVisible(id) {
             const g = gigs.find(x => x.id === id);
             if (!g) return;
-            g.visible = !g.visible;
-            saveGigs(gigs);
-            renderGigsTable();
-            renderDashboard();
-            showToast(g.visible ? 'Gig is now live on site.' : 'Gig hidden from site.');
+            const newVal = !g.visible;
+            
+            const { error } = await _supabase.from('gigs').update({ visible: newVal }).eq('id', id);
+            if (error) { showToast('Error updating visibility.', '#dc2626'); return; }
+
+            await refreshAll();
+            showToast(newVal ? 'Gig is now live on site.' : 'Gig hidden from site.');
         }
 
         // ── EDIT ──
@@ -1700,25 +1731,31 @@
             document.getElementById('editModal').classList.add('open');
         }
 
-        function saveEdit() {
+        async function saveEdit() {
             const g = gigs.find(x => x.id === editingId);
             if (!g) return;
             const title = document.getElementById('eTitle').value.trim();
             const location = document.getElementById('eLocation').value.trim();
             const salary = document.getElementById('eSalary').value.trim();
             if (!title || !location || !salary) { showToast('Fill in required fields.', '#dc2626'); return; }
-            g.title = title;
-            g.company = document.getElementById('eCompany').value.trim() || 'Private';
-            g.location = location;
-            g.category = document.getElementById('eCategory').value;
-            g.type = document.getElementById('eType').value;
-            g.salary = salary;
-            g.desc = document.getElementById('eDesc').value.trim();
-            g.urgent = document.getElementById('eUrgent').classList.contains('on');
-            g.visible = document.getElementById('eVisible').classList.contains('on');
-            saveGigs(gigs);
+            
+            const gigData = {
+                title,
+                company: document.getElementById('eCompany').value.trim() || 'Private',
+                location,
+                category: document.getElementById('eCategory').value,
+                type: document.getElementById('eType').value,
+                salary,
+                description: document.getElementById('eDesc').value.trim(),
+                urgent: document.getElementById('eUrgent').classList.contains('on'),
+                visible: document.getElementById('eVisible').classList.contains('on')
+            };
+
+            const { error } = await _supabase.from('gigs').update(gigData).eq('id', editingId);
+            if (error) { showToast('Error updating gig.', '#dc2626'); return; }
+
             closeEdit();
-            refreshAll();
+            await refreshAll();
             showToast('Gig updated!', '#16a34a');
         }
 
@@ -1727,11 +1764,12 @@
         // ── DELETE ──
         let deletingId = null;
         function openDelete(id) { deletingId = id; document.getElementById('deleteModal').classList.add('open'); }
-        function confirmDelete() {
-            gigs = gigs.filter(g => g.id !== deletingId);
-            saveGigs(gigs);
+        async function confirmDelete() {
+            const { error } = await _supabase.from('gigs').delete().eq('id', deletingId);
+            if (error) { showToast('Error deleting gig.', '#dc2626'); return; }
+            
             closeDelete();
-            refreshAll();
+            await refreshAll();
             showToast('Gig deleted.', '#dc2626');
         }
         function closeDelete() { document.getElementById('deleteModal').classList.remove('open'); deletingId = null; }
