@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard – ZenPlay MK Championship 2026</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/tournament.css">
+    <link rel="icon" href="../images/favicon.png" type="image/png">
+</head>
+
+<body>
+    <div id="tk-preloader">
+        <div class="tk-loader-ring"></div>
+        <div class="tk-loader-text">Loading</div>
+    </div>
+    <div class="tk-toast-container"></div>
+
+    <nav class="tk-nav">
+        <a href="index.html" class="tk-nav-logo">
+            <div class="tk-nav-logo-icon">⚔️</div>
+            <div>
+                <div class="tk-nav-logo-text">ZENPLAY MK</div>
+                <div class="tk-nav-logo-sub">Championship 2026</div>
+            </div>
+        </a>
+        <ul class="tk-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="info.html">Rules</a></li>
+            <li><a href="players.html">Players</a></li>
+            <li><a href="brackets.html">Brackets</a></li>
+            <li><a href="champions.html">Champions</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="register.html" class="tk-nav-cta">Register</a></li>
+        </ul>
+        <button class="tk-hamburger"><span></span><span></span><span></span></button>
+    </nav>
+    <div class="tk-mobile-nav">
+        <button class="tk-mobile-nav-close">✕</button>
+        <a href="index.html">Home</a><a href="players.html">Players</a><a href="brackets.html">Brackets</a>
+        <a href="register.html" style="color:var(--gold);">Register</a>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+     PASSWORD GATE
+     ═══════════════════════════════════════════════════════ -->
+    <div id="tk-admin-gate"
+        style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;">
+        <div class="tk-card" style="max-width:440px;width:100%;text-align:center;padding:48px 36px;">
+            <div style="font-size:3.5rem;margin-bottom:16px;">🔐</div>
+            <h1 style="font-family:'Orbitron',sans-serif;font-size:1.4rem;color:var(--gold);margin-bottom:8px;">Admin
+                Access</h1>
+            <p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:28px;">Restricted area. Enter admin
+                password to continue.</p>
+            <div class="tk-form-group">
+                <input class="tk-input" type="password" id="tk-admin-pw" placeholder="Enter password…"
+                    style="text-align:center;font-size:1.1rem;letter-spacing:3px;">
+            </div>
+            <button class="tk-btn tk-btn-gold tk-w-full" id="tk-admin-pw-btn" style="margin-top:16px;">
+                <i class="fa-solid fa-unlock"></i> Unlock Dashboard
+            </button>
+            <p style="font-size:0.75rem;color:var(--text-dim);margin-top:20px;">
+                <a href="index.html" style="color:var(--text-dim);">← Back to Tournament</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+     ADMIN DASHBOARD (hidden until unlocked)
+     ═══════════════════════════════════════════════════════ -->
+    <div id="tk-admin-dashboard" class="tk-hidden">
+
+        <!-- ADMIN LAYOUT -->
+        <div class="tk-admin-layout">
+
+            <!-- SIDEBAR -->
+            <aside class="tk-admin-sidebar">
+                <div class="tk-admin-logo">⚔️ ZenPlay Admin</div>
+
+                <nav class="tk-admin-nav">
+                    <div class="tk-admin-nav-item active" data-tab="overview"><i class="fa-solid fa-chart-bar"></i>
+                        Overview</div>
+                    <div class="tk-admin-nav-item" data-tab="registrations"><i class="fa-solid fa-users"></i>
+                        Registrations</div>
+                    <div class="tk-admin-nav-item" data-tab="payments"><i class="fa-solid fa-money-bill"></i> Payments
+                    </div>
+                    <div class="tk-admin-nav-item" data-tab="brackets"><i class="fa-solid fa-sitemap"></i> Brackets
+                    </div>
+                    <div class="tk-admin-nav-item" data-tab="champions"><i class="fa-solid fa-trophy"></i> Champions
+                    </div>
+                    <div class="tk-admin-nav-item" data-tab="announce"><i class="fa-solid fa-bullhorn"></i>
+                        Announcements</div>
+                    <div class="tk-admin-nav-item" data-tab="settings"><i class="fa-solid fa-gear"></i> Settings</div>
+                </nav>
+
+                <div style="margin-top:auto;padding-top:32px;">
+                    <a href="index.html" class="tk-btn tk-btn-outline" style="width:100%;font-size:0.8rem;">
+                        <i class="fa-solid fa-arrow-left"></i> Public Site
+                    </a>
+                </div>
+            </aside>
+
+            <!-- MAIN CONTENT -->
+            <main class="tk-admin-main">
+
+                <!-- ─── OVERVIEW TAB ─── -->
+                <div id="tab-overview" class="tk-admin-tab active">
+                    <div class="tk-admin-page-title">Tournament Overview</div>
+
+                    <!-- Stats Cards -->
+                    <div class="tk-admin-stats-grid">
+                        <div class="tk-admin-stat-card">
+                            <div class="tk-admin-stat-icon" style="color:var(--text-primary);">👥</div>
+                            <div class="tk-admin-stat-num" id="stat-total">0</div>
+                            <div class="tk-admin-stat-label">Total Registered</div>
+                        </div>
+                        <div class="tk-admin-stat-card">
+                            <div class="tk-admin-stat-icon" style="color:var(--success);">✅</div>
+                            <div class="tk-admin-stat-num" id="stat-confirmed" style="color:var(--success);">0</div>
+                            <div class="tk-admin-stat-label">Confirmed Players</div>
+                        </div>
+                        <div class="tk-admin-stat-card">
+                            <div class="tk-admin-stat-icon" style="color:var(--gold);">⏳</div>
+                            <div class="tk-admin-stat-num" id="stat-pending" style="color:var(--gold);">0</div>
+                            <div class="tk-admin-stat-label">Pending Review</div>
+                        </div>
+                        <div class="tk-admin-stat-card">
+                            <div class="tk-admin-stat-icon" style="color:var(--danger);">❌</div>
+                            <div class="tk-admin-stat-num" id="stat-rejected" style="color:var(--danger);">0</div>
+                            <div class="tk-admin-stat-label">Rejected</div>
+                        </div>
+                        <div class="tk-admin-stat-card">
+                            <div class="tk-admin-stat-icon" style="color:var(--neon);">🎰</div>
+                            <div class="tk-admin-stat-num" id="stat-slots"
+                                style="color:var(--neon);text-shadow:var(--neon-glow);">64</div>
+                            <div class="tk-admin-stat-label">Slots Available</div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="tk-admin-card">
+                        <h3 class="tk-admin-section-title">Quick Actions</h3>
+                        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                            <button class="tk-btn tk-btn-outline" onclick="exportCSV()"><i
+                                    class="fa-solid fa-download"></i> Export CSV</button>
+                            <button class="tk-btn tk-btn-outline"
+                                onclick="if(confirm('Clear ALL data?')){localStorage.clear();location.reload();}"><i
+                                    class="fa-solid fa-trash"></i> Clear All Data</button>
+                            <a href="players.html" class="tk-btn tk-btn-outline" target="_blank"><i
+                                    class="fa-solid fa-eye"></i> View Public Players</a>
+                            <a href="brackets.html" class="tk-btn tk-btn-outline" target="_blank"><i
+                                    class="fa-solid fa-sitemap"></i> View Brackets</a>
+                        </div>
+                    </div>
+
+                    <!-- Countdown -->
+                    <div class="tk-admin-card">
+                        <h3 class="tk-admin-section-title">Time Until Tournament</h3>
+                        <div class="tk-countdown" style="justify-content:flex-start;">
+                            <div class="tk-count-box" style="width:90px;"><span class="tk-count-num"
+                                    id="tk-days">00</span><span class="tk-count-label">Days</span></div>
+                            <div class="tk-count-sep">:</div>
+                            <div class="tk-count-box" style="width:90px;"><span class="tk-count-num"
+                                    id="tk-hours">00</span><span class="tk-count-label">Hours</span></div>
+                            <div class="tk-count-sep">:</div>
+                            <div class="tk-count-box" style="width:90px;"><span class="tk-count-num"
+                                    id="tk-mins">00</span><span class="tk-count-label">Mins</span></div>
+                            <div class="tk-count-sep">:</div>
+                            <div class="tk-count-box" style="width:90px;"><span class="tk-count-num"
+                                    id="tk-secs">00</span><span class="tk-count-label">Secs</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ─── REGISTRATIONS TAB ─── -->
+                <div id="tab-registrations" class="tk-admin-tab">
+                    <div class="tk-admin-page-title">Registrations</div>
+                    <div class="tk-admin-card">
+                        <div
+                            style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:20px;">
+                            <h3 class="tk-admin-section-title" style="margin-bottom:0;">All Registrations</h3>
+                            <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+                                <input class="tk-input" type="text" id="admin-reg-search" placeholder="Search…"
+                                    style="max-width:220px;">
+                                <button class="tk-btn tk-btn-outline" onclick="exportCSV()"><i
+                                        class="fa-solid fa-download"></i> CSV</button>
+                            </div>
+                        </div>
+                        <div class="tk-table-wrap">
+                            <table class="tk-table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Gamer Tag</th>
+                                        <th>Phone</th>
+                                        <th>County</th>
+                                        <th>Age</th>
+                                        <th>Status</th>
+                                        <th>Payment Code</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="admin-reg-tbody">
+                                    <tr>
+                                        <td colspan="8" style="text-align:center;color:var(--text-dim);padding:40px;">
+                                            Loading…</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ─── PAYMENTS TAB ─── -->
+                <div id="tab-payments" class="tk-admin-tab">
+                    <div class="tk-admin-page-title">Payment Submissions</div>
+                    <div class="tk-admin-card">
+                        <h3 class="tk-admin-section-title">All Payment Submissions</h3>
+                        <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:16px;">Cross-reference M-Pesa
+                            codes with your Safaricom statement to confirm payments.</p>
+                        <div class="tk-table-wrap">
+                            <table class="tk-table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Gamer Tag</th>
+                                        <th>M-Pesa Phone</th>
+                                        <th>Transaction Code</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="admin-pay-tbody">
+                                    <tr>
+                                        <td colspan="5" style="text-align:center;color:var(--text-dim);padding:40px;">
+                                            Loading…</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p style="font-size:0.75rem;color:var(--text-dim);margin-top:12px;">
+                            To confirm a player, go to the <strong>Registrations</strong> tab and click ✅ Confirm.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ─── BRACKETS TAB ─── -->
+                <div id="tab-brackets" class="tk-admin-tab">
+                    <div class="tk-admin-page-title">Bracket Management</div>
+                    <div class="tk-admin-card">
+                        <h3 class="tk-admin-section-title">Generate Brackets</h3>
+                        <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:16px;">Brackets are generated
+                            from confirmed players only. You can manually adjust match results below.</p>
+                        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px;">
+                            <button class="tk-btn tk-btn-gold" id="admin-gen-brackets"><i
+                                    class="fa-solid fa-shuffle"></i> Generate / Re-Generate Brackets</button>
+                            <a href="brackets.html" class="tk-btn tk-btn-outline" target="_blank"><i
+                                    class="fa-solid fa-eye"></i> View Public Bracket</a>
+                        </div>
+                        <div id="admin-bracket-preview"></div>
+                    </div>
+                </div>
+
+                <!-- ─── CHAMPIONS TAB ─── -->
+                <div id="tab-champions" class="tk-admin-tab">
+                    <div class="tk-admin-page-title">Champions Management</div>
+
+                    <div class="tk-admin-card" style="margin-bottom:24px;">
+                        <h3 class="tk-admin-section-title">Add Champion</h3>
+                        <form id="admin-champ-form">
+                            <div class="tk-grid-2" style="gap:16px;">
+                                <div class="tk-form-group">
+                                    <label class="tk-label" for="champ-year">Year <span
+                                            class="required">✱</span></label>
+                                    <input class="tk-input" type="text" id="champ-year" required
+                                        placeholder="e.g. 2026">
+                                </div>
+                                <div class="tk-form-group">
+                                    <label class="tk-label" for="champ-name">Full Name <span
+                                            class="required">✱</span></label>
+                                    <input class="tk-input" type="text" id="champ-name" required
+                                        placeholder="Champion's name">
+                                </div>
+                                <div class="tk-form-group">
+                                    <label class="tk-label" for="champ-tag">Gamer Tag</label>
+                                    <input class="tk-input" type="text" id="champ-tag" placeholder="Gamer tag">
+                                </div>
+                                <div class="tk-form-group">
+                                    <label class="tk-label" for="champ-char">Character Used</label>
+                                    <input class="tk-input" type="text" id="champ-char" placeholder="e.g. Scorpion">
+                                </div>
+                                <div class="tk-form-group">
+                                    <label class="tk-label" for="champ-score">Final Score</label>
+                                    <input class="tk-input" type="text" id="champ-score" placeholder="e.g. 3 – 1">
+                                </div>
+                            </div>
+                            <button class="tk-btn tk-btn-gold" type="submit" style="margin-top:16px;"><i
+                                    class="fa-solid fa-plus"></i> Add Champion</button>
+                        </form>
+                    </div>
+
+                    <div class="tk-admin-card">
+                        <h3 class="tk-admin-section-title">Champions List</h3>
+                        <div class="tk-table-wrap">
+                            <table class="tk-table">
+                                <thead>
+                                    <tr>
+                                        <th>Year</th>
+                                        <th>Name</th>
+                                        <th>Gamer Tag</th>
+                                        <th>Character</th>
+                                        <th>Score</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="admin-champs-tbody">
+                                    <tr>
+                                        <td colspan="5" style="text-align:center;color:var(--text-dim);padding:30px;">
+                                            Loading…</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ─── ANNOUNCEMENTS TAB ─── -->
+                <div id="tab-announce" class="tk-admin-tab">
+                    <div class="tk-admin-page-title">Announcements</div>
+                    <div class="tk-admin-card" style="margin-bottom:24px;">
+                        <h3 class="tk-admin-section-title">Post New Announcement</h3>
+                        <form id="admin-announce-form">
+                            <div class="tk-form-group">
+                                <label class="tk-label" for="announce-msg">Message</label>
+                                <textarea class="tk-input" id="announce-msg" rows="3"
+                                    placeholder="e.g. Brackets have been generated! Check the brackets page." required
+                                    style="resize:vertical;"></textarea>
+                            </div>
+                            <button class="tk-btn tk-btn-gold" type="submit"><i class="fa-solid fa-bullhorn"></i>
+                                Publish Announcement</button>
+                        </form>
+                    </div>
+                    <div class="tk-admin-card">
+                        <h3 class="tk-admin-section-title">Published Announcements</h3>
+                        <div id="admin-announce-list"></div>
+                    </div>
+                </div>
+
+                <!-- ─── SETTINGS TAB ─── -->
+                <div id="tab-settings" class="tk-admin-tab">
+                    <div class="tk-admin-page-title">Settings</div>
+                    <div class="tk-admin-card">
+                        <h3 class="tk-admin-section-title">Tournament Configuration</h3>
+                        <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:20px;">Changes here update the
+                            JS config for this session. Edit <code style="color:var(--gold);">tournament.js</code> to
+                            make permanent changes.</p>
+
+                        <div class="tk-grid-2" style="gap:16px;">
+                            <div class="tk-form-group">
+                                <label class="tk-label">Max Players</label>
+                                <input class="tk-input" type="number" id="cfg-max" min="2" max="128" value="64">
+                            </div>
+                            <div class="tk-form-group">
+                                <label class="tk-label">Registration Fee (KES)</label>
+                                <input class="tk-input" type="number" id="cfg-fee" min="0" value="500">
+                            </div>
+                            <div class="tk-form-group">
+                                <label class="tk-label">Paybill / Till Number</label>
+                                <input class="tk-input" type="text" id="cfg-paybill" placeholder="e.g. 247247">
+                            </div>
+                            <div class="tk-form-group">
+                                <label class="tk-label">Tournament Date</label>
+                                <input class="tk-input" type="datetime-local" id="cfg-date">
+                            </div>
+                        </div>
+                        <button class="tk-btn tk-btn-gold" style="margin-top:16px;" id="cfg-save-btn"><i
+                                class="fa-solid fa-save"></i> Save to Session</button>
+                    </div>
+
+                    <div class="tk-admin-card" style="margin-top:20px;border-color:var(--danger);">
+                        <h3 class="tk-admin-section-title" style="color:var(--danger);">Danger Zone</h3>
+                        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                            <button class="tk-btn tk-btn-danger"
+                                onclick="if(confirm('Reset ALL player data?')){TK.savePlayers([]);loadAdminData();showToast('Players cleared.','error');}">
+                                <i class="fa-solid fa-user-minus"></i> Clear All Players
+                            </button>
+                            <button class="tk-btn tk-btn-danger"
+                                onclick="if(confirm('Reset brackets?')){TK.saveBrackets(null);loadAdminData();showToast('Brackets cleared.','error');}">
+                                <i class="fa-solid fa-sitemap"></i> Reset Brackets
+                            </button>
+                            <button class="tk-btn tk-btn-danger"
+                                onclick="if(confirm('Clear ALL data permanently?')){localStorage.clear();location.reload();}">
+                                <i class="fa-solid fa-trash"></i> Full Data Reset
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+
+    </div><!-- end dashboard -->
+
+    <footer class="tk-footer">
+        <div class="tk-footer-bottom">
+            <p>© 2026 ZenPlay Gaming Lounge – Admin Panel</p>
+            <p><a href="index.html">← Tournament Home</a></p>
+        </div>
+    </footer>
+
+    <script src="js/tournament.js"></script>
+    <script>
+        // Settings tab – populate and save
+        document.addEventListener('DOMContentLoaded', () => {
+            // Pre-fill settings from config
+            const dateInput = document.getElementById('cfg-date');
+            if (dateInput) {
+                const d = TK_CONFIG.tournamentDate;
+                // Convert to local datetime-local format
+                const pad = n => String(n).padStart(2, '0');
+                dateInput.value = `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+            }
+            const pbInput = document.getElementById('cfg-paybill');
+            if (pbInput) pbInput.value = TK_CONFIG.paybillNumber;
+
+            document.getElementById('cfg-save-btn')?.addEventListener('click', () => {
+                const max = parseInt(document.getElementById('cfg-max').value) || 64;
+                const fee = parseInt(document.getElementById('cfg-fee').value) || 500;
+                const pb = document.getElementById('cfg-paybill').value.trim();
+                const dt = document.getElementById('cfg-date').value;
+                TK_CONFIG.maxPlayers = max;
+                TK_CONFIG.registrationFee = fee;
+                if (pb) TK_CONFIG.paybillNumber = pb;
+                if (dt) TK_CONFIG.tournamentDate = new Date(dt);
+                showToast('Settings saved to session ✅', 'success');
+            });
+        });
+    </script>
+</body>
+
+</html>

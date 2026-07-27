@@ -1,0 +1,13 @@
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Gemini/Antigravity artifacts
+.gemini/
+.antigravity/
+
+# Node modules (if any)
+node_modules/
+
+# Logs
+*.log

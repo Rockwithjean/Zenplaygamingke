@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player List – ZenPlay MK Championship 2026</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/tournament.css">
+    <link rel="icon" href="../images/favicon.png" type="image/png">
+</head>
+
+<body>
+    <div id="tk-preloader">
+        <div class="tk-loader-ring"></div>
+        <div class="tk-loader-text">Loading</div>
+    </div>
+    <div class="tk-toast-container"></div>
+
+    <nav class="tk-nav">
+        <a href="index.html" class="tk-nav-logo">
+            <div class="tk-nav-logo-icon">⚔️</div>
+            <div>
+                <div class="tk-nav-logo-text">ZENPLAY MK</div>
+                <div class="tk-nav-logo-sub">Championship 2026</div>
+            </div>
+        </a>
+        <ul class="tk-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="info.html">Rules & Info</a></li>
+            <li><a href="players.html" class="active">Players</a></li>
+            <li><a href="brackets.html">Brackets</a></li>
+            <li><a href="champions.html">Champions</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="register.html" class="tk-nav-cta">Register Now</a></li>
+        </ul>
+        <button class="tk-hamburger"><span></span><span></span><span></span></button>
+    </nav>
+    <div class="tk-mobile-nav">
+        <button class="tk-mobile-nav-close">✕</button>
+        <a href="index.html">Home</a><a href="info.html">Rules</a><a href="players.html">Players</a>
+        <a href="brackets.html">Brackets</a><a href="champions.html">Champions</a>
+        <a href="register.html" style="color:var(--gold);">Register</a>
+    </div>
+
+    <div class="tk-page-header">
+        <div class="tk-breadcrumb"><a href="index.html">Home</a><span>›</span><span>Players</span></div>
+        <h1>Confirmed <span>Players</span></h1>
+        <p>Players who have been confirmed for the ZenPlay MK Championship 2026.</p>
+    </div>
+
+    <main class="tk-section">
+        <div class="tk-container" style="max-width:900px;">
+
+            <!-- Stats Bar -->
+            <div style="display:flex;gap:20px;flex-wrap:wrap;margin-bottom:32px;">
+                <div class="tk-card" style="flex:1;min-width:160px;text-align:center;padding:20px;">
+                    <div style="font-family:'Orbitron',sans-serif;font-size:2.2rem;font-weight:700;color:var(--gold);"
+                        id="tk-confirmed-count">0</div>
+                    <div
+                        style="font-size:0.75rem;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase;margin-top:6px;">
+                        Confirmed Players</div>
+                </div>
+                <div class="tk-card" style="flex:1;min-width:160px;text-align:center;padding:20px;">
+                    <div style="font-family:'Orbitron',sans-serif;font-size:2.2rem;font-weight:700;color:var(--neon);text-shadow:var(--neon-glow);"
+                        id="tk-slots-remaining">64</div>
+                    <div
+                        style="font-size:0.75rem;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase;margin-top:6px;">
+                        Slots Remaining</div>
+                </div>
+                <div class="tk-card" style="flex:1;min-width:160px;text-align:center;padding:20px;">
+                    <div
+                        style="font-family:'Orbitron',sans-serif;font-size:2.2rem;font-weight:700;color:var(--text-muted);">
+                        64</div>
+                    <div
+                        style="font-size:0.75rem;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase;margin-top:6px;">
+                        Max Capacity</div>
+                </div>
+            </div>
+
+            <!-- Search Filter -->
+            <div style="margin-bottom:20px;">
+                <input class="tk-search-input" id="player-search" placeholder="🔍 Search players by name or gamer tag…"
+                    style="max-width:100%;">
+            </div>
+
+            <!-- Player Table -->
+            <div class="tk-card" style="padding:0;overflow:hidden;">
+                <div class="tk-table-wrap">
+                    <table class="tk-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Player Name</th>
+                                <th>Gamer Tag</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tk-players-tbody">
+                            <tr>
+                                <td colspan="4" style="text-align:center;padding:50px;color:var(--text-dim);">Loading
+                                    players…</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div style="text-align:center;margin-top:32px;">
+                <p style="font-size:0.8rem;color:var(--text-dim);">Only confirmed players are shown. Not on the list? <a
+                        href="register.html">Register here</a>.</p>
+                <div style="margin-top:20px;">
+                    <a href="register.html" class="tk-btn tk-btn-gold"><i class="fa-solid fa-plus"></i> Join the
+                        Tournament</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="tk-footer">
+        <div class="tk-footer-bottom">
+            <p>© 2026 ZenPlay Gaming Lounge</p>
+            <p><a href="index.html">← Tournament Home</a></p>
+        </div>
+    </footer>
+
+    <script src="js/tournament.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slotEl = document.getElementById('tk-slots-remaining');
+            const confirmed = TK.confirmedPlayers().length;
+            if (slotEl) slotEl.textContent = Math.max(0, 64 - confirmed);
+
+            // Live search
+            const search = document.getElementById('player-search');
+            if (search) {
+                search.addEventListener('input', () => {
+                    const q = search.value.toLowerCase();
+                    document.querySelectorAll('#tk-players-tbody tr').forEach(row => {
+                        row.style.display = row.textContent.toLowerCase().includes(q) ? '' : 'none';
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

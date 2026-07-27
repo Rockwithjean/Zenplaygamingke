@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hall of Champions – ZenPlay MK Championship 2026</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/tournament.css">
+    <link rel="icon" href="../images/favicon.png" type="image/png">
+</head>
+
+<body>
+    <div id="tk-preloader">
+        <div class="tk-loader-ring"></div>
+        <div class="tk-loader-text">Loading</div>
+    </div>
+    <div class="tk-toast-container"></div>
+
+    <nav class="tk-nav">
+        <a href="index.html" class="tk-nav-logo">
+            <div class="tk-nav-logo-icon">⚔️</div>
+            <div>
+                <div class="tk-nav-logo-text">ZENPLAY MK</div>
+                <div class="tk-nav-logo-sub">Championship 2026</div>
+            </div>
+        </a>
+        <ul class="tk-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="info.html">Rules & Info</a></li>
+            <li><a href="players.html">Players</a></li>
+            <li><a href="brackets.html">Brackets</a></li>
+            <li><a href="champions.html" class="active">Champions</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="register.html" class="tk-nav-cta">Register Now</a></li>
+        </ul>
+        <button class="tk-hamburger"><span></span><span></span><span></span></button>
+    </nav>
+    <div class="tk-mobile-nav">
+        <button class="tk-mobile-nav-close">✕</button>
+        <a href="index.html">Home</a><a href="info.html">Rules</a><a href="players.html">Players</a>
+        <a href="brackets.html">Brackets</a><a href="champions.html">Champions</a>
+        <a href="register.html" style="color:var(--gold);">Register</a>
+    </div>
+
+    <div class="tk-page-header">
+        <div class="tk-breadcrumb"><a href="index.html">Home</a><span>›</span><span>Hall of Champions</span></div>
+        <h1>Hall of <span>Champions</span> 👑</h1>
+        <p>Legends who have conquered the ZenPlay Mortal Kombat Championship.</p>
+    </div>
+
+    <main class="tk-section">
+        <div class="tk-container">
+
+            <!-- 2026 CHAMPION SPOTLIGHT -->
+            <div style="margin-bottom:60px;" id="champ-2026-spot">
+                <span class="tk-section-label" style="display:block;text-align:center;margin-bottom:16px;">2026
+                    Champion</span>
+                <div class="tk-champion-box">
+                    <span class="tk-champion-crown">👑</span>
+                    <div class="tk-champion-year">2026 ZENPLAY MK CHAMPIONSHIP</div>
+                    <div class="tk-champion-name" id="champ-2026-name">TBD</div>
+                    <div class="tk-champion-tag" id="champ-2026-tag">Tournament in progress…</div>
+                    <div class="tk-champion-char" id="champ-2026-char"></div>
+                    <div class="tk-champion-score" id="champ-2026-score" style="display:none;">—</div>
+                </div>
+            </div>
+
+            <!-- ALL CHAMPIONS GRID -->
+            <div class="tk-section-title">
+                <span class="tk-section-label">Past Champions</span>
+                <h2>ZenPlay <span class="gold">Legends</span></h2>
+            </div>
+            <div class="tk-divider"></div>
+
+            <div class="tk-champs-grid" id="tk-champs-grid">
+                <!-- populated by JS -->
+            </div>
+
+            <!-- Empty state placeholder until there are past champions -->
+            <div id="champs-empty" style="text-align:center;padding:60px 24px;display:none;">
+                <div style="font-size:3rem;margin-bottom:16px;">🏆</div>
+                <h3 style="font-family:'Orbitron',sans-serif;font-size:1rem;color:var(--gold);margin-bottom:8px;">No
+                    Past Champions Yet</h3>
+                <p style="font-size:0.85rem;color:var(--text-muted);">The 2026 champion will be the first to be
+                    enshrined here. Could it be you?</p>
+                <a href="register.html" class="tk-btn tk-btn-gold" style="margin-top:20px;display:inline-flex;">Register
+                    Now</a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="tk-footer">
+        <div class="tk-footer-bottom">
+            <p>© 2026 ZenPlay Gaming Lounge</p>
+            <p><a href="index.html">← Tournament Home</a></p>
+        </div>
+    </footer>
+
+    <script src="js/tournament.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load 2026 champion from brackets
+            const b = TK.getBrackets();
+            if (b && b.champion) {
+                document.getElementById('champ-2026-name').textContent = b.champion;
+                document.getElementById('champ-2026-tag').textContent = '2026 Mortal Kombat Champion';
+            }
+
+            // Load champions — show empty state if none
+            const champs = TK.getChampions();
+            const grid = document.getElementById('tk-champs-grid');
+            const empty = document.getElementById('champs-empty');
+            if (champs.length === 0) {
+                if (empty) empty.style.display = 'block';
+            } else {
+                // initChampionsPage() already called in tournament.js DOMContentLoaded
+            }
+        });
+    </script>
+</body>
+
+</html>

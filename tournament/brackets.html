@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tournament Brackets – ZenPlay MK Championship 2026</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/tournament.css">
+    <link rel="icon" href="../images/favicon.png" type="image/png">
+</head>
+
+<body>
+    <div id="tk-preloader">
+        <div class="tk-loader-ring"></div>
+        <div class="tk-loader-text">Loading</div>
+    </div>
+    <div class="tk-toast-container"></div>
+
+    <nav class="tk-nav">
+        <a href="index.html" class="tk-nav-logo">
+            <div class="tk-nav-logo-icon">⚔️</div>
+            <div>
+                <div class="tk-nav-logo-text">ZENPLAY MK</div>
+                <div class="tk-nav-logo-sub">Championship 2026</div>
+            </div>
+        </a>
+        <ul class="tk-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="info.html">Rules & Info</a></li>
+            <li><a href="players.html">Players</a></li>
+            <li><a href="brackets.html" class="active">Brackets</a></li>
+            <li><a href="champions.html">Champions</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="register.html" class="tk-nav-cta">Register Now</a></li>
+        </ul>
+        <button class="tk-hamburger"><span></span><span></span><span></span></button>
+    </nav>
+    <div class="tk-mobile-nav">
+        <button class="tk-mobile-nav-close">✕</button>
+        <a href="index.html">Home</a><a href="info.html">Rules</a><a href="players.html">Players</a>
+        <a href="brackets.html">Brackets</a><a href="champions.html">Champions</a>
+        <a href="register.html" style="color:var(--gold);">Register</a>
+    </div>
+
+    <div class="tk-page-header">
+        <div class="tk-breadcrumb"><a href="index.html">Home</a><span>›</span><span>Brackets</span></div>
+        <h1>Tournament <span>Brackets</span></h1>
+        <p>Follow the action round by round until the champion is crowned.</p>
+    </div>
+
+    <main class="tk-section">
+        <div class="tk-container">
+
+            <!-- LEGEND -->
+            <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:28px;align-items:center;">
+                <div style="display:flex;align-items:center;gap:8px;font-size:0.8rem;color:var(--text-muted);">
+                    <div
+                        style="width:14px;height:14px;border-radius:2px;background:rgba(212,175,55,0.15);border:1px solid var(--gold);">
+                    </div> Winner
+                </div>
+                <div style="display:flex;align-items:center;gap:8px;font-size:0.8rem;color:var(--text-muted);">
+                    <div
+                        style="width:14px;height:14px;border-radius:2px;background:var(--charcoal);border:1px solid var(--border-dim);">
+                    </div> Pending
+                </div>
+            </div>
+
+            <!-- ROUND TABS (visual key) -->
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px;">
+                <span
+                    style="background:rgba(212,175,55,0.1);border:1px solid var(--border-gold);border-radius:50px;padding:5px 14px;font-size:0.72rem;color:var(--gold);letter-spacing:1px;">R32</span>
+                <span style="color:var(--text-dim);align-self:center;">→</span>
+                <span
+                    style="background:rgba(212,175,55,0.1);border:1px solid var(--border-gold);border-radius:50px;padding:5px 14px;font-size:0.72rem;color:var(--gold);letter-spacing:1px;">R16</span>
+                <span style="color:var(--text-dim);align-self:center;">→</span>
+                <span
+                    style="background:rgba(212,175,55,0.1);border:1px solid var(--border-gold);border-radius:50px;padding:5px 14px;font-size:0.72rem;color:var(--gold);letter-spacing:1px;">QF</span>
+                <span style="color:var(--text-dim);align-self:center;">→</span>
+                <span
+                    style="background:rgba(212,175,55,0.1);border:1px solid var(--border-gold);border-radius:50px;padding:5px 14px;font-size:0.72rem;color:var(--gold);letter-spacing:1px;">SF</span>
+                <span style="color:var(--text-dim);align-self:center;">→</span>
+                <span
+                    style="background:rgba(212,175,55,0.15);border:1px solid var(--gold);border-radius:50px;padding:5px 14px;font-size:0.72rem;color:var(--gold);letter-spacing:1px;">👑
+                    FINAL</span>
+            </div>
+
+            <!-- Champion Spotlight (if available) -->
+            <div id="tk-champion-spotlight"></div>
+
+            <!-- BRACKET DISPLAY -->
+            <div class="tk-card" style="padding:24px;overflow-x:auto;">
+                <div id="tk-bracket-display"></div>
+            </div>
+
+            <p style="text-align:center;font-size:0.78rem;color:var(--text-dim);margin-top:20px;">
+                <i class="fa-solid fa-rotate" style="color:var(--gold);"></i> Brackets update live. Refresh to see
+                latest results.
+            </p>
+        </div>
+    </main>
+
+    <footer class="tk-footer">
+        <div class="tk-footer-bottom">
+            <p>© 2026 ZenPlay Gaming Lounge</p>
+            <p><a href="index.html">← Tournament Home</a></p>
+        </div>
+    </footer>
+
+    <script src="js/tournament.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Champion spotlight
+            const b = TK.getBrackets();
+            const spot = document.getElementById('tk-champion-spotlight');
+            if (b && b.champion && spot) {
+                spot.innerHTML = `
+        <div class="tk-champion-box" style="margin-bottom:32px;">
+          <span class="tk-champion-crown">👑</span>
+          <div class="tk-champion-year" style="letter-spacing:3px;">2026 CHAMPION</div>
+          <div class="tk-champion-name">${b.champion}</div>
+        </div>
+      `;
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register – ZenPlay MK Championship 2026</title>
+    <meta name="description"
+        content="Register for the ZenPlay Mortal Kombat Championship 2026. 64 player slots available.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/tournament.css">
+    <link rel="icon" href="../images/favicon.png" type="image/png">
+</head>
+
+<body>
+
+    <div id="tk-preloader">
+        <div class="tk-loader-ring"></div>
+        <div class="tk-loader-text">Loading</div>
+    </div>
+    <div class="tk-toast-container"></div>
+
+    <nav class="tk-nav">
+        <a href="index.html" class="tk-nav-logo">
+            <div class="tk-nav-logo-icon">⚔️</div>
+            <div>
+                <div class="tk-nav-logo-text">ZENPLAY MK</div>
+                <div class="tk-nav-logo-sub">Championship 2026</div>
+            </div>
+        </a>
+        <ul class="tk-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="info.html">Rules & Info</a></li>
+            <li><a href="players.html">Players</a></li>
+            <li><a href="brackets.html">Brackets</a></li>
+            <li><a href="champions.html">Champions</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="register.html" class="tk-nav-cta active">Register Now</a></li>
+        </ul>
+        <button class="tk-hamburger"><span></span><span></span><span></span></button>
+    </nav>
+    <div class="tk-mobile-nav">
+        <button class="tk-mobile-nav-close">✕</button>
+        <a href="index.html">Home</a><a href="info.html">Rules</a><a href="players.html">Players</a>
+        <a href="brackets.html">Brackets</a><a href="champions.html">Champions</a><a href="gallery.html">Gallery</a>
+        <a href="register.html" style="color:var(--gold);">Register</a>
+    </div>
+
+    <!-- PAGE HEADER -->
+    <div class="tk-page-header">
+        <div class="tk-breadcrumb"><a href="index.html">Home</a><span>›</span><span>Registration</span></div>
+        <h1>Player <span>Registration</span></h1>
+        <p>Fill in your details below to secure your slot in the tournament.</p>
+    </div>
+
+    <main class="tk-section">
+        <div class="tk-container" style="max-width:820px;">
+
+            <!-- SLOT COUNTER -->
+            <div class="tk-slot-bar">
+                <div>
+                    <div class="tk-slot-nums" id="tk-slot-nums">0 <span>/ 64 Registered</span></div>
+                    <div class="tk-slot-label">Tournament Slots</div>
+                </div>
+                <div style="flex:1;">
+                    <div class="tk-slot-track">
+                        <div class="tk-slot-fill" id="tk-slot-fill" style="width:0%"></div>
+                    </div>
+                </div>
+                <div style="font-size:0.82rem;color:var(--text-muted);text-align:right;">
+                    <span id="tk-slots-left"
+                        style="color:var(--gold);font-family:'Orbitron',sans-serif;font-size:1.1rem;">64</span> slots
+                    left
+                </div>
+            </div>
+
+            <!-- QR CODE -->
+            <div style="text-align:center;margin-bottom:32px;">
+                <div class="tk-card" style="display:inline-block;padding:20px;">
+                    <p
+                        style="font-size:0.72rem;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;">
+                        Scan to share this page</p>
+                    <div id="tk-reg-qr" style="display:inline-block;"></div>
+                </div>
+            </div>
+
+            <!-- REGISTRATION FORM -->
+            <div class="tk-card">
+                <h2 style="font-family:'Orbitron',sans-serif;font-size:1.3rem;color:var(--gold);margin-bottom:6px;">
+                    Registration Form</h2>
+                <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:28px;">Fields marked <span
+                        style="color:var(--gold);">✱</span> are required.</p>
+
+                <form id="tk-reg-form" novalidate>
+                    <div class="tk-grid-2">
+
+                        <div class="tk-form-group">
+                            <label class="tk-label" for="tk-fullname">Full Name <span class="required">✱</span></label>
+                            <input class="tk-input" type="text" id="tk-fullname" name="fullname"
+                                placeholder="e.g. John Kamau" required autocomplete="name">
+                            <span class="tk-field-error"></span>
+                        </div>
+
+                        <div class="tk-form-group">
+                            <label class="tk-label" for="tk-gamertag">Gamer Tag / Nickname <span
+                                    class="required">✱</span></label>
+                            <input class="tk-input" type="text" id="tk-gamertag" name="gamertag"
+                                placeholder="e.g. ShadowKiller99" required>
+                            <span class="tk-field-error"></span>
+                        </div>
+
+                        <div class="tk-form-group">
+                            <label class="tk-label" for="tk-phone">Phone Number <span class="required">✱</span></label>
+                            <input class="tk-input" type="tel" id="tk-phone" name="phone" placeholder="e.g. 0712345678"
+                                required autocomplete="tel">
+                            <span class="tk-field-error"></span>
+                        </div>
+
+                        <div class="tk-form-group">
+                            <label class="tk-label" for="tk-email">Email Address <span
+                                    style="color:var(--text-dim)">(optional)</span></label>
+                            <input class="tk-input" type="email" id="tk-email" name="email"
+                                placeholder="e.g. gamer@email.com" autocomplete="email">
+                            <span class="tk-field-error"></span>
+                        </div>
+
+                        <div class="tk-form-group">
+                            <label class="tk-label" for="tk-county">County / Town <span
+                                    class="required">✱</span></label>
+                            <input class="tk-input" type="text" id="tk-county" name="county" placeholder="e.g. Meru"
+                                required>
+                            <span class="tk-field-error"></span>
+                        </div>
+
+                        <div class="tk-form-group">
+                            <label class="tk-label" for="tk-age">Age <span class="required">✱</span></label>
+                            <select class="tk-select" id="tk-age" name="age" required>
+                                <option value="">Select age range…</option>
+                                <option value="13-17">13 – 17</option>
+                                <option value="18-24">18 – 24</option>
+                                <option value="25-30">25 – 30</option>
+                                <option value="31+">31 and above</option>
+                            </select>
+                            <span class="tk-field-error"></span>
+                        </div>
+
+                        <div class="tk-form-group">
+                            <label class="tk-label" for="tk-emergency">Emergency Contact <span
+                                    style="color:var(--text-dim)">(optional)</span></label>
+                            <input class="tk-input" type="tel" id="tk-emergency" name="emergency"
+                                placeholder="Emergency phone number" autocomplete="tel">
+                        </div>
+
+                        <div class="tk-form-group">
+                            <label class="tk-label" for="tk-participated">Participated before? <span
+                                    class="required">✱</span></label>
+                            <select class="tk-select" id="tk-participated" name="participated" required>
+                                <option value="">Select…</option>
+                                <option value="yes">Yes – I've competed before</option>
+                                <option value="no">No – First time</option>
+                            </select>
+                            <span class="tk-field-error"></span>
+                        </div>
+
+                    </div>
+
+                    <div class="tk-form-group" style="margin-top:8px;">
+                        <label class="tk-checkbox-wrap">
+                            <input type="checkbox" id="tk-agree" required>
+                            <span>I have read and agree to the <a href="info.html" target="_blank"
+                                    style="color:var(--gold);">Tournament Rules &amp; Code of Conduct</a>. I confirm
+                                that all information provided is accurate. <span
+                                    style="color:var(--gold);">✱</span></span>
+                        </label>
+                        <span class="tk-field-error" style="margin-left:30px;"></span>
+                    </div>
+
+                    <div style="margin-top:28px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;">
+                        <button type="submit" class="tk-btn tk-btn-gold">
+                            <i class="fa-solid fa-gamepad"></i> Submit Registration
+                        </button>
+                        <a href="index.html" class="tk-btn tk-btn-outline">Cancel</a>
+                    </div>
+
+                    <p style="font-size:0.78rem;color:var(--text-dim);margin-top:16px;">
+                        <i class="fa-solid fa-lock" style="color:var(--gold);"></i> Your information is kept private and
+                        used only for tournament purposes.
+                    </p>
+                </form>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="tk-footer">
+        <div class="tk-footer-bottom" style="max-width:820px;">
+            <p>© 2026 ZenPlay Gaming Lounge</p>
+            <p><a href="index.html">← Tournament Home</a></p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="js/tournament.js"></script>
+    <script>
+        window.TK_INIT_QR = function () {
+            initQRCode('tk-reg-qr', window.location.href);
+        };
+        // Update slots-left dynamically
+        document.addEventListener('DOMContentLoaded', () => {
+            const players = TK.getPlayers().filter(p => p.status !== 'rejected').length;
+            const left = Math.max(0, 64 - players);
+            const el = document.getElementById('tk-slots-left');
+            if (el) el.textContent = left;
+        });
+    </script>
+</body>
+
+</html>

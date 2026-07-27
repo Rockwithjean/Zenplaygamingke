@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment – ZenPlay MK Championship 2026</title>
+    <meta name="description"
+        content="Complete your M-Pesa payment to confirm your slot in the ZenPlay MK Championship 2026.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/tournament.css">
+    <link rel="icon" href="../images/favicon.png" type="image/png">
+</head>
+
+<body>
+
+    <div id="tk-preloader">
+        <div class="tk-loader-ring"></div>
+        <div class="tk-loader-text">Loading</div>
+    </div>
+    <div class="tk-toast-container"></div>
+
+    <nav class="tk-nav">
+        <a href="index.html" class="tk-nav-logo">
+            <div class="tk-nav-logo-icon">⚔️</div>
+            <div>
+                <div class="tk-nav-logo-text">ZENPLAY MK</div>
+                <div class="tk-nav-logo-sub">Championship 2026</div>
+            </div>
+        </a>
+        <ul class="tk-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="info.html">Rules & Info</a></li>
+            <li><a href="players.html">Players</a></li>
+            <li><a href="brackets.html">Brackets</a></li>
+            <li><a href="champions.html">Champions</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="register.html" class="tk-nav-cta">Register</a></li>
+        </ul>
+        <button class="tk-hamburger"><span></span><span></span><span></span></button>
+    </nav>
+    <div class="tk-mobile-nav">
+        <button class="tk-mobile-nav-close">✕</button>
+        <a href="index.html">Home</a><a href="info.html">Rules</a><a href="players.html">Players</a>
+        <a href="brackets.html">Brackets</a><a href="champions.html">Champions</a>
+        <a href="register.html" style="color:var(--gold);">Register</a>
+    </div>
+
+    <!-- PAGE HEADER -->
+    <div class="tk-page-header">
+        <div class="tk-breadcrumb"><a href="index.html">Home</a><span>›</span><a
+                href="register.html">Register</a><span>›</span><span>Payment</span></div>
+        <h1>Complete <span>Payment</span></h1>
+        <p>Pay via M-Pesa to confirm your tournament slot.</p>
+    </div>
+
+    <main class="tk-section">
+        <div class="tk-container" style="max-width:640px;">
+
+            <!-- STEPS -->
+            <div
+                style="display:flex;gap:0;margin-bottom:36px;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border-dim);">
+                <div
+                    style="flex:1;padding:12px;background:rgba(212,175,55,0.1);text-align:center;font-size:0.75rem;color:var(--text-muted);">
+                    <span style="color:var(--success);">✅</span> <span>1. Register</span>
+                </div>
+                <div
+                    style="flex:1;padding:12px;background:rgba(212,175,55,0.15);text-align:center;font-size:0.75rem;color:var(--gold);border-left:1px solid var(--border-gold);">
+                    <span style="font-family:'Orbitron',sans-serif;">◉</span> <span>2. Pay</span>
+                </div>
+                <div
+                    style="flex:1;padding:12px;text-align:center;font-size:0.75rem;color:var(--text-dim);border-left:1px solid var(--border-dim);">
+                    <span>○</span> <span>3. Confirmed</span>
+                </div>
+            </div>
+
+            <!-- Gamer tag display -->
+            <div
+                style="background:var(--charcoal);border:1px solid var(--border-gold);border-radius:var(--radius);padding:16px 20px;margin-bottom:28px;display:flex;align-items:center;gap:12px;">
+                <i class="fa-solid fa-user" style="color:var(--gold);font-size:1.2rem;"></i>
+                <div>
+                    <div style="font-size:0.72rem;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase;">
+                        Registering As</div>
+                    <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1.2rem;color:var(--neon);"
+                        id="tk-pay-tag">—</div>
+                </div>
+            </div>
+
+            <!-- FEE DISPLAY -->
+            <div class="tk-fee-display">
+                <div class="tk-fee-label">Registration Fee</div>
+                <div class="tk-fee-amount" id="tk-fee-amount">KES 500</div>
+            </div>
+
+            <!-- M-PESA DETAILS BOX -->
+            <div class="tk-mpesa-box">
+                <div class="tk-mpesa-logo">M-PESA</div>
+
+                <div class="tk-mpesa-detail">
+                    Pay To (Paybill / Till Number)
+                    <strong id="tk-paybill">000000</strong>
+                </div>
+                <div class="tk-mpesa-divider"></div>
+                <div class="tk-mpesa-detail">
+                    Account Name / Reference
+                    <strong>Use your Gamer Tag as the Account Name</strong>
+                </div>
+                <div class="tk-mpesa-divider"></div>
+                <div class="tk-mpesa-detail">
+                    Amount
+                    <strong id="tk-fee-amount-mpesa">KES 500</strong>
+                </div>
+
+                <div style="background:rgba(0,166,81,0.15);border-radius:8px;padding:12px;margin-top:16px;">
+                    <p style="font-size:0.8rem;color:rgba(255,255,255,0.8);text-align:left;">
+                        <strong style="color:#00a651;">How to pay:</strong><br>
+                        1. Go to M-Pesa → Lipa na M-Pesa → Pay Bill<br>
+                        2. Enter Business No: <strong style="color:#fff;" id="tk-paybill-2">000000</strong><br>
+                        3. Enter Account: <strong style="color:#fff;">Your Gamer Tag</strong><br>
+                        4. Enter Amount: <strong style="color:#fff;">KES 500</strong><br>
+                        5. Enter PIN &amp; confirm
+                    </p>
+                </div>
+            </div>
+
+            <!-- PAYMENT CONFIRMATION FORM -->
+            <div class="tk-card" id="tk-pay-form-wrap">
+                <h3 style="font-family:'Orbitron',sans-serif;font-size:1rem;color:var(--gold);margin-bottom:20px;">
+                    <i class="fa-solid fa-receipt"></i> Submit Payment Details
+                </h3>
+                <form id="tk-pay-form" novalidate>
+                    <div class="tk-form-group">
+                        <label class="tk-label" for="tk-mpesa-phone">M-Pesa Phone Number <span
+                                class="required">✱</span></label>
+                        <input class="tk-input" type="tel" id="tk-mpesa-phone" name="mpesa-phone"
+                            placeholder="e.g. 0712345678" required autocomplete="tel">
+                        <span class="tk-field-error"></span>
+                    </div>
+                    <div class="tk-form-group">
+                        <label class="tk-label" for="tk-mpesa-code">M-Pesa Transaction Code <span
+                                class="required">✱</span></label>
+                        <input class="tk-input" type="text" id="tk-mpesa-code" name="mpesa-code"
+                            placeholder="e.g. QGJ1234XYZ" required style="text-transform:uppercase;" maxlength="20">
+                        <span class="tk-field-error"></span>
+                        <span style="font-size:0.75rem;color:var(--text-dim);margin-top:4px;display:block;">Found in
+                            your M-Pesa confirmation SMS</span>
+                    </div>
+                    <button type="submit" class="tk-btn tk-btn-gold tk-w-full" style="margin-top:8px;">
+                        <i class="fa-solid fa-paper-plane"></i> Submit Payment
+                    </button>
+                </form>
+            </div>
+
+            <!-- SUCCESS MESSAGE (hidden by default) -->
+            <div class="tk-hidden" id="tk-pay-confirm">
+                <div
+                    style="background:linear-gradient(135deg,#001a0a,#0a0a0a);border:2px solid var(--success);border-radius:var(--radius-lg);padding:40px;text-align:center;">
+                    <div style="font-size:3.5rem;margin-bottom:16px;animation:tkFloat 3s ease-in-out infinite;">✅</div>
+                    <h2
+                        style="font-family:'Orbitron',sans-serif;font-size:1.4rem;color:var(--success);margin-bottom:12px;">
+                        Payment Submitted!</h2>
+                    <p style="color:var(--text-muted);font-size:0.92rem;max-width:480px;margin:0 auto 20px;">
+                        <strong style="color:var(--text-primary);">Your registration has been received and is pending
+                            payment verification.</strong><br><br>
+                        Our admin team will verify your M-Pesa transaction and confirm your slot. You can check your
+                        status on the Players page.
+                    </p>
+                    <div
+                        style="background:var(--charcoal);border-radius:var(--radius-sm);padding:14px;display:inline-block;margin-bottom:24px;">
+                        <span style="font-size:0.75rem;color:var(--text-dim);">Status</span><br>
+                        <span class="tk-badge tk-badge-pending" style="margin-top:4px;">⏳ Pending Verification</span>
+                    </div>
+                    <div class="tk-btn-group">
+                        <a href="players.html" class="tk-btn tk-btn-gold">View Player List</a>
+                        <a href="index.html" class="tk-btn tk-btn-outline">Back to Home</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="tk-footer">
+        <div class="tk-footer-bottom">
+            <p>© 2026 ZenPlay Gaming Lounge</p>
+            <p><a href="index.html">← Tournament Home</a></p>
+        </div>
+    </footer>
+
+    <script src="js/tournament.js"></script>
+    <script>
+        // Sync paybill-2 and fee-amount-mpesa from config
+        document.addEventListener('DOMContentLoaded', () => {
+            const p2 = document.getElementById('tk-paybill-2');
+            if (p2) p2.textContent = TK_CONFIG.paybillNumber;
+            const fa = document.getElementById('tk-fee-amount-mpesa');
+            if (fa) fa.textContent = `${TK_CONFIG.currency} ${TK_CONFIG.registrationFee.toLocaleString()}`;
+        });
+    </script>
+</body>
+
+</html>

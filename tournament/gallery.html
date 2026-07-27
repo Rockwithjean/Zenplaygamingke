@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery – ZenPlay MK Championship 2026</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/tournament.css">
+    <link rel="icon" href="../images/favicon.png" type="image/png">
+    <style>
+        .tk-gallery-lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 8000;
+            background: rgba(0, 0, 0, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .tk-gallery-lightbox.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .tk-gallery-lightbox img {
+            max-width: 90vw;
+            max-height: 85vh;
+            border-radius: 8px;
+            object-fit: contain;
+        }
+
+        .tk-gallery-lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--charcoal2);
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .tk-gallery-lightbox-close:hover {
+            background: var(--gold);
+            color: #000;
+        }
+
+        .tk-tab-btn {
+            padding: 10px 22px;
+            border-radius: 6px;
+            border: 1px solid var(--border-dim);
+            background: transparent;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
+
+        .tk-tab-btn.active {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .tk-tab-btn:hover:not(.active) {
+            border-color: rgba(255, 255, 255, 0.2);
+            color: var(--text-primary);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="tk-preloader">
+        <div class="tk-loader-ring"></div>
+        <div class="tk-loader-text">Loading</div>
+    </div>
+    <div class="tk-toast-container"></div>
+
+    <nav class="tk-nav">
+        <a href="index.html" class="tk-nav-logo">
+            <div class="tk-nav-logo-icon">⚔️</div>
+            <div>
+                <div class="tk-nav-logo-text">ZENPLAY MK</div>
+                <div class="tk-nav-logo-sub">Championship 2026</div>
+            </div>
+        </a>
+        <ul class="tk-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="info.html">Rules & Info</a></li>
+            <li><a href="players.html">Players</a></li>
+            <li><a href="brackets.html">Brackets</a></li>
+            <li><a href="champions.html">Champions</a></li>
+            <li><a href="gallery.html" class="active">Gallery</a></li>
+            <li><a href="register.html" class="tk-nav-cta">Register Now</a></li>
+        </ul>
+        <button class="tk-hamburger"><span></span><span></span><span></span></button>
+    </nav>
+    <div class="tk-mobile-nav">
+        <button class="tk-mobile-nav-close">✕</button>
+        <a href="index.html">Home</a><a href="info.html">Rules</a><a href="players.html">Players</a>
+        <a href="brackets.html">Brackets</a><a href="champions.html">Champions</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="register.html" style="color:var(--gold);">Register</a>
+    </div>
+
+    <div class="tk-page-header">
+        <div class="tk-breadcrumb"><a href="index.html">Home</a><span>›</span><span>Gallery</span></div>
+        <h1>Tournament <span>Gallery</span></h1>
+        <p>Photos, videos, and highlights from ZenPlay MK Championship events.</p>
+    </div>
+
+    <main class="tk-section">
+        <div class="tk-container">
+
+            <!-- TABS -->
+            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px;">
+                <button class="tk-tab-btn active" data-tab="photos">📷 Photos</button>
+                <button class="tk-tab-btn" data-tab="videos">🎬 Videos</button>
+                <button class="tk-tab-btn" data-tab="highlights">⭐ Highlights</button>
+                <button class="tk-tab-btn" data-tab="moments">🎮 Moments</button>
+            </div>
+
+            <!-- PHOTOS TAB -->
+            <div id="tab-photos" class="tk-gallery-section">
+                <div class="tk-gallery-grid" id="photos-grid">
+                    <!-- Placeholder cards until real photos are added -->
+                    <div class="tk-gallery-item" onclick="openLightbox(this)">
+                        <div class="tk-gallery-placeholder"><i class="fa-solid fa-image"></i>Tournament Day</div>
+                        <div class="tk-gallery-overlay"><span class="tk-gallery-caption">Tournament Opening</span></div>
+                    </div>
+                    <div class="tk-gallery-item" onclick="openLightbox(this)">
+                        <div class="tk-gallery-placeholder"><i class="fa-solid fa-image"></i>Match Action</div>
+                        <div class="tk-gallery-overlay"><span class="tk-gallery-caption">Semi Finals Action</span></div>
+                    </div>
+                    <div class="tk-gallery-item" onclick="openLightbox(this)">
+                        <div class="tk-gallery-placeholder"><i class="fa-solid fa-image"></i>Grand Final</div>
+                        <div class="tk-gallery-overlay"><span class="tk-gallery-caption">Grand Final Stage</span></div>
+                    </div>
+                    <div class="tk-gallery-item" onclick="openLightbox(this)">
+                        <div class="tk-gallery-placeholder"><i class="fa-solid fa-image"></i>Champions Podium</div>
+                        <div class="tk-gallery-overlay"><span class="tk-gallery-caption">Prize Ceremony</span></div>
+                    </div>
+                    <div class="tk-gallery-item" onclick="openLightbox(this)">
+                        <div class="tk-gallery-placeholder"><i class="fa-solid fa-image"></i>Crowd & Spectators</div>
+                        <div class="tk-gallery-overlay"><span class="tk-gallery-caption">The ZenPlay Community</span>
+                        </div>
+                    </div>
+                    <div class="tk-gallery-item" onclick="openLightbox(this)">
+                        <div class="tk-gallery-placeholder"><i class="fa-solid fa-image"></i>Gaming Setup</div>
+                        <div class="tk-gallery-overlay"><span class="tk-gallery-caption">Tournament Setup</span></div>
+                    </div>
+                </div>
+                <p style="text-align:center;color:var(--text-dim);font-size:0.8rem;margin-top:20px;">Photos will be
+                    uploaded after the tournament (15 August 2026).</p>
+            </div>
+
+            <!-- VIDEOS TAB -->
+            <div id="tab-videos" class="tk-gallery-section" style="display:none;">
+                <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;">
+                    <div class="tk-card" style="padding:0;overflow:hidden;">
+                        <div
+                            style="background:var(--charcoal2);aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;color:var(--text-dim);">
+                            <i class="fa-solid fa-circle-play" style="font-size:2.5rem;color:var(--charcoal3);"></i>
+                            <span style="font-size:0.8rem;">Match Highlights — Post Event</span>
+                        </div>
+                        <div style="padding:16px;">
+                            <h4 style="font-size:0.9rem;color:var(--text-primary);margin-bottom:4px;">Grand Final – Full
+                                Match</h4>
+                            <p style="font-size:0.75rem;color:var(--text-muted);">Available after 15 August 2026</p>
+                        </div>
+                    </div>
+                    <div class="tk-card" style="padding:0;overflow:hidden;">
+                        <div
+                            style="background:var(--charcoal2);aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;color:var(--text-dim);">
+                            <i class="fa-solid fa-circle-play" style="font-size:2.5rem;color:var(--charcoal3);"></i>
+                            <span style="font-size:0.8rem;">Tournament Recap Video</span>
+                        </div>
+                        <div style="padding:16px;">
+                            <h4 style="font-size:0.9rem;color:var(--text-primary);margin-bottom:4px;">ZenPlay MK 2026 –
+                                Recap</h4>
+                            <p style="font-size:0.75rem;color:var(--text-muted);">Available after 15 August 2026</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HIGHLIGHTS TAB -->
+            <div id="tab-highlights" class="tk-gallery-section" style="display:none;">
+                <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;">
+                    <div class="tk-card" style="text-align:center;border-color:var(--border-gold);">
+                        <div style="font-size:2.5rem;margin-bottom:12px;">🔥</div>
+                        <h4
+                            style="font-family:'Orbitron',sans-serif;font-size:0.95rem;color:var(--gold);margin-bottom:8px;">
+                            Top KO Moments</h4>
+                        <p style="font-size:0.82rem;color:var(--text-muted);">The most brutal finishers from the
+                            tournament.</p>
+                        <span
+                            style="font-size:0.72rem;color:var(--text-dim);margin-top:8px;display:block;">Post-event</span>
+                    </div>
+                    <div class="tk-card" style="text-align:center;">
+                        <div style="font-size:2.5rem;margin-bottom:12px;">⚡</div>
+                        <h4
+                            style="font-family:'Orbitron',sans-serif;font-size:0.95rem;color:var(--gold);margin-bottom:8px;">
+                            Best Comebacks</h4>
+                        <p style="font-size:0.82rem;color:var(--text-muted);">Incredible comeback moments from the
+                            battlefield.</p>
+                        <span
+                            style="font-size:0.72rem;color:var(--text-dim);margin-top:8px;display:block;">Post-event</span>
+                    </div>
+                    <div class="tk-card" style="text-align:center;">
+                        <div style="font-size:2.5rem;margin-bottom:12px;">🏆</div>
+                        <h4
+                            style="font-family:'Orbitron',sans-serif;font-size:0.95rem;color:var(--gold);margin-bottom:8px;">
+                            Championship Moment</h4>
+                        <p style="font-size:0.82rem;color:var(--text-muted);">The moment the 2026 champion was crowned.
+                        </p>
+                        <span
+                            style="font-size:0.72rem;color:var(--text-dim);margin-top:8px;display:block;">Post-event</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MOMENTS TAB -->
+            <div id="tab-moments" class="tk-gallery-section" style="display:none;">
+                <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;">
+                    <div class="tk-card" style="border-left:3px solid var(--gold);">
+                        <div style="font-size:1.5rem;margin-bottom:8px;">🎮</div>
+                        <h4 style="font-size:0.9rem;color:var(--text-primary);margin-bottom:6px;">Registration Day</h4>
+                        <p style="font-size:0.82rem;color:var(--text-muted);">Players arriving and registering at
+                            ZenPlay Gaming Lounge.</p>
+                    </div>
+                    <div class="tk-card" style="border-left:3px solid var(--neon);">
+                        <div style="font-size:1.5rem;margin-bottom:8px;">⚔️</div>
+                        <h4 style="font-size:0.9rem;color:var(--text-primary);margin-bottom:6px;">Opening Ceremony</h4>
+                        <p style="font-size:0.82rem;color:var(--text-muted);">The official start of the ZenPlay MK
+                            Championship 2026.</p>
+                    </div>
+                    <div class="tk-card" style="border-left:3px solid var(--gold);">
+                        <div style="font-size:1.5rem;margin-bottom:8px;">🌟</div>
+                        <h4 style="font-size:0.9rem;color:var(--text-primary);margin-bottom:6px;">Prize Ceremony</h4>
+                        <p style="font-size:0.82rem;color:var(--text-muted);">Champions receiving their trophies and
+                            prizes.</p>
+                    </div>
+                    <div class="tk-card" style="border-left:3px solid var(--gold);">
+                        <div style="font-size:1.5rem;margin-bottom:8px;">📸</div>
+                        <h4 style="font-size:0.9rem;color:var(--text-primary);margin-bottom:6px;">Community Photos</h4>
+                        <p style="font-size:0.82rem;color:var(--text-muted);">Group shots of the ZenPlay gaming
+                            community.</p>
+                    </div>
+                </div>
+                <p style="text-align:center;color:var(--text-dim);font-size:0.8rem;margin-top:24px;">All moment photos
+                    and videos will be added after the tournament.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="tk-gallery-lightbox" id="tk-lightbox">
+        <button class="tk-gallery-lightbox-close" id="lightbox-close">✕</button>
+        <img src="" alt="Gallery" id="lightbox-img" style="display:none;">
+        <div id="lightbox-placeholder" style="text-align:center;color:var(--text-muted);">
+            <div style="font-size:4rem;margin-bottom:12px;">📷</div>
+            <p>Photo will be available after the event.</p>
+        </div>
+    </div>
+
+    <footer class="tk-footer">
+        <div class="tk-footer-bottom">
+            <p>© 2026 ZenPlay Gaming Lounge</p>
+            <p><a href="index.html">← Tournament Home</a></p>
+        </div>
+    </footer>
+
+    <script src="js/tournament.js"></script>
+    <script>
+        // Tab switching
+        document.querySelectorAll('.tk-tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tk-tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tk-gallery-section').forEach(s => s.style.display = 'none');
+                btn.classList.add('active');
+                const target = document.getElementById('tab-' + btn.dataset.tab);
+                if (target) target.style.display = '';
+            });
+        });
+
+        // Lightbox
+        function openLightbox(el) {
+            const img = el.querySelector('img');
+            const lbImg = document.getElementById('lightbox-img');
+            const lbPl = document.getElementById('lightbox-placeholder');
+            if (img && img.src && !img.src.includes('placeholder')) {
+                lbImg.src = img.src; lbImg.style.display = 'block'; lbPl.style.display = 'none';
+            } else {
+                lbImg.style.display = 'none'; lbPl.style.display = 'block';
+            }
+            document.getElementById('tk-lightbox').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        document.getElementById('lightbox-close').addEventListener('click', () => {
+            document.getElementById('tk-lightbox').classList.remove('open');
+            document.body.style.overflow = '';
+        });
+        document.getElementById('tk-lightbox').addEventListener('click', function (e) {
+            if (e.target === this) {
+                this.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
+</body>
+
+</html>
