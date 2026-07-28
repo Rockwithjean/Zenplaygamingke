@@ -134,10 +134,10 @@ img {
   left: 0;
   right: 0;
   z-index: 500;
-  background: rgba(10, 10, 10, 0.92);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border-gold);
+  background: transparent;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
   padding: 0 24px;
   height: 70px;
   display: flex;
@@ -2192,3 +2192,35 @@ img {
     letter-spacing: -1px;
   }
 }
+/* -- SCROLL DOWN ARROW -- */
+.tk-scroll-down {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1.2rem;
+  border-radius: 50%;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: tkBounce 2s infinite ease-in-out;
+  z-index: 10;
+}
+
+.tk-scroll-down:hover {
+  color: var(--gold);
+}
+
+@keyframes tkBounce {
+  0%, 100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, 10px);
+  }
+}
+
