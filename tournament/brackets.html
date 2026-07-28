@@ -107,18 +107,19 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="js/tournament.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', async () => {
             // Champion spotlight
-            const b = TK.getBrackets();
+            const brackets = await TK.getBrackets();
             const spot = document.getElementById('tk-champion-spotlight');
-            if (b && b.champion && spot) {
+            if (brackets && brackets.champion && spot) {
                 spot.innerHTML = `
         <div class="tk-champion-box" style="margin-bottom:32px;">
           <span class="tk-champion-crown">👑</span>
           <div class="tk-champion-year" style="letter-spacing:3px;">2026 CHAMPION</div>
-          <div class="tk-champion-name">${b.champion}</div>
+          <div class="tk-champion-name">${brackets.champion}</div>
         </div>
       `;
             }

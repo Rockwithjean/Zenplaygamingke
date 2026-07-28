@@ -1,404 +1,400 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ZenPlay MK Championship 2026 | Tournament Home</title>
-  <meta name="description" content="ZenPlay Mortal Kombat Championship 2026 – Kenya's premier gaming tournament at ZenPlay Gaming Lounge. Register now! Event: 15 August 2026.">
+  <meta name="description"
+    content="ZenPlay Mortal Kombat Championship 2026 – Kenya's premier gaming tournament at ZenPlay Gaming Lounge. Register now! Event: 15 August 2026.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/tournament.css">
   <link rel="icon" href="../images/favicon.png" type="image/png">
 </head>
+
 <body>
 
-<!-- Preloader -->
-<div id="tk-preloader">
-  <div class="tk-loader-ring"></div>
-  <div class="tk-loader-text">Loading Tournament</div>
-</div>
-
-<!-- Toast Container -->
-<div class="tk-toast-container"></div>
-
-<!-- ── NAVIGATION ── -->
-<nav class="tk-nav">
-  <a href="index.html" class="tk-nav-logo">
-    <div class="tk-nav-logo-icon">⚔️</div>
-    <div>
-      <div class="tk-nav-logo-text">ZENPLAY MK</div>
-      <div class="tk-nav-logo-sub">Championship 2026</div>
-    </div>
-  </a>
-
-  <ul class="tk-nav-links">
-    <li><a href="index.html" class="active">Home</a></li>
-    <li><a href="info.html">Rules & Info</a></li>
-    <li><a href="players.html">Players</a></li>
-    <li><a href="brackets.html">Brackets</a></li>
-    <li><a href="champions.html">Hall of Champions</a></li>
-    <li><a href="gallery.html">Gallery</a></li>
-    <li><a href="register.html" class="tk-nav-cta">Register Now</a></li>
-  </ul>
-
-  <button class="tk-hamburger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<!-- Mobile Nav -->
-<div class="tk-mobile-nav">
-  <button class="tk-mobile-nav-close" aria-label="Close">✕</button>
-  <a href="index.html">Home</a>
-  <a href="info.html">Rules & Info</a>
-  <a href="players.html">Players</a>
-  <a href="brackets.html">Brackets</a>
-  <a href="champions.html">Champions</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="register.html" style="color:var(--gold);">Register Now</a>
-</div>
-
-<!-- ── HERO SECTION ── -->
-<section class="tk-hero">
-  <div class="tk-hero-bg"></div>
-  <div class="tk-hero-grid"></div>
-  <div class="tk-hero-particles"></div>
-
-  <div class="tk-hero-content">
-    <div class="tk-hero-badge">
-      <div class="tk-hero-badge-dot"></div>
-      Registration Open — Limited Slots
-    </div>
-
-    <!-- Decorative combat icon -->
-    <div style="font-size:clamp(3rem,8vw,5rem);margin-bottom:16px;filter:drop-shadow(0 0 20px rgba(212,175,55,0.5));" class="tk-anim-float">⚔️</div>
-
-    <h1 class="tk-hero-title">
-      <span class="gold">ZENPLAY</span><br>
-      MORTAL KOMBAT<br>
-      <span class="neon">CHAMPIONSHIP</span> <span class="gold">2026</span>
-    </h1>
-    <p class="tk-hero-subtitle">The Battle for Gaming Supremacy in Kenya</p>
-
-    <div class="tk-hero-meta">
-      <div class="tk-hero-meta-item">
-        <i class="fa-solid fa-calendar-days"></i>
-        <strong>15 August 2026</strong>
-      </div>
-      <div class="tk-hero-meta-item">
-        <i class="fa-solid fa-location-dot"></i>
-        <strong>ZenPlay Gaming Lounge, Meru</strong>
-      </div>
-      <div class="tk-hero-meta-item">
-        <i class="fa-solid fa-users"></i>
-        <strong>64 Player Tournament</strong>
-      </div>
-    </div>
-
-    <!-- COUNTDOWN TIMER -->
-    <div class="tk-countdown" role="timer" aria-label="Tournament countdown">
-      <div class="tk-count-box">
-        <span class="tk-count-num" id="tk-days">00</span>
-        <span class="tk-count-label">Days</span>
-      </div>
-      <div class="tk-count-sep">:</div>
-      <div class="tk-count-box">
-        <span class="tk-count-num" id="tk-hours">00</span>
-        <span class="tk-count-label">Hours</span>
-      </div>
-      <div class="tk-count-sep">:</div>
-      <div class="tk-count-box">
-        <span class="tk-count-num" id="tk-mins">00</span>
-        <span class="tk-count-label">Minutes</span>
-      </div>
-      <div class="tk-count-sep">:</div>
-      <div class="tk-count-box">
-        <span class="tk-count-num" id="tk-secs">00</span>
-        <span class="tk-count-label">Seconds</span>
-      </div>
-    </div>
-
-    <div class="tk-btn-group">
-      <a href="register.html" class="tk-btn tk-btn-gold">
-        <i class="fa-solid fa-gamepad"></i> Register Now
-      </a>
-      <a href="info.html" class="tk-btn tk-btn-outline">
-        <i class="fa-solid fa-scroll"></i> Tournament Rules
-      </a>
-    </div>
+  <!-- Preloader -->
+  <div id="tk-preloader">
+    <div class="tk-loader-ring"></div>
+    <div class="tk-loader-text">Loading Tournament</div>
   </div>
-</section>
 
-<!-- ── ANNOUNCEMENTS (dynamic) ── -->
-<section class="tk-section-sm tk-bg-charcoal" id="announcements-section" style="display:none;">
-  <div class="tk-container">
-    <span class="tk-section-label"><i class="fa-solid fa-bullhorn"></i> Latest Announcements</span>
-    <div id="tk-announcements" style="display:flex;flex-direction:column;gap:12px;max-width:760px;margin:0 auto;"></div>
+  <!-- Toast Container -->
+  <div class="tk-toast-container"></div>
+
+  <!-- ── NAVIGATION ── -->
+  <nav class="tk-nav">
+    <a href="index.html" class="tk-nav-logo">
+      <div class="tk-nav-logo-icon">⚔️</div>
+      <div>
+        <div class="tk-nav-logo-text">ZENPLAY MK</div>
+        <div class="tk-nav-logo-sub">Championship 2026</div>
+      </div>
+    </a>
+
+    <ul class="tk-nav-links">
+      <li><a href="register.html" class="tk-nav-cta">Register Now</a></li>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="info.html">Rules & Info</a></li>
+      <li><a href="players.html">Players</a></li>
+      <li><a href="brackets.html">Brackets</a></li>
+      <li><a href="champions.html">Hall of Champions</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+    </ul>
+
+    <button class="tk-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div class="tk-mobile-nav">
+    <button class="tk-mobile-nav-close" aria-label="Close">✕</button>
+    <a href="register.html" style="color:var(--gold);">Register Now</a>
+    <a href="index.html">Home</a>
+    <a href="info.html">Rules & Info</a>
+    <a href="players.html">Players</a>
+    <a href="brackets.html">Brackets</a>
+    <a href="champions.html">Champions</a>
+    <a href="gallery.html">Gallery</a>
   </div>
-</section>
 
-<!-- ── TOURNAMENT STATS ── -->
-<section class="tk-section tk-bg-dark">
-  <div class="tk-container">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px;text-align:center;">
-      <div class="tk-card">
-        <div style="font-family:'Orbitron',sans-serif;font-size:2.5rem;font-weight:700;color:var(--gold);">64</div>
-        <div style="font-size:0.78rem;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase;margin-top:8px;">Max Players</div>
-      </div>
-      <div class="tk-card">
-        <div style="font-family:'Orbitron',sans-serif;font-size:2.5rem;font-weight:700;color:var(--neon);text-shadow:var(--neon-glow);">6</div>
-        <div style="font-size:0.78rem;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase;margin-top:8px;">Rounds</div>
-      </div>
-      <div class="tk-card">
-        <div style="font-family:'Orbitron',sans-serif;font-size:2.5rem;font-weight:700;color:var(--gold);">KES 500</div>
-        <div style="font-size:0.78rem;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase;margin-top:8px;">Entry Fee</div>
-      </div>
-      <div class="tk-card">
-        <div style="font-family:'Orbitron',sans-serif;font-size:2.5rem;font-weight:700;color:var(--gold);">1 Day</div>
-        <div style="font-size:0.78rem;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase;margin-top:8px;">Tournament Day</div>
-      </div>
-    </div>
-  </div>
-</section>
+  <!-- ── HERO SECTION ── -->
+  <section class="tk-hero">
+    <div class="tk-hero-bg"></div>
+    <div class="tk-hero-grid"></div>
+    <div class="tk-hero-particles"></div>
 
-<!-- ── PRIZE POOL ── -->
-<section class="tk-section tk-bg-grad">
-  <div class="tk-container">
-    <div class="tk-section-title">
-      <span class="tk-section-label"><i class="fa-solid fa-trophy"></i> Prize Pool</span>
-      <h2>Fight for <span class="gold">Glory</span> & <span class="neon">Prizes</span></h2>
-    </div>
-    <div class="tk-divider"></div>
-
-    <div class="tk-prize-grid">
-      <div class="tk-prize-card second">
-        <span class="tk-prize-rank">2<sup style="font-size:0.5em;">ND</sup></span>
-        <span class="tk-prize-label">Runner Up</span>
-        <div class="tk-prize-amount">KES 3,000</div>
-        <p class="tk-prize-note">+ Trophy + Certificate</p>
+    <div class="tk-hero-content">
+      <div class="tk-hero-badge">
+        <div class="tk-hero-badge-dot"></div>
+        Registration Open — Limited Slots
       </div>
-      <div class="tk-prize-card first" style="z-index:1;transform:scale(1.06);">
-        <span class="tk-prize-rank">1<sup style="font-size:0.5em;">ST</sup></span>
-        <span class="tk-prize-label">Champion</span>
-        <div class="tk-prize-amount" style="font-size:2.4rem;">KES 5,000</div>
-        <p class="tk-prize-note">+ Champion Trophy + Certificate + Crown</p>
-        <div style="margin-top:16px;font-size:1.8rem;">👑</div>
-      </div>
-      <div class="tk-prize-card third">
-        <span class="tk-prize-rank">3<sup style="font-size:0.5em;">RD</sup></span>
-        <span class="tk-prize-label">Third Place</span>
-        <div class="tk-prize-amount">KES 1,500</div>
-        <p class="tk-prize-note">+ Certificate</p>
-      </div>
-    </div>
 
-    <p style="text-align:center;color:var(--text-dim);font-size:0.8rem;margin-top:28px;">Prize pool subject to number of registrations. All confirmed players receive a participation certificate.</p>
-  </div>
-</section>
+      <!-- Decorative combat icon -->
+      <div style="font-size:clamp(3rem,8vw,5rem);margin-bottom:16px;filter:drop-shadow(0 0 20px rgba(212,175,55,0.5));"
+        class="tk-anim-float">⚔️</div>
 
-<!-- ── HOW IT WORKS ── -->
-<section class="tk-section tk-bg-charcoal">
-  <div class="tk-container">
-    <div class="tk-section-title">
-      <span class="tk-section-label">How It Works</span>
-      <h2>Your Path to <span class="gold">Victory</span></h2>
-    </div>
-    <div class="tk-divider"></div>
+      <h1 class="tk-hero-title">
+        <span class="gold">ZENPLAY</span><br>
+        MORTAL KOMBAT<br>
+        <span class="neon">CHAMPIONSHIP</span> <span class="gold">2026</span>
+      </h1>
+      <p class="tk-hero-subtitle">The Battle for Gaming Supremacy in Kenya</p>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;">
-      <div class="tk-card" style="text-align:center;">
-        <div style="font-size:2.5rem;margin-bottom:16px;">📝</div>
-        <h3 style="font-family:'Orbitron',sans-serif;font-size:1.1rem;color:var(--gold);margin-bottom:10px;">1. Register</h3>
-        <p style="font-size:0.85rem;color:var(--text-muted);">Fill in the registration form with your details and gamer tag.</p>
-      </div>
-      <div class="tk-card" style="text-align:center;">
-        <div style="font-size:2.5rem;margin-bottom:16px;">💳</div>
-        <h3 style="font-family:'Orbitron',sans-serif;font-size:1.1rem;color:var(--gold);margin-bottom:10px;">2. Pay via M-Pesa</h3>
-        <p style="font-size:0.85rem;color:var(--text-muted);">Pay the KES 500 entry fee via M-Pesa and submit your transaction code.</p>
-      </div>
-      <div class="tk-card" style="text-align:center;">
-        <div style="font-size:2.5rem;margin-bottom:16px;">✅</div>
-        <h3 style="font-family:'Orbitron',sans-serif;font-size:1.1rem;color:var(--gold);margin-bottom:10px;">3. Get Confirmed</h3>
-        <p style="font-size:0.85rem;color:var(--text-muted);">Admin verifies your payment and confirms your slot in the tournament.</p>
-      </div>
-      <div class="tk-card" style="text-align:center;">
-        <div style="font-size:2.5rem;margin-bottom:16px;">🎮</div>
-        <h3 style="font-family:'Orbitron',sans-serif;font-size:1.1rem;color:var(--gold);margin-bottom:10px;">4. Compete!</h3>
-        <p style="font-size:0.85rem;color:var(--text-muted);">Show up on 15 August 2026, check in, and battle for the championship!</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── SPONSORS ── -->
-<section class="tk-section tk-bg-dark">
-  <div class="tk-container">
-    <div class="tk-section-title">
-      <span class="tk-section-label">Our Sponsors</span>
-      <h2>Backed by the <span class="gold">Best</span></h2>
-    </div>
-    <div class="tk-divider"></div>
-    <div class="tk-sponsors-grid">
-      <div class="tk-sponsor-slot">Your Brand Here</div>
-      <div class="tk-sponsor-slot">Your Brand Here</div>
-      <div class="tk-sponsor-slot">Your Brand Here</div>
-      <div class="tk-sponsor-slot">Your Brand Here</div>
-    </div>
-    <p style="text-align:center;font-size:0.78rem;color:var(--text-dim);margin-top:24px;">
-      Interested in sponsoring? Contact us on <a href="https://wa.link/s3adrp" target="_blank" rel="noopener">WhatsApp</a>
-    </p>
-  </div>
-</section>
-
-<!-- ── FAQ ── -->
-<section class="tk-section tk-bg-charcoal">
-  <div class="tk-container">
-    <div class="tk-section-title">
-      <span class="tk-section-label">FAQ</span>
-      <h2>Frequently Asked <span class="gold">Questions</span></h2>
-    </div>
-    <div class="tk-divider"></div>
-
-    <div class="tk-faq">
-      <div class="tk-faq-item">
-        <div class="tk-faq-question">
-          Who can register for the tournament?
-          <span class="tk-faq-icon">+</span>
+      <div class="tk-hero-meta">
+        <div class="tk-hero-meta-item">
+          <i class="fa-solid fa-calendar-days"></i>
+          <strong>15 August 2026</strong>
         </div>
-        <div class="tk-faq-answer">Anyone 13 years and above can register. Players under 18 must have parental consent. Both genders are welcome.</div>
-      </div>
-      <div class="tk-faq-item">
-        <div class="tk-faq-question">
-          What is the registration fee?
-          <span class="tk-faq-icon">+</span>
+        <div class="tk-hero-meta-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <strong>ZenPlay Gaming Lounge, Meru</strong>
         </div>
-        <div class="tk-faq-answer">The entry fee is KES 500 per player, payable via M-Pesa. This covers your tournament slot and a participation certificate.</div>
-      </div>
-      <div class="tk-faq-item">
-        <div class="tk-faq-question">
-          What game version/console will be used?
-          <span class="tk-faq-icon">+</span>
+        <div class="tk-hero-meta-item">
+          <i class="fa-solid fa-users"></i>
+          <strong>Custom Bracket Tournament</strong>
         </div>
-        <div class="tk-faq-answer">Mortal Kombat 1 on PlayStation 5 (PS5). Both players use PS5 DualSense controllers. No custom arcade sticks unless pre-approved by admin.</div>
       </div>
-      <div class="tk-faq-item">
-        <div class="tk-faq-question">
-          How many players can compete?
-          <span class="tk-faq-icon">+</span>
-        </div>
-        <div class="tk-faq-answer">The tournament is capped at 64 confirmed players. Register early to secure your slot!</div>
-      </div>
-      <div class="tk-faq-item">
-        <div class="tk-faq-question">
-          What time should I check in?
-          <span class="tk-faq-icon">+</span>
-        </div>
-        <div class="tk-faq-answer">Check-in starts at 8:00 AM on 15 August 2026. Matches begin at 9:00 AM. Players not checked in by 8:45 AM may be disqualified.</div>
-      </div>
-      <div class="tk-faq-item">
-        <div class="tk-faq-question">
-          Where is ZenPlay Gaming Lounge?
-          <span class="tk-faq-icon">+</span>
-        </div>
-        <div class="tk-faq-answer">We have two locations in Meru: Sayen Makutano and Selenite Mall, Gitimbine. The tournament venue will be confirmed closer to the date.</div>
-      </div>
-      <div class="tk-faq-item">
-        <div class="tk-faq-question">
-          Can I spectate without registering?
-          <span class="tk-faq-icon">+</span>
-        </div>
-        <div class="tk-faq-answer">Yes! Spectating is free. Come support your favourite players and enjoy the action.</div>
-      </div>
-      <div class="tk-faq-item">
-        <div class="tk-faq-question">
-          How do I know my registration was successful?
-          <span class="tk-faq-icon">+</span>
-        </div>
-        <div class="tk-faq-answer">After submitting your payment details, your slot will be "pending" until admin verifies your M-Pesa transaction. You can check your status on the Players page.</div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ── CTA BANNER ── -->
-<section style="padding:70px 24px;background:linear-gradient(135deg,#1a1200,#0a0a0a);border-top:1px solid var(--border-gold);border-bottom:1px solid var(--border-gold);text-align:center;">
-  <div class="tk-container">
-    <div style="font-size:3rem;margin-bottom:16px;" class="tk-anim-float">🎮</div>
-    <h2 style="font-family:'Orbitron',sans-serif;font-size:clamp(1.4rem,4vw,2.4rem);color:var(--gold);margin-bottom:12px;">Ready to Fight?</h2>
-    <p style="color:var(--text-muted);font-size:0.95rem;max-width:480px;margin:0 auto 28px;">Slots fill up fast. Secure your place in the ZenPlay Mortal Kombat Championship 2026 today.</p>
-    <div class="tk-btn-group">
-      <a href="register.html" class="tk-btn tk-btn-gold"><i class="fa-solid fa-fire"></i> Register Now</a>
-      <a href="players.html" class="tk-btn tk-btn-outline">View Player List</a>
-    </div>
-  </div>
-</section>
+      <!-- COUNTDOWN TIMER -->
+      <div class="tk-countdown" role="timer" aria-label="Tournament countdown">
+        <div class="tk-count-box">
+          <span class="tk-count-num" id="tk-days">00</span>
+          <span class="tk-count-label">Days</span>
+        </div>
+        <div class="tk-count-sep">:</div>
+        <div class="tk-count-box">
+          <span class="tk-count-num" id="tk-hours">00</span>
+          <span class="tk-count-label">Hours</span>
+        </div>
+        <div class="tk-count-sep">:</div>
+        <div class="tk-count-box">
+          <span class="tk-count-num" id="tk-mins">00</span>
+          <span class="tk-count-label">Minutes</span>
+        </div>
+        <div class="tk-count-sep">:</div>
+        <div class="tk-count-box">
+          <span class="tk-count-num" id="tk-secs">00</span>
+          <span class="tk-count-label">Seconds</span>
+        </div>
+      </div>
 
-<!-- ── FOOTER ── -->
-<footer class="tk-footer">
-  <div class="tk-footer-grid">
-    <div class="tk-footer-brand">
-      <h3>⚔️ ZENPLAY MK 2026</h3>
-      <p>Kenya's premier Mortal Kombat tournament hosted at ZenPlay Gaming Lounge, Meru.</p>
-      <div class="tk-social-links">
-        <a href="https://www.instagram.com/zenplaygamingke" target="_blank" rel="noopener" class="tk-social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://www.tiktok.com/@zenplaygamingke" target="_blank" rel="noopener" class="tk-social-link" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-        <a href="https://wa.link/s3adrp" target="_blank" rel="noopener" class="tk-social-link" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      <div class="tk-btn-group">
+        <a href="register.html" class="tk-btn tk-btn-gold">
+          <i class="fa-solid fa-gamepad"></i> Register Now
+        </a>
+        <a href="info.html" class="tk-btn tk-btn-outline">
+          <i class="fa-solid fa-scroll"></i> Tournament Rules
+        </a>
       </div>
     </div>
-    <div class="tk-footer-col">
-      <h4>Quick Links</h4>
-      <ul class="tk-footer-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="register.html">Register</a></li>
-        <li><a href="info.html">Rules & Info</a></li>
-        <li><a href="players.html">Players</a></li>
-        <li><a href="brackets.html">Brackets</a></li>
-        <li><a href="champions.html">Hall of Champions</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-      </ul>
-    </div>
-    <div class="tk-footer-col">
-      <h4>Event Details</h4>
-      <ul class="tk-footer-links">
-        <li><a href="#">📅 15 August 2026</a></li>
-        <li><a href="#">⏰ Check-in: 8:00 AM</a></li>
-        <li><a href="#">🎮 Start: 9:00 AM</a></li>
-        <li><a href="#">📍 ZenPlay Gaming Lounge</a></li>
-        <li><a href="#">🏆 64 Player Bracket</a></li>
-      </ul>
-    </div>
-    <div class="tk-footer-col">
-      <h4>Scan to Register</h4>
-      <div class="tk-qr-box">
-        <div id="tk-footer-qr"></div>
-        <p class="tk-qr-label">Scan with your phone</p>
+  </section>
+
+  <!-- ── ANNOUNCEMENTS (dynamic) ── -->
+  <section class="tk-section-sm tk-bg-charcoal" id="announcements-section" style="display:none;">
+    <div class="tk-container">
+      <span class="tk-section-label"><i class="fa-solid fa-bullhorn"></i> Latest Announcements</span>
+      <div id="tk-announcements" style="display:flex;flex-direction:column;gap:12px;max-width:760px;margin:0 auto;">
       </div>
     </div>
-  </div>
-  <div class="tk-footer-bottom">
-    <p>© 2026 ZenPlay Gaming Lounge. All rights reserved.</p>
-    <p><a href="../index.html">← Back to ZenPlay Main Site</a></p>
-    <p>Built with ❤️ by <a href="#">Jean Mutakha</a></p>
-  </div>
-</footer>
+  </section>
 
-<!-- QR Code library -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-<script src="js/tournament.js"></script>
-<script>
-  // Init QR code after JS loads
-  window.TK_INIT_QR = function() {
-    initQRCode('tk-footer-qr', window.location.origin + window.location.pathname.replace('index.html','') + 'register.html');
-  };
+  <!-- ── TOURNAMENT STATS ── -->
+  <section class="tk-section tk-bg-dark">
 
-  // Show announcements section if there are any
-  document.addEventListener('DOMContentLoaded', () => {
-    const items = TK.getAnnouncements();
-    if (items.length > 0) {
-      document.getElementById('announcements-section').style.display = '';
-    }
-  });
-</script>
+    <div class="tk-card">
+      <div style="font-family:'Orbitron',sans-serif;font-size:2.5rem;font-weight:700;color:var(--gold);">KES 500
+      </div>
+      <div
+        style="font-size:0.78rem;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase;margin-top:8px;">
+        Entry Fee</div>
+    </div>
+    <br>
+    <div class="tk-card">
+      <div style="font-family:'Orbitron',sans-serif;font-size:2.5rem;font-weight:700;color:var(--gold);">1 Day</div>
+      <div
+        style="font-size:0.78rem;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase;margin-top:8px;">
+        Tournament Day</div>
+    </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- ── PRIZE POOL ── -->
+  <section class="tk-section tk-bg-grad">
+    <div class="tk-container">
+      <div class="tk-section-title">
+        <span class="tk-section-label"><i class="fa-solid fa-trophy"></i> Prize Pool</span>
+        <h2>Fight for <span class="gold">Glory</span> & <span class="neon">Prizes</span></h2>
+      </div>
+      <div class="tk-divider"></div>
+
+      <div class="tk-prize-grid">
+        <div class="tk-prize-card second">
+          <span class="tk-prize-rank">2<sup style="font-size:0.5em;">ND</sup></span>
+          <span class="tk-prize-label">Runner Up</span>
+          <div class="tk-prize-amount">KES 3,000</div>
+          <p class="tk-prize-note">+ Trophy + Certificate</p>
+        </div>
+        <div class="tk-prize-card first" style="z-index:1;transform:scale(1.06);">
+          <span class="tk-prize-rank">1<sup style="font-size:0.5em;">ST</sup></span>
+          <span class="tk-prize-label">Champion</span>
+          <div class="tk-prize-amount" style="font-size:2.4rem;">KES 5,000</div>
+          <p class="tk-prize-note">+ Champion Trophy + Certificate + Crown</p>
+          <div style="margin-top:16px;font-size:1.8rem;">👑</div>
+        </div>
+        <div class="tk-prize-card third">
+          <span class="tk-prize-rank">3<sup style="font-size:0.5em;">RD</sup></span>
+          <span class="tk-prize-label">Third Place</span>
+          <div class="tk-prize-amount">KES 1,500</div>
+          <p class="tk-prize-note">+ Certificate</p>
+        </div>
+      </div>
+
+      <p style="text-align:center;color:var(--text-dim);font-size:0.8rem;margin-top:28px;">Prize pool subject to number
+        of registrations. All confirmed players receive a participation certificate.</p>
+    </div>
+  </section>
+
+  <!-- ── HOW IT WORKS ── -->
+  <section class="tk-section tk-bg-charcoal">
+    <div class="tk-container">
+      <div class="tk-section-title">
+        <span class="tk-section-label">How It Works</span>
+        <h2>Your Path to <span class="gold">Victory</span></h2>
+      </div>
+      <div class="tk-divider"></div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;">
+        <div class="tk-card" style="text-align:center;">
+          <div style="font-size:2.5rem;margin-bottom:16px;">📝</div>
+          <h3 style="font-family:'Orbitron',sans-serif;font-size:1.1rem;color:var(--gold);margin-bottom:10px;">1.
+            Register</h3>
+          <p style="font-size:0.85rem;color:var(--text-muted);">Fill in the registration form with your details and
+            gamer tag.</p>
+        </div>
+        <div class="tk-card" style="text-align:center;">
+          <div style="font-size:2.5rem;margin-bottom:16px;">💳</div>
+          <h3 style="font-family:'Orbitron',sans-serif;font-size:1.1rem;color:var(--gold);margin-bottom:10px;">2. Pay
+            via M-Pesa</h3>
+          <p style="font-size:0.85rem;color:var(--text-muted);">Pay the KES 500 entry fee via M-Pesa and submit your
+            transaction code.</p>
+        </div>
+        <div class="tk-card" style="text-align:center;">
+          <div style="font-size:2.5rem;margin-bottom:16px;">✅</div>
+          <h3 style="font-family:'Orbitron',sans-serif;font-size:1.1rem;color:var(--gold);margin-bottom:10px;">3. Get
+            Confirmed</h3>
+          <p style="font-size:0.85rem;color:var(--text-muted);">Admin verifies your payment and confirms your slot in
+            the tournament.</p>
+        </div>
+        <div class="tk-card" style="text-align:center;">
+          <div style="font-size:2.5rem;margin-bottom:16px;">🎮</div>
+          <h3 style="font-family:'Orbitron',sans-serif;font-size:1.1rem;color:var(--gold);margin-bottom:10px;">4.
+            Compete!</h3>
+          <p style="font-size:0.85rem;color:var(--text-muted);">Show up on 15 August 2026, check in, and battle for the
+            championship!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── FAQ ── -->
+  <section class="tk-section tk-bg-charcoal">
+    <div class="tk-container">
+      <div class="tk-section-title">
+        <span class="tk-section-label">FAQ</span>
+        <h2>Frequently Asked <span class="gold">Questions</span></h2>
+      </div>
+      <div class="tk-divider"></div>
+
+      <div class="tk-faq">
+        <div class="tk-faq-item">
+          <div class="tk-faq-question">
+            Who can register for the tournament?
+            <span class="tk-faq-icon">+</span>
+          </div>
+          <div class="tk-faq-answer">Anyone 13 years and above can register. Players under 18 must have parental
+            consent. Both genders are welcome.</div>
+        </div>
+        <div class="tk-faq-item">
+          <div class="tk-faq-question">
+            What is the registration fee?
+            <span class="tk-faq-icon">+</span>
+          </div>
+          <div class="tk-faq-answer">The entry fee is KES 500 per player, payable via M-Pesa. This covers your
+            tournament slot and a participation certificate.</div>
+        </div>
+        <div class="tk-faq-item">
+          <div class="tk-faq-question">
+            What game version/console will be used?
+            <span class="tk-faq-icon">+</span>
+          </div>
+          <div class="tk-faq-answer">Mortal Kombat 1 on PlayStation 5 (PS5). Both players use PS5 DualSense controllers.
+            No custom arcade sticks unless pre-approved by admin.</div>
+        </div>
+        <div class="tk-faq-item">
+          <div class="tk-faq-question">
+            How many players can compete?
+            <span class="tk-faq-icon">+</span>
+          </div>
+          <div class="tk-faq-answer">The tournament has open registration. Register early to secure your
+            slot!</div>
+        </div>
+        <div class="tk-faq-item">
+          <div class="tk-faq-question">
+            What time should I check in?
+            <span class="tk-faq-icon">+</span>
+          </div>
+          <div class="tk-faq-answer">Check-in starts at 8:00 AM on 15 August 2026. Matches begin at 9:00 AM. Players not
+            checked in by 8:45 AM may be disqualified.</div>
+        </div>
+        <div class="tk-faq-item">
+          <div class="tk-faq-question">
+            Where is ZenPlay Gaming Lounge?
+            <span class="tk-faq-icon">+</span>
+          </div>
+          <div class="tk-faq-answer">We have two locations in Meru: Sayen Makutano and Selenite Mall, Gitimbine. The
+            tournament venue will be confirmed closer to the date.</div>
+        </div>
+        <div class="tk-faq-item">
+          <div class="tk-faq-question">
+            Can I spectate without registering?
+            <span class="tk-faq-icon">+</span>
+          </div>
+          <div class="tk-faq-answer">Yes! Spectating is free. Come support your favourite players and enjoy the action.
+          </div>
+        </div>
+        <div class="tk-faq-item">
+          <div class="tk-faq-question">
+            How do I know my registration was successful?
+            <span class="tk-faq-icon">+</span>
+          </div>
+          <div class="tk-faq-answer">After submitting your payment details, your slot will be "pending" until admin
+            verifies your M-Pesa transaction. You can check your status on the Players page.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA BANNER ── -->
+  <section
+    style="padding:70px 24px;background:linear-gradient(135deg,#1a1200,#0a0a0a);border-top:1px solid var(--border-gold);border-bottom:1px solid var(--border-gold);text-align:center;">
+    <div class="tk-container">
+      <div style="font-size:3rem;margin-bottom:16px;" class="tk-anim-float">🎮</div>
+      <h2
+        style="font-family:'Orbitron',sans-serif;font-size:clamp(1.4rem,4vw,2.4rem);color:var(--gold);margin-bottom:12px;">
+        Ready to Fight?</h2>
+      <p style="color:var(--text-muted);font-size:0.95rem;max-width:480px;margin:0 auto 28px;">Slots fill up fast.
+        Secure your place in the ZenPlay Mortal Kombat Championship 2026 today.</p>
+      <div class="tk-btn-group">
+        <a href="register.html" class="tk-btn tk-btn-gold"><i class="fa-solid fa-fire"></i> Register Now</a>
+        <a href="players.html" class="tk-btn tk-btn-outline">View Player List</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="tk-footer">
+    <div class="tk-footer-grid">
+      <div class="tk-footer-brand">
+        <h3>⚔️ ZENPLAY MK 2026</h3>
+        <p>Kenya's premier Mortal Kombat tournament hosted at ZenPlay Gaming Lounge, Meru.</p>
+        <div class="tk-social-links">
+          <a href="https://www.instagram.com/zenplaygamingke" target="_blank" rel="noopener" class="tk-social-link"
+            aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@zenplaygamingke" target="_blank" rel="noopener" class="tk-social-link"
+            aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://wa.link/s3adrp" target="_blank" rel="noopener" class="tk-social-link"
+            aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="tk-footer-col">
+        <h4>Quick Links</h4>
+        <ul class="tk-footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="register.html">Register</a></li>
+          <li><a href="info.html">Rules & Info</a></li>
+          <li><a href="players.html">Players</a></li>
+          <li><a href="brackets.html">Brackets</a></li>
+          <li><a href="champions.html">Hall of Champions</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+      </div>
+      <div class="tk-footer-col">
+        <h4>Event Details</h4>
+        <ul class="tk-footer-links">
+          <li><a href="#">📅 15 August 2026</a></li>
+          <li><a href="#">⏰ Check-in: 8:00 AM</a></li>
+          <li><a href="#">🎮 Start: 9:00 AM</a></li>
+          <li><a href="#">📍 ZenPlay Gaming Lounge</a></li>
+          <li><a href="#">🏆 Open Bracket</a></li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="tk-footer-bottom">
+      <p>© 2026 ZenPlay Gaming Lounge. All rights reserved.</p>
+      <p><a href="../index.html">← Back to ZenPlay Main Site</a></p>
+      <p>Built with ❤️ by <a href="#">Jean Mutakha</a></p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/tournament.js"></script>
+  <script>
+    // Show announcements section if there are any
+    document.addEventListener('DOMContentLoaded', async () => {
+      const items = await TK.getAnnouncements();
+      if (items.length > 0) {
+        document.getElementById('announcements-section').style.display = '';
+      }
+    });
+  </script>
 </body>
+
 </html>

@@ -61,21 +61,7 @@
                         style="font-size:0.75rem;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase;margin-top:6px;">
                         Confirmed Players</div>
                 </div>
-                <div class="tk-card" style="flex:1;min-width:160px;text-align:center;padding:20px;">
-                    <div style="font-family:'Orbitron',sans-serif;font-size:2.2rem;font-weight:700;color:var(--neon);text-shadow:var(--neon-glow);"
-                        id="tk-slots-remaining">64</div>
-                    <div
-                        style="font-size:0.75rem;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase;margin-top:6px;">
-                        Slots Remaining</div>
-                </div>
-                <div class="tk-card" style="flex:1;min-width:160px;text-align:center;padding:20px;">
-                    <div
-                        style="font-family:'Orbitron',sans-serif;font-size:2.2rem;font-weight:700;color:var(--text-muted);">
-                        64</div>
-                    <div
-                        style="font-size:0.75rem;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase;margin-top:6px;">
-                        Max Capacity</div>
-                </div>
+                <div style="display:none;" id="tk-slots-remaining">64</div>
             </div>
 
             <!-- Search Filter -->
@@ -125,13 +111,10 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="js/tournament.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const slotEl = document.getElementById('tk-slots-remaining');
-            const confirmed = TK.confirmedPlayers().length;
-            if (slotEl) slotEl.textContent = Math.max(0, 64 - confirmed);
-
             // Live search
             const search = document.getElementById('player-search');
             if (search) {

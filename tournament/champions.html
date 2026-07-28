@@ -98,24 +98,22 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="js/tournament.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', async () => {
             // Load 2026 champion from brackets
-            const b = TK.getBrackets();
+            const b = await TK.getBrackets();
             if (b && b.champion) {
                 document.getElementById('champ-2026-name').textContent = b.champion;
                 document.getElementById('champ-2026-tag').textContent = '2026 Mortal Kombat Champion';
             }
 
             // Load champions — show empty state if none
-            const champs = TK.getChampions();
-            const grid = document.getElementById('tk-champs-grid');
+            const champs = await TK.getChampions();
             const empty = document.getElementById('champs-empty');
             if (champs.length === 0) {
                 if (empty) empty.style.display = 'block';
-            } else {
-                // initChampionsPage() already called in tournament.js DOMContentLoaded
             }
         });
     </script>
