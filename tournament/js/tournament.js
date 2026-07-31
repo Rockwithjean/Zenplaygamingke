@@ -372,7 +372,7 @@ function initRegistrationForm() {
       phone: form.querySelector('#tk-phone').value.trim(),
       email: form.querySelector('#tk-email')?.value.trim() || '',
       county: form.querySelector('#tk-county').value.trim(),
-      age: form.querySelector('#tk-age').value,
+      age: '',
       emergency: form.querySelector('#tk-emergency')?.value.trim() || '',
       participated: form.querySelector('#tk-participated').value,
       status: 'pending',
@@ -690,7 +690,6 @@ async function renderAdminRegistrations() {
       <td><span class="tk-text-neon">${escHtml(p.gamerTag)}</span></td>
       <td>${escHtml(p.phone)}</td>
       <td>${escHtml(p.county || '')}</td>
-      <td>${escHtml(p.age || '')}</td>
       <td><span class="tk-badge tk-badge-${p.status}">${p.status}</span></td>
       <td>${escHtml(p.paymentCode || '—')}</td>
       <td>
