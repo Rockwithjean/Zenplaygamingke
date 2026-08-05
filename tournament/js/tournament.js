@@ -88,6 +88,80 @@ const TK = {
     return count || 0;
   },
 
+  async getSiteVisitStats() {
+    const sb = getSupabase(); if (!sb) return { total: 0, today: 0, unique: 0, last7Days: [] };
+    const { data, error } = await sb.from('site_visits').select('*').order('date', { ascending: false });
+    if (error) {
+      if (error.code !== '42P01') console.error('getSiteVisitStats:', error);
+      return { total: 0, today: 0, unique: 0, last7Days: [] };
+    }
+
+    const rows = data || [];
+    const today = new Date().toISOString().slice(0, 10);
+    const total = rows.reduce((sum, row) => sum + Number(row.visits || 0), 0);
+    const todayVisits = rows.find(row => row.date === today)?.visits || 0;
+
+    const { data: uniqueData, error: uniqueError } = await sb.from('site_visitors').select('id', { count: 'exact', head: true });
+    const unique = uniqueError ? 0 : (uniqueData ? uniqueData.length : 0);
+
+    const last7Days = Array.from({ length: 7 }, (_, index) => {
+      const d = new Date();
+      d.setHours(0, 0, 0, 0);
+      d.setDate(d.getDate() - (6 - index));
+      const key = d.toISOString().slice(0, 10);
+      const match = rows.find(row => row.date === key);
+      return {
+        label: d.toLocaleDateString('en-US', { weekday: 'short' }),
+        value: Number(match?.visits || 0)
+      };
+    });
+
+    return { total, today: todayVisits, unique, last7Days };
+  },
+
+  async recordPageVisit() {
+    const sb = getSupabase(); if (!sb) return;
+    const today = new Date().toISOString().slice(0, 10);
+    const visitorIdKey = 'zenplay_visitor_id';
+    let visitorId = localStorage.getItem(visitorIdKey);
+    if (!visitorId) {
+      visitorId = `v-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+      localStorage.setItem(visitorIdKey, visitorId);
+    }
+
+    const { data: existingVisitor, error: visitorLookupError } = await sb.from('site_visitors').select('id').eq('visitor_id', visitorId).maybeSingle();
+    if (visitorLookupError && visitorLookupError.code !== 'PGRST116') {
+      console.error('recordPageVisit visitor lookup:', visitorLookupError);
+      return;
+    }
+
+    if (!existingVisitor) {
+      const { error: insertVisitorError } = await sb.from('site_visitors').insert({ visitor_id: visitorId, first_seen: new Date().toISOString() });
+      if (insertVisitorError && insertVisitorError.code !== '42P01') console.error('recordPageVisit insertVisitor:', insertVisitorError);
+    }
+
+    const dedupeKey = `zenplay_visit_${today}`;
+    if (localStorage.getItem(dedupeKey) === '1') return;
+    localStorage.setItem(dedupeKey, '1');
+
+    const { data, error } = await sb.from('site_visits').select('*').eq('date', today).maybeSingle();
+    if (error && error.code !== 'PGRST116' && error.code !== '42P01') {
+      console.error('recordPageVisit select:', error);
+      return;
+    }
+
+    if (error && error.code === '42P01') return;
+
+    if (data) {
+      const { error: updateError } = await sb.from('site_visits').update({ visits: Number(data.visits || 0) + 1 }).eq('id', data.id);
+      if (updateError) console.error('recordPageVisit update:', updateError);
+      return;
+    }
+
+    const { error: insertError } = await sb.from('site_visits').insert({ date: today, visits: 1 });
+    if (insertError) console.error('recordPageVisit insert:', insertError);
+  },
+
   async confirmedPlayers() {
     const sb = getSupabase(); if (!sb) return [];
     const { data, error } = await sb.from('players').select('*').eq('status', 'confirmed');
@@ -657,12 +731,29 @@ async function renderAdminStats() {
   const confirmed = players.filter(p => p.status === 'confirmed').length;
   const pending = players.filter(p => p.status === 'pending').length;
   const rejected = players.filter(p => p.status === 'rejected').length;
+  const visitStats = await TK.getSiteVisitStats();
 
   setEl('stat-total', players.length);
+  setEl('stat-visits', visitStats.total);
+  setEl('stat-today-visits', visitStats.today);
+  setEl('stat-unique-visitors', visitStats.unique);
   setEl('stat-confirmed', confirmed);
   setEl('stat-pending', pending);
   setEl('stat-rejected', rejected);
   setEl('stat-slots', TK_CONFIG.maxPlayers - players.filter(p => p.status !== 'rejected').length);
+
+  const trendWrap = document.getElementById('site-visit-trend');
+  if (trendWrap) {
+    const maxValue = Math.max(...(visitStats.last7Days.map(d => d.value)), 1);
+    trendWrap.innerHTML = visitStats.last7Days.map(item => `
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+        <div style="width:100%;display:flex;justify-content:center;align-items:flex-end;height:90px;">
+          <div style="width:100%;max-width:42px;background:linear-gradient(180deg,var(--gold),var(--neon));border-radius:10px 10px 0 0;height:${Math.max(18, (item.value / maxValue) * 78)}px;box-shadow:0 0 18px rgba(255,215,0,0.25);"></div>
+        </div>
+        <div style="font-size:0.7rem;color:var(--text-dim);text-align:center;">${item.label}<br><strong style="color:var(--text-primary);">${item.value}</strong></div>
+      </div>
+    `).join('');
+  }
 }
 
 // Cache for admin table (refreshed on each load)
@@ -947,7 +1038,7 @@ function setEl(id, val) {
 }
 
 // ── INIT ──────────────────────────────────────────────────────
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   initPreloader();
   initNav();
   initCountdown();
@@ -964,6 +1055,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initAnnouncements();
   initAdminSearch();
   renderHomeAnnouncements();
+  await TK.recordPageVisit();
 
   // QR code for registration page
   if (typeof window.TK_INIT_QR !== 'undefined') window.TK_INIT_QR();

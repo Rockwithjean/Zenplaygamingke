@@ -116,6 +116,16 @@
                             <div class="tk-admin-stat-label">Total Registered</div>
                         </div>
                         <div class="tk-admin-stat-card">
+                            <div class="tk-admin-stat-icon" style="color:var(--neon);">🌐</div>
+                            <div class="tk-admin-stat-num" id="stat-visits" style="color:var(--neon);">0</div>
+                            <div class="tk-admin-stat-label">Total Website Visits</div>
+                        </div>
+                        <div class="tk-admin-stat-card">
+                            <div class="tk-admin-stat-icon" style="color:var(--gold);">📈</div>
+                            <div class="tk-admin-stat-num" id="stat-today-visits" style="color:var(--gold);">0</div>
+                            <div class="tk-admin-stat-label">Visits Today</div>
+                        </div>
+                        <div class="tk-admin-stat-card">
                             <div class="tk-admin-stat-icon" style="color:var(--success);">✅</div>
                             <div class="tk-admin-stat-num" id="stat-confirmed" style="color:var(--success);">0</div>
                             <div class="tk-admin-stat-label">Confirmed Players</div>
@@ -131,11 +141,21 @@
                             <div class="tk-admin-stat-label">Rejected</div>
                         </div>
                         <div class="tk-admin-stat-card">
+                            <div class="tk-admin-stat-icon" style="color:var(--cyan);">🧑‍💻</div>
+                            <div class="tk-admin-stat-num" id="stat-unique-visitors" style="color:var(--cyan);">0</div>
+                            <div class="tk-admin-stat-label">Unique Visitors</div>
+                        </div>
+                        <div class="tk-admin-stat-card">
                             <div class="tk-admin-stat-icon" style="color:var(--neon);">🎰</div>
                             <div class="tk-admin-stat-num" id="stat-slots"
                                 style="color:var(--neon);text-shadow:var(--neon-glow);">64</div>
                             <div class="tk-admin-stat-label">Slots Available</div>
                         </div>
+                    </div>
+
+                    <div class="tk-admin-card" style="margin-top:18px;">
+                        <h3 class="tk-admin-section-title">7-Day Visitor Trend</h3>
+                        <div id="site-visit-trend" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(80px,1fr));gap:12px;align-items:end;min-height:140px;margin-top:12px;"></div>
                     </div>
 
                     <!-- Quick Actions -->
